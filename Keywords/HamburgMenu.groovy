@@ -17,4 +17,17 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable
 
 public class HamburgMenu {
+	@Keyword
+	public static void clickHamburgMenu(String menuItem){
+		CompassUIElements.waitCompassLoad()
+		WebUI.waitForElementVisible(findTestObject("Object Repository/Compass/HamburgMenu/btn_hamburg"),
+				GlobalVariable.waitforelement, FailureHandling.STOP_ON_FAILURE)
+		WebUI.waitForElementClickable(findTestObject("Object Repository/Compass/HamburgMenu/btn_hamburg"),
+				GlobalVariable.waitforelement, FailureHandling.STOP_ON_FAILURE)
+		WebUI.click(findTestObject("Object Repository/Compass/HamburgMenu/btn_hamburg"))
+		TestObject TestObj  = General.createObject("//div[@id='sidebar-wrapper']/ul[@class='sidebar-nav']//a[contains(., '"+menuItem+"')]")
+		CompassUIElements.waitCompassLoad()
+		WebUI.waitForElementVisible(TestObj, GlobalVariable.waitforelement, FailureHandling.STOP_ON_FAILURE)
+		WebUI.click(TestObj)
+	}
 }

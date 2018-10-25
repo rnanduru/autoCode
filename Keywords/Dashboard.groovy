@@ -35,14 +35,18 @@ public class Dashboard {
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/Dashboard/ddb_category'), category)
 	}
 	@Keyword
-	def selectHeaderItem(String plan_year, String plan, String category){
-		selectPlanYear(plan_year)
-		selectCustomerPlan(plan)
-		selectCategory(category)
+	def selectHeaderItem(TestData td,String rowNo){
+		Map dataMap = General.loadData(td, rowNo)
+		for(Map dataObj:dataMap){
+			selectPlanYear(dataObj.get('PLAN_YEAR'))
+			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
+			selectCategory(dataObj.get(''))
+		}
 	}
 	@Keyword
 	public static void verifyDashboardHeaderElement(){
 		WebUI.verifyElementVisible(findTestObject('Object Repository/Compass/Dashboard/ddb_plan_year'), FailureHandling.STOP_ON_FAILURE)
 		WebUI.verifyElementVisible(findTestObject('Object Repository/Compass/Dashboard/ddb_customer_plan'), FailureHandling.STOP_ON_FAILURE)
+		WebUI.verifyElementVisible(findTestObject('Object Repository/Compass/Dashboard/ddb_category'), FailureHandling.STOP_ON_FAILURE)
 	}
 }

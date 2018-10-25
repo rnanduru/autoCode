@@ -26,7 +26,27 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>60</initValue>
+      <initValue>100</initValue>
       <name>waitforelement</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Accounts Planner'</initValue>
+      <name>menu_accounts_planner</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Dashboard'</initValue>
+      <name>menu_dashboard</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>';'</initValue>
+      <name>multivalueseperator</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'MM/dd/yyyy'</initValue>
+      <name>defaultdateformat</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -39,18 +39,24 @@ public class AccountPlanner {
 	}
 	@Keyword
 	public static void enterProductCostingData(){
-		
 	}
 	@Keyword
 	public static void clickAddNewBtn(){
-		
 	}
 	@Keyword
 	public static void clickApplyEDLPBtn(){
-		
 	}
 	@Keyword
 	public static void clickColumnBtn(){
-		
+	}
+	@Keyword
+	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category){
+		enterAccountPlannerHeader(planYear, custPlan, category."")
+	}
+	@Keyword
+	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category, String newString){
+		selectPlanYear("")
+		selectCustomerPlan("")
+		selectCategory("")
 	}
 }

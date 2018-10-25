@@ -38,10 +38,30 @@ public class GlobalVariable {
      */
     public static Object waitforelement
      
+    /**
+     * <p></p>
+     */
+    public static Object menu_accounts_planner
+     
+    /**
+     * <p></p>
+     */
+    public static Object menu_dashboard
+     
+    /**
+     * <p></p>
+     */
+    public static Object multivalueseperator
+     
+    /**
+     * <p></p>
+     */
+    public static Object defaultdateformat
+     
 
     static {
         def allVariables = [:]        
-        allVariables.put('default', ['url' : 'https://compassdev.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 60])
+        allVariables.put('default', ['url' : 'https://compassdev.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy'])
         
         String profileName = RunConfiguration.getExecutionProfile()
         
@@ -51,6 +71,10 @@ public class GlobalVariable {
         password = selectedVariables['password']
         pageloadwait = selectedVariables['pageloadwait']
         waitforelement = selectedVariables['waitforelement']
+        menu_accounts_planner = selectedVariables['menu_accounts_planner']
+        menu_dashboard = selectedVariables['menu_dashboard']
+        multivalueseperator = selectedVariables['multivalueseperator']
+        defaultdateformat = selectedVariables['defaultdateformat']
         
     }
 }

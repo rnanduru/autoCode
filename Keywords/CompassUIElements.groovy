@@ -32,15 +32,17 @@ public class CompassUIElements {
 	}
 	@Keyword
 	public static void waitCompassLoad(){
-		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/PageLoad'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
 		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/Spinner'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
+		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/PageLoad'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
+		WebUI.delay(2)
 	}
 	@Keyword
 	public static void clickButton(TestObject to){
-		
 	}
 	@Keyword
 	public static void selectMultiList(){
-		
+	}
+	@Keyword
+	public static void clickButtonItem(TestObject to, String buttonItem){
 	}
 }

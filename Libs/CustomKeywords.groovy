@@ -7,6 +7,8 @@ import java.lang.String
 
 import com.kms.katalon.core.testobject.TestObject
 
+import com.kms.katalon.core.testdata.TestData
+
 
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
@@ -54,6 +56,28 @@ def static "AccountPlanner.clickColumnBtn"() {
     (new AccountPlanner()).clickColumnBtn()
 }
 
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	String planYear	
+     , 	String custPlan	
+     , 	String category	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	planYear
+         , 	custPlan
+         , 	category)
+}
+
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	String planYear	
+     , 	String custPlan	
+     , 	String category	
+     , 	String newString	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	planYear
+         , 	custPlan
+         , 	category
+         , 	newString)
+}
+
 def static "CompassUIElements.selectListBox"(
     	TestObject to	
      , 	String data	) {
@@ -76,34 +100,18 @@ def static "CompassUIElements.selectMultiList"() {
     (new CompassUIElements()).selectMultiList()
 }
 
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
+def static "CompassUIElements.clickButtonItem"(
+    	TestObject to	
+     , 	String buttonItem	) {
+    (new CompassUIElements()).clickButtonItem(
+        	to
+         , 	buttonItem)
 }
 
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
+def static "HamburgMenu.clickHamburgMenu"(
+    	String menuItem	) {
+    (new HamburgMenu()).clickHamburgMenu(
+        	menuItem)
 }
 
 def static "Dashboard.verifyDashboardElements"(
@@ -131,17 +139,73 @@ def static "Dashboard.selectCategory"(
 }
 
 def static "Dashboard.selectHeaderItem"(
-    	String plan_year	
-     , 	String plan	
-     , 	String category	) {
+    	TestData td	
+     , 	String rowNo	) {
     (new Dashboard()).selectHeaderItem(
-        	plan_year
-         , 	plan
-         , 	category)
+        	td
+         , 	rowNo)
 }
 
 def static "Dashboard.verifyDashboardHeaderElement"() {
     (new Dashboard()).verifyDashboardHeaderElement()
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
 }
 
 def static "Login.loginCompass"(
