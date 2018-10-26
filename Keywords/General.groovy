@@ -46,8 +46,8 @@ public class General {
 	}
 	@Keyword
 	public static Map loadData(TestData td, String dataId){
-		def mp = [:]
-		def mp1 = [:]
+		Map mp = [:]
+		Map<String,String> mp1 = new HashMap<String, String>()
 		def arl1 = new ArrayList<String>()
 		def tableID = ""
 		def indexI = 0
@@ -67,14 +67,14 @@ public class General {
 
 				for(int col=1;col<cols.length;col++) {
 					//if(td.getValue(cols[col], i).toString() != "") {
-						if(mp1.containsKey(cols[col])){
-							theValue = mp1.get(cols[col])+GlobalVariable.multivalueseperator+td.getValue(cols[col], i).toString()
-						}
-						else
-							theValue =  td.getValue(cols[col], i).toString()
-						println "theValue :"+theValue
-						theValue = evalString(theValue)
-						mp1.put(cols[col],theValue)
+					if(mp1.containsKey(cols[col])){
+						theValue = mp1.get(cols[col])+GlobalVariable.multivalueseperator+td.getValue(cols[col], i).toString()
+					}
+					else
+						theValue =  td.getValue(cols[col], i).toString()
+					println "theValue :"+theValue
+					theValue = evalString(theValue)
+					mp1.put(cols[col],theValue)
 					//}
 				}
 				mp.put(indexI, mp1)
@@ -82,7 +82,7 @@ public class General {
 		}
 		return mp
 	}
-	def evalString(String data){
+	public static String evalString(String data){
 		if(data.contains("{")){
 			if(data.contains("{store.")){
 				String[] data1 = data.split("\\.")
@@ -118,7 +118,7 @@ public class General {
 		}
 		return data
 	}
-	def DateFormater(String days,String format){
+	public static String DateFormater(String days,String format){
 		SimpleDateFormat sdf = new SimpleDateFormat(format)
 		Calendar c = Calendar.getInstance()
 		//Number of Days to add
@@ -128,7 +128,7 @@ public class General {
 		//Displaying the new Date after addition of Days
 		return newDate
 	}
-	def FormatDate(String date,String actualFormat,String expFormat){
+	public static String FormatDate(String date,String actualFormat,String expFormat){
 		DateFormat originalFormat = new SimpleDateFormat(actualFormat, Locale.ENGLISH);
 		DateFormat targetFormat = new SimpleDateFormat(expFormat);
 		Date date1 = originalFormat.parse(date);
@@ -136,7 +136,7 @@ public class General {
 		return formattedDate
 	}
 	@Keyword
-	def GetValue(String data1){
+	public static String GetValue(String data1){
 		//check for the text file with data
 		//if exists read the content and
 		//return the contents
@@ -155,7 +155,7 @@ public class General {
 		return str
 	}
 	@Keyword
-	def SetValue(String variable,String value){
+	public static void SetValue(String variable,String value){
 		BufferedWriter out = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"\\Data Files\\Outputs\\" + variable +".txt"));
 		out.write(value);
 		out.close();
