@@ -3,6 +3,10 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.remote.server.handler.WebDriverHandler
+
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
@@ -13,6 +17,8 @@ import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
+import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
@@ -34,6 +40,7 @@ public class CompassUIElements {
 	public static void waitCompassLoad(){
 		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/Spinner'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
 		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/PageLoad'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
+		WebUI.waitForElementNotVisible(findTestObject('Object Repository/Compass/Generic/PageLoadingText'), GlobalVariable.pageloadwait, FailureHandling.STOP_ON_FAILURE)
 		WebUI.delay(2)
 	}
 	@Keyword

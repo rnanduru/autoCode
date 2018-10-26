@@ -36,11 +36,11 @@ public class Dashboard {
 	}
 	@Keyword
 	def selectHeaderItem(TestData td,String rowNo){
-		Map dataMap = General.loadData(td, rowNo)
-		for(Map dataObj:dataMap){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
 			selectPlanYear(dataObj.get('PLAN_YEAR'))
 			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
-			selectCategory(dataObj.get(''))
+			selectCategory(dataObj.get('CATEGORY'))
 		}
 	}
 	@Keyword

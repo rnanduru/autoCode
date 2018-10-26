@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>PageLoad</name>
+   <name>PageLoadingText</name>
    <tag></tag>
-   <elementGuidId>487998e9-250b-4fbf-86c4-5811dfa86f28</elementGuidId>
+   <elementGuidId>c2596723-59e9-4095-b975-b41664dd8b99</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>(//div[contains(.,'...') and @class='page-loading'])[2]</value>
+         <value>//div[@class='page-loading']//div[text()='Loading...']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>(//div[contains(.,'...') and @class='page-loading'])[2]</value>
+      <value>//div[@class='page-loading']//div[text()='Loading...']</value>
    </webElementProperties>
 </WebElementEntity>
