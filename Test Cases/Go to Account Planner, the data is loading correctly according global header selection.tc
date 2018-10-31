@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Go to Account Planner, the data is loading correctly according global header selection</name>
+   <tag>account planner</tag>
+   <comment></comment>
+   <testCaseGuid>9570ba71-810f-4bdc-9a4d-df0ef372ecf9</testCaseGuid>
+</TestCaseEntity>

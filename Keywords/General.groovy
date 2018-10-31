@@ -26,6 +26,7 @@ public class General {
 	@Keyword
 	public static void openAppURLRobo(String url){
 		WebUI.openBrowser('')
+		WebUI.maximizeWindow()
 		robotEnterString("<f6>")
 		robotEnterString(url)
 		robotEnterString("<enter>")
@@ -67,11 +68,16 @@ public class General {
 
 				for(int col=1;col<cols.length;col++) {
 					//if(td.getValue(cols[col], i).toString() != "") {
+
 					if(mp1.containsKey(cols[col])){
-						theValue = mp1.get(cols[col])+GlobalVariable.multivalueseperator+td.getValue(cols[col], i).toString()
+						if(!td.getValue(cols[col], i).toString().equalsIgnoreCase(""))
+							theValue = mp1.get(cols[col])+GlobalVariable.multivalueseperator+td.getValue(cols[col], i).toString()
+						else
+							theValue = mp1.get(cols[col])
 					}
-					else
+					else{
 						theValue =  td.getValue(cols[col], i).toString()
+					}
 					println "theValue :"+theValue
 					theValue = evalString(theValue)
 					mp1.put(cols[col],theValue)

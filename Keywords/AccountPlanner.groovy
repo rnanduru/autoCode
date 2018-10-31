@@ -38,6 +38,15 @@ public class AccountPlanner {
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_units'), unit)
 	}
 	@Keyword
+	public static void selectHeaderItem(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			selectPlanYear(dataObj.get('PLAN_YEAR'))
+			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
+			selectCategory(dataObj.get('CATEGORY'))
+		}
+	}
+	@Keyword
 	public static void enterProductCostingData(){
 	}
 	@Keyword
@@ -50,13 +59,40 @@ public class AccountPlanner {
 	public static void clickColumnBtn(){
 	}
 	@Keyword
-	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category){
-		enterAccountPlannerHeader(planYear, custPlan, category."")
+	public static void enterAccountPlannerHeader(TestData td, String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			enterAccountPlannerHeader(dataObj.get('PLAN_YEAR'), dataObj.get('CUSTOMER PLAN'), dataObj.get('CATEGORY'))
+		}
 	}
 	@Keyword
 	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category, String newString){
 		selectPlanYear("")
 		selectCustomerPlan("")
 		selectCategory("")
+	}
+	@Keyword
+	public static void verifyDataInPlanYearList(String expValue){
+		TestObject to = General.createObject("//compass-plan-selection-header-component//div[2]//span[1]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']")
+		CompassUIElements.verifyElementData(to, expValue)
+	}
+	@Keyword
+	public static void verifyDataInCustomerPlanList(String expValue){
+		TestObject to = General.createObject("//compass-plan-selection-header-component//div[2]//span[2]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']")
+		CompassUIElements.verifyElementData(to, expValue)
+	}
+	@Keyword
+	public static void verifyDataInCategoryList(String expValue){
+		TestObject to = General.createObject("//compass-plan-selection-header-component//div[2]//span[3]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']")
+		CompassUIElements.verifyElementData(to, expValue)
+	}
+	@Keyword
+	public static void verifyHeaderListItemsData(TestData td, String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			verifyDataInPlanYearList(dataObj.get('PLAN_YEAR'))
+			verifyDataInCustomerPlanList(dataObj.get('CUSTOMER_PLAN'))
+			verifyDataInCategoryList(dataObj.get('CATEGORY'))
+		}
 	}
 }

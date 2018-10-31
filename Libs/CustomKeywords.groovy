@@ -3,80 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
-import java.lang.String
-
 import com.kms.katalon.core.testobject.TestObject
+
+import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
-
-def static "AccountPlanner.selectPlanYear"(
-    	String plan_year	) {
-    (new AccountPlanner()).selectPlanYear(
-        	plan_year)
-}
-
-def static "AccountPlanner.selectCustomerPlan"(
-    	String plan	) {
-    (new AccountPlanner()).selectCustomerPlan(
-        	plan)
-}
-
-def static "AccountPlanner.selectCategory"(
-    	String category	) {
-    (new AccountPlanner()).selectCategory(
-        	category)
-}
-
-def static "AccountPlanner.selectPPG"(
-    	String ppg	) {
-    (new AccountPlanner()).selectPPG(
-        	ppg)
-}
-
-def static "AccountPlanner.selectUnits"(
-    	String unit	) {
-    (new AccountPlanner()).selectUnits(
-        	unit)
-}
-
-def static "AccountPlanner.enterProductCostingData"() {
-    (new AccountPlanner()).enterProductCostingData()
-}
-
-def static "AccountPlanner.clickAddNewBtn"() {
-    (new AccountPlanner()).clickAddNewBtn()
-}
-
-def static "AccountPlanner.clickApplyEDLPBtn"() {
-    (new AccountPlanner()).clickApplyEDLPBtn()
-}
-
-def static "AccountPlanner.clickColumnBtn"() {
-    (new AccountPlanner()).clickColumnBtn()
-}
-
-def static "AccountPlanner.enterAccountPlannerHeader"(
-    	String planYear	
-     , 	String custPlan	
-     , 	String category	) {
-    (new AccountPlanner()).enterAccountPlannerHeader(
-        	planYear
-         , 	custPlan
-         , 	category)
-}
-
-def static "AccountPlanner.enterAccountPlannerHeader"(
-    	String planYear	
-     , 	String custPlan	
-     , 	String category	
-     , 	String newString	) {
-    (new AccountPlanner()).enterAccountPlannerHeader(
-        	planYear
-         , 	custPlan
-         , 	category
-         , 	newString)
-}
 
 def static "CompassUIElements.selectListBox"(
     	TestObject to	
@@ -108,46 +40,152 @@ def static "CompassUIElements.clickButtonItem"(
          , 	buttonItem)
 }
 
-def static "HamburgMenu.clickHamburgMenu"(
-    	String menuItem	) {
-    (new HamburgMenu()).clickHamburgMenu(
-        	menuItem)
+def static "CompassUIElements.kendoMultiSelectList"(
+    	TestObject to	
+     , 	String item	) {
+    (new CompassUIElements()).kendoMultiSelectList(
+        	to
+         , 	item)
 }
 
-def static "Dashboard.verifyDashboardElements"(
-    	TestObject to	) {
-    (new Dashboard()).verifyDashboardElements(
-        	to)
+def static "CompassUIElements.kendoDeleteMultiSelectItem"(
+    	String item	) {
+    (new CompassUIElements()).kendoDeleteMultiSelectItem(
+        	item)
 }
 
-def static "Dashboard.selectPlanYear"(
+def static "CompassUIElements.kendoChartWidgetClose"(
+    	String chartDisplayName	) {
+    (new CompassUIElements()).kendoChartWidgetClose(
+        	chartDisplayName)
+}
+
+def static "CompassUIElements.kendoVerifyChartVisible"(
+    	String chartName	) {
+    (new CompassUIElements()).kendoVerifyChartVisible(
+        	chartName)
+}
+
+def static "CompassUIElements.verifyElementData"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).verifyElementData(
+        	to
+         , 	value)
+}
+
+def static "CompassUIElements.checkElementVisible"(
+    	TestObject to	
+     , 	int timeOut	) {
+    (new CompassUIElements()).checkElementVisible(
+        	to
+         , 	timeOut)
+}
+
+def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
-    (new Dashboard()).selectPlanYear(
+    (new AccountPlanner()).selectPlanYear(
         	plan_year)
 }
 
-def static "Dashboard.selectCustomerPlan"(
+def static "AccountPlanner.selectCustomerPlan"(
     	String plan	) {
-    (new Dashboard()).selectCustomerPlan(
+    (new AccountPlanner()).selectCustomerPlan(
         	plan)
 }
 
-def static "Dashboard.selectCategory"(
+def static "AccountPlanner.selectCategory"(
     	String category	) {
-    (new Dashboard()).selectCategory(
+    (new AccountPlanner()).selectCategory(
         	category)
 }
 
-def static "Dashboard.selectHeaderItem"(
+def static "AccountPlanner.selectPPG"(
+    	String ppg	) {
+    (new AccountPlanner()).selectPPG(
+        	ppg)
+}
+
+def static "AccountPlanner.selectUnits"(
+    	String unit	) {
+    (new AccountPlanner()).selectUnits(
+        	unit)
+}
+
+def static "AccountPlanner.selectHeaderItem"(
     	TestData td	
      , 	String rowNo	) {
-    (new Dashboard()).selectHeaderItem(
+    (new AccountPlanner()).selectHeaderItem(
         	td
          , 	rowNo)
 }
 
-def static "Dashboard.verifyDashboardHeaderElement"() {
-    (new Dashboard()).verifyDashboardHeaderElement()
+def static "AccountPlanner.enterProductCostingData"() {
+    (new AccountPlanner()).enterProductCostingData()
+}
+
+def static "AccountPlanner.clickAddNewBtn"() {
+    (new AccountPlanner()).clickAddNewBtn()
+}
+
+def static "AccountPlanner.clickApplyEDLPBtn"() {
+    (new AccountPlanner()).clickApplyEDLPBtn()
+}
+
+def static "AccountPlanner.clickColumnBtn"() {
+    (new AccountPlanner()).clickColumnBtn()
+}
+
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	String planYear	
+     , 	String custPlan	
+     , 	String category	
+     , 	String newString	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	planYear
+         , 	custPlan
+         , 	category
+         , 	newString)
+}
+
+def static "AccountPlanner.verifyDataInPlanYearList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInPlanYearList(
+        	expValue)
+}
+
+def static "AccountPlanner.verifyDataInCustomerPlanList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInCustomerPlanList(
+        	expValue)
+}
+
+def static "AccountPlanner.verifyDataInCategoryList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInCategoryList(
+        	expValue)
+}
+
+def static "AccountPlanner.verifyHeaderListItemsData"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).verifyHeaderListItemsData(
+        	td
+         , 	rowNo)
+}
+
+def static "HamburgMenu.clickHamburgMenu"(
+    	String menuItem	) {
+    (new HamburgMenu()).clickHamburgMenu(
+        	menuItem)
 }
 
 def static "General.openAppURLRobo"(
@@ -206,6 +244,112 @@ def static "RobotX.RoboKeyPressSpecial"(
     	String data	) {
     (new RobotX()).RoboKeyPressSpecial(
         	data)
+}
+
+def static "Dashboard.verifyDashboardElements"(
+    	TestObject to	) {
+    (new Dashboard()).verifyDashboardElements(
+        	to)
+}
+
+def static "Dashboard.selectPlanYear"(
+    	String plan_year	) {
+    (new Dashboard()).selectPlanYear(
+        	plan_year)
+}
+
+def static "Dashboard.selectCustomerPlan"(
+    	String plan	) {
+    (new Dashboard()).selectCustomerPlan(
+        	plan)
+}
+
+def static "Dashboard.selectCategory"(
+    	String category	) {
+    (new Dashboard()).selectCategory(
+        	category)
+}
+
+def static "Dashboard.btnClickAddSections"() {
+    (new Dashboard()).btnClickAddSections()
+}
+
+def static "Dashboard.ddbClickAddSections"(
+    	String AddSections	) {
+    (new Dashboard()).ddbClickAddSections(
+        	AddSections)
+}
+
+def static "Dashboard.btnClickDashboardHeader"() {
+    (new Dashboard()).btnClickDashboardHeader()
+}
+
+def static "Dashboard.toggleAddSelections"(
+    	boolean display	) {
+    (new Dashboard()).toggleAddSelections(
+        	display)
+}
+
+def static "Dashboard.selectHeaderItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).selectHeaderItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.selectAddSectionsItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).selectAddSectionsItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.selectAddSectionsItem"(
+    	String item	) {
+    (new Dashboard()).selectAddSectionsItem(
+        	item)
+}
+
+def static "Dashboard.deleteAddSectionsItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).deleteAddSectionsItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.deleteAddSectionsItem"(
+    	Object item	) {
+    (new Dashboard()).deleteAddSectionsItem(
+        	item)
+}
+
+def static "Dashboard.verifyChartsExist"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).verifyChartsExist(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.verifyChartsEventExist"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).verifyChartsEventExist(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.verifyDashboardHeaderElement"() {
+    (new Dashboard()).verifyDashboardHeaderElement()
+}
+
+def static "Dashboard.closeSelectionChart"(
+    	String chartName	) {
+    (new Dashboard()).closeSelectionChart(
+        	chartName)
 }
 
 def static "Login.loginCompass"(

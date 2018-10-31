@@ -4,7 +4,7 @@
    <name>Smoke Tests</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-10-26T00:31:34</lastRun>
+   <lastRun>2018-10-31T19:34:50</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -28,5 +28,11 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/Account Planner Verify Elements</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>f5dd0da1-0e3d-4ee9-8aaf-3e2c1d2846ad</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Go to Account Planner, the data is loading correctly according global header selection</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

@@ -18,6 +18,10 @@ import internal.GlobalVariable
 
 public class HamburgMenu {
 	@Keyword
+	/**
+	 * 
+	 * @param menuItem
+	 */
 	public static void clickHamburgMenu(String menuItem){
 		CompassUIElements.waitCompassLoad()
 		WebUI.waitForElementVisible(findTestObject("Object Repository/Compass/HamburgMenu/btn_hamburg"),
