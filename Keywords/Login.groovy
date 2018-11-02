@@ -18,13 +18,15 @@ import internal.GlobalVariable
 
 public class Login {
 	@Keyword
-	def loginCompass(String username, String password){
+	public static void loginCompass(String username, String password){
 		General.robotEnterString(username)
 		General.robotEnterString("<tab>")
 		General.robotEnterString(password)
 		General.robotEnterString("<enter>")
 	}
 	@Keyword
-	def verifyLoginCompassObjects(){
+	public static void verifyLoginCompassObjects(){
+		
+		
 	}
 }

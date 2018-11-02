@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Account Planner Verify Elements</name>
+   <name>New Test Case</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>a97b1350-2009-40dd-88e7-710c712c39eb</testCaseGuid>
+   <testCaseGuid>0a0cd99e-c3cf-4041-8500-cf4e9a92f623</testCaseGuid>
 </TestCaseEntity>

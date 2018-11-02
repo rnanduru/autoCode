@@ -4,6 +4,7 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import org.apache.poi.ss.usermodel.Chart
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.server.handler.WebDriverHandler
@@ -156,5 +157,107 @@ public class CompassUIElements {
 			isVisible = false
 		}
 		return isVisible
+	}
+
+	@Keyword
+	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
+		String tblXPath = tblObj.findPropertyValue("xpath")+"//table"
+		WebDriver driver = DriverFactory.getWebDriver()
+
+		if(rowNo.equalsIgnoreCase("all")){
+			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
+
+			for(int i=1;i<rows.size();i++){
+				WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
+			}
+		}
+		else if(rowNo.contains(":")){
+			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
+
+			String[] rowFrom = rowNo.split(":")
+			for(int i=Integer.valueOf(rowFrom[0]);i<=Integer.valueOf(rowFrom[(rowFrom.length)-1]);i++){
+				WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
+			}
+		}
+		else if(rowNo.contains(GlobalVariable.multivalueseperator)){
+			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
+
+			String[] rowFrom = rowNo.split(GlobalVariable.multivalueseperator)
+			for(int i=0;i<rowFrom.length;i++){
+				WebUI.click(General.createObject(tblXPath+"//tr["+rowFrom[i]+"]/td["+column+"]"))
+			}
+		}
+		else
+			WebUI.click(General.createObject(tblXPath+"//tr["+Integer.valueOf(rowNo)+"]/td["+column+"]"))
+	}
+	@Keyword
+	public static void kendoGridEnterTextInCell(String rowNo,int column,String data){
+
+	}
+	@Keyword
+	public static String kendoGridGetTextInCell(String rowNo,int column){
+
+	}
+	@Keyword
+	public static kendoDialogBoxHandler(String idDisplayed,String verifyText,String buttonToClick) {
+		TestObject tb = General.createObject("//kendo-dialog")
+
+		String dialog_pls_confirm = tb.findPropertyValue("xpath")
+
+		String tb1 = ""
+
+		ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 20)
+
+		println "For loop"
+
+		int index = 1
+
+		for(WebElement we:wes) {
+			if(we.isDisplayed()){
+				tb1 = "("+dialog_pls_confirm+")["+index+"]"
+				break;
+			}
+			index++
+		}
+
+		if((tb1.equalsIgnoreCase("")) && (idDisplayed.equalsIgnoreCase("true")))
+			KeywordUtil.markFailedAndStop("Dialog box is not displayed")
+		else if((!tb1.equalsIgnoreCase("")) && (idDisplayed.equalsIgnoreCase("false")))
+			KeywordUtil.markFailedAndStop("Dialog box is displayed")
+		//verify the text message
+
+		if(tb1.equalsIgnoreCase(""))
+			return
+
+		String messagePath = tb1+"//kendo-dialog-titlebar/following-sibling::div[@class='k-content k-window-content k-dialog-content']"
+
+		TestObject messObj = new TestObject().addProperty("xpath",ConditionType.EQUALS,messagePath)
+
+		if(!verifyText.equalsIgnoreCase("")){
+			if(!WebUI.getText(messObj).toLowerCase().contains(verifyText.toLowerCase()))
+				KeywordUtil.markFailed("Dialog box text is not matched")
+		}
+		String buttonPath = tb1+"//kendo-dialog-titlebar/following-sibling::kendo-dialog-actions//button[contains(.,"+buttonToClick+")]"
+
+		TestObject buttonObj = new TestObject().addProperty("xpath",ConditionType.EQUALS,buttonPath)
+
+		WebUI.click(buttonObj)
+	}
+	public static void checkItemInMultiSelectBox(TestObject to,String item)
+	{
+
+		String toObject = to.findPropertyValue("xpath");
+		String[] items = item.split(GlobalVariable.multivalueseperator);
+		TestObject itemInList;
+
+		for(String data:items){
+			WebUI.setText(to, data)
+			itemInList = General.createObject(toObject+"/ancestor::dropdown-filterable//label[text()='"+data+"']");
+			//if(checkElementVisible(itemInList, 5)){
+			WebUI.click(itemInList);
+			//}
+			//else
+			//	KeywordUtil.markFailed("Item "+data+" does not exists in the list of values to check");
+		}
 	}
 }
