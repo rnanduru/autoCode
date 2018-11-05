@@ -4,9 +4,16 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import org.apache.poi.ss.usermodel.Chart
+import org.omg.CORBA.OBJ_ADAPTER
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.server.handler.WebDriverHandler
+
+import org.openqa.selenium.WebDriver
+
+import com.kms.katalon.core.webui.driver.DriverFactory
+
+import org.openqa.selenium.By
 
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
@@ -16,6 +23,7 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.testobject.ObjectRepository
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
@@ -24,7 +32,7 @@ import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
-
+import common.*
 public class CompassUIElements {
 	@Keyword
 	public static void selectListBox(TestObject to,String data){
@@ -55,7 +63,8 @@ public class CompassUIElements {
 	public static void selectMultiList(){
 	}
 	@Keyword
-	public static void clickButtonItem(TestObject to, String buttonItem){
+	public static boolean checkButtonEnable(TestObject to){
+		WebUI.verifyElementClickable(to)
 	}
 	@Keyword
 	public static void kendoMultiSelectList(TestObject to, String item){
@@ -157,4 +166,39 @@ public class CompassUIElements {
 		}
 		return isVisible
 	}
+
+	@Keyword
+	public static int countAllCheckboxes(String to)
+	{
+
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> ele=driver.findElements(By.xpath(to))
+		int rowcount=ele.size()
+		return rowcount
+	}
+
+	@Keyword
+	public static void checkAllCheckboxes(int size)
+	{
+		for(int rownumber=1;rownumber<=size;rownumber++){
+
+			TestObject to=General.createObject("//div[@id='k-tabstrip-tabpanel-0']//kendo-grid-list//tbody/tr["+rownumber+"]/td[1]")
+			WebUI.click(to)
+		}
+	}
+	//click on create view button in account planner page
+	@Keyword
+	public static void clickCreateViewbtn(String data)
+	{
+		if(data.equalsIgnoreCase('create_view'))
+		WebUI.verifyElementText(findTestObject("//button[contains(text(),'"+data+"')]"), data)
+	}
+	
+	//set text in input field box
+	@Keyword
+	public static void setText(TestObject to,String text){
+		WebUI.setText(to, text)
+	}
 }
+
+

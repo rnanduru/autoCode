@@ -13,7 +13,7 @@ import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import common.*
 import internal.GlobalVariable
 
 public class AccountPlanner {
@@ -95,4 +95,50 @@ public class AccountPlanner {
 			verifyDataInCategoryList(dataObj.get('CATEGORY'))
 		}
 	}
+
+	//jk
+	@Keyword
+	public static void getAllCheckboxes() {
+		String xpathcount="//div[@id='k-tabstrip-tabpanel-0']//kendo-grid-list//tbody/tr[.]/td[1]"
+
+		int size=CompassUIElements.countAllCheckboxes(xpathcount)
+		println "size :"+size
+		CompassUIElements.checkAllCheckboxes(size)
+	}
+
+	//click on create view button
+	@Keyword
+	public static void clickCreateViewbtn(){
+		//call CustomUI button click method
+		CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_create_view');
+	}
+
+	@Keyword
+	public static void clickClosebtn()
+	{
+		//call CustomUI button click method
+		CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_close_view')
+	}
+	
+	//Enter view name in the text input field
+	@Keyword
+	public static void setViewName(){
+		//call CustomUIElements setText menthod
+		CompassUIElements.setText('Object Repository/Compass/AccountPlaner/input_view_name', "viewname")
+	}
+	
+	//click on save button
+	@Keyword
+	public static void clickSavebtn(){
+		//call CustomUIElements button enable
+		boolean elementclickable=CompassUIElements.checkButtonEnable('Object Repository/Compass/AccountPlaner/btn_view_save')
+		if(elementclickable==true)
+		{
+			//call CustomUIElements button click
+			CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_view_save')
+			
+		}
+	}
+	
 }
+

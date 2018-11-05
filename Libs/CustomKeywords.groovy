@@ -82,6 +82,18 @@ def static "CompassUIElements.checkElementVisible"(
          , 	timeOut)
 }
 
+def static "CompassUIElements.countAllCheckboxes"(
+    	String to	) {
+    (new CompassUIElements()).countAllCheckboxes(
+        	to)
+}
+
+def static "CompassUIElements.checkAllCheckboxes"(
+    	int size	) {
+    (new CompassUIElements()).checkAllCheckboxes(
+        	size)
+}
+
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
     (new AccountPlanner()).selectPlanYear(
@@ -182,68 +194,30 @@ def static "AccountPlanner.verifyHeaderListItemsData"(
          , 	rowNo)
 }
 
+def static "AccountPlanner.getAllCheckboxes"() {
+    (new AccountPlanner()).getAllCheckboxes()
+}
+
+def static "AccountPlanner.clickCreateViewbtn"() {
+    (new AccountPlanner()).clickCreateViewbtn()
+}
+
+def static "AccountPlanner.clickClosebtn"() {
+    (new AccountPlanner()).clickClosebtn()
+}
+
+def static "AccountPlanner.setViewName"() {
+    (new AccountPlanner()).setViewName()
+}
+
+def static "AccountPlanner.clickSavebtn"() {
+    (new AccountPlanner()).clickSavebtn()
+}
+
 def static "HamburgMenu.clickHamburgMenu"(
     	String menuItem	) {
     (new HamburgMenu()).clickHamburgMenu(
         	menuItem)
-}
-
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
 }
 
 def static "Dashboard.verifyDashboardElements"(
@@ -352,6 +326,64 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -368,4 +400,66 @@ def static "Wait.waitCompassLoad"(
     	String data	) {
     (new Wait()).waitCompassLoad(
         	data)
+}
+
+def static "CustomerSettings.clickDeleteBtn"() {
+    (new CustomerSettings()).clickDeleteBtn()
+}
+
+def static "CustomerSettings.clickAddPPGBtn"() {
+    (new CustomerSettings()).clickAddPPGBtn()
+}
+
+def static "CustomerSettings.clickGroupBtn"() {
+    (new CustomerSettings()).clickGroupBtn()
+}
+
+def static "CustomerSettings.saveBtn"() {
+    (new CustomerSettings()).saveBtn()
+}
+
+def static "CustomerSettings.selectItem"(
+    	int i	) {
+    (new CustomerSettings()).selectItem(
+        	i)
+}
+
+def static "CustomerSettings.selectPPG"() {
+    (new CustomerSettings()).selectPPG()
+}
+
+def static "CustomerSettings.selectItemsFromList"(
+    	String data	) {
+    (new CustomerSettings()).selectItemsFromList(
+        	data)
+}
+
+def static "CustomerSettings.selectItemsfromExcel"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectItemsfromExcel(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.clickOnPopUp"(
+    	String titlename	) {
+    (new CustomerSettings()).clickOnPopUp(
+        	titlename)
+}
+
+def static "CustomerSettings.selectPopUpDelete"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPopUpDelete(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.selectPopUpOk"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPopUpOk(
+        	td
+         , 	rowNo)
 }
