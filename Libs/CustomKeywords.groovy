@@ -3,84 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
-import com.kms.katalon.core.testobject.TestObject
-
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
+import com.kms.katalon.core.testobject.TestObject
 
-def static "CompassUIElements.selectListBox"(
-    	TestObject to	
-     , 	String data	) {
-    (new CompassUIElements()).selectListBox(
-        	to
-         , 	data)
-}
-
-def static "CompassUIElements.waitCompassLoad"() {
-    (new CompassUIElements()).waitCompassLoad()
-}
-
-def static "CompassUIElements.clickButton"(
-    	TestObject to	) {
-    (new CompassUIElements()).clickButton(
-        	to)
-}
-
-def static "CompassUIElements.selectMultiList"() {
-    (new CompassUIElements()).selectMultiList()
-}
-
-def static "CompassUIElements.clickButtonItem"(
-    	TestObject to	
-     , 	String buttonItem	) {
-    (new CompassUIElements()).clickButtonItem(
-        	to
-         , 	buttonItem)
-}
-
-def static "CompassUIElements.kendoMultiSelectList"(
-    	TestObject to	
-     , 	String item	) {
-    (new CompassUIElements()).kendoMultiSelectList(
-        	to
-         , 	item)
-}
-
-def static "CompassUIElements.kendoDeleteMultiSelectItem"(
-    	String item	) {
-    (new CompassUIElements()).kendoDeleteMultiSelectItem(
-        	item)
-}
-
-def static "CompassUIElements.kendoChartWidgetClose"(
-    	String chartDisplayName	) {
-    (new CompassUIElements()).kendoChartWidgetClose(
-        	chartDisplayName)
-}
-
-def static "CompassUIElements.kendoVerifyChartVisible"(
-    	String chartName	) {
-    (new CompassUIElements()).kendoVerifyChartVisible(
-        	chartName)
-}
-
-def static "CompassUIElements.verifyElementData"(
-    	TestObject to	
-     , 	String value	) {
-    (new CompassUIElements()).verifyElementData(
-        	to
-         , 	value)
-}
-
-def static "CompassUIElements.checkElementVisible"(
-    	TestObject to	
-     , 	int timeOut	) {
-    (new CompassUIElements()).checkElementVisible(
-        	to
-         , 	timeOut)
-}
 
 def static "CompassUIElements.countAllCheckboxes"(
     	String to	) {
@@ -156,6 +84,14 @@ def static "AccountPlanner.enterAccountPlannerHeader"(
          , 	rowNo)
 }
 
+def static "AccountPlanner.enterAccountPlannerSubHeader"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).enterAccountPlannerSubHeader(
+        	td
+         , 	rowNo)
+}
+
 def static "AccountPlanner.enterAccountPlannerHeader"(
     	String planYear	
      , 	String custPlan	
@@ -186,6 +122,12 @@ def static "AccountPlanner.verifyDataInCategoryList"(
         	expValue)
 }
 
+def static "AccountPlanner.VerifyDataInProductList"(
+    	String expValue	) {
+    (new AccountPlanner()).VerifyDataInProductList(
+        	expValue)
+}
+
 def static "AccountPlanner.verifyHeaderListItemsData"(
     	TestData td	
      , 	String rowNo	) {
@@ -196,6 +138,127 @@ def static "AccountPlanner.verifyHeaderListItemsData"(
 
 def static "AccountPlanner.getAllCheckboxes"() {
     (new AccountPlanner()).getAllCheckboxes()
+
+def static "CompassUIElements.selectListBox"(
+    	TestObject to	
+     , 	String data	) {
+    (new CompassUIElements()).selectListBox(
+        	to
+         , 	data)
+}
+
+def static "CompassUIElements.waitCompassLoad"() {
+    (new CompassUIElements()).waitCompassLoad()
+}
+
+def static "CompassUIElements.clickButton"(
+    	TestObject to	) {
+    (new CompassUIElements()).clickButton(
+        	to)
+}
+
+def static "CompassUIElements.selectMultiList"() {
+    (new CompassUIElements()).selectMultiList()
+}
+
+def static "CompassUIElements.clickButtonItem"(
+    	TestObject to	
+     , 	String buttonItem	) {
+    (new CompassUIElements()).clickButtonItem(
+        	to
+         , 	buttonItem)
+}
+
+def static "CompassUIElements.kendoMultiSelectList"(
+    	TestObject to	
+     , 	String item	) {
+    (new CompassUIElements()).kendoMultiSelectList(
+        	to
+         , 	item)
+}
+
+def static "CompassUIElements.kendoDeleteMultiSelectItem"(
+    	String item	) {
+    (new CompassUIElements()).kendoDeleteMultiSelectItem(
+        	item)
+}
+
+def static "CompassUIElements.kendoChartWidgetClose"(
+    	String chartDisplayName	) {
+    (new CompassUIElements()).kendoChartWidgetClose(
+        	chartDisplayName)
+}
+
+def static "CompassUIElements.kendoVerifyChartVisible"(
+    	String chartName	) {
+    (new CompassUIElements()).kendoVerifyChartVisible(
+        	chartName)
+}
+
+def static "CompassUIElements.verifyElementData"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).verifyElementData(
+        	to
+         , 	value)
+}
+
+def static "CompassUIElements.checkElementVisible"(
+    	TestObject to	
+     , 	int timeOut	) {
+    (new CompassUIElements()).checkElementVisible(
+        	to
+         , 	timeOut)
+}
+
+def static "CompassUIElements.kendoGridSelectCheckBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridSelectCheckBox(
+        	tblObj
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoGridEnterTextInCell"(
+    	String rowNo	
+     , 	int column	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridEnterTextInCell(
+        	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridGetTextInCell"(
+    	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridGetTextInCell(
+        	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoDialogBoxHandler"(
+    	String idDisplayed	
+     , 	String verifyText	
+     , 	String buttonToClick	) {
+    (new CompassUIElements()).kendoDialogBoxHandler(
+        	idDisplayed
+         , 	verifyText
+         , 	buttonToClick)
+}
+
+def static "HamburgMenu.clickHamburgMenu"(
+    	String menuItem	) {
+    (new HamburgMenu()).clickHamburgMenu(
+        	menuItem)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
 }
 
 def static "AccountPlanner.clickCreateViewbtn"() {
@@ -402,6 +465,7 @@ def static "Wait.waitCompassLoad"(
         	data)
 }
 
+<<<<<<< HEAD
 def static "CustomerSettings.clickDeleteBtn"() {
     (new CustomerSettings()).clickDeleteBtn()
 }
@@ -438,9 +502,20 @@ def static "CustomerSettings.selectItemsfromExcel"(
     	TestData td	
      , 	String rowNo	) {
     (new CustomerSettings()).selectItemsfromExcel(
+
+def static "CustomerSettings.removeAllPPGAndGroups"() {
+    (new CustomerSettings()).removeAllPPGAndGroups()
+}
+
+def static "CustomerSettings.selectPPGs"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPPGs(
+
         	td
          , 	rowNo)
 }
+
 
 def static "CustomerSettings.clickOnPopUp"(
     	String titlename	) {
@@ -462,4 +537,16 @@ def static "CustomerSettings.selectPopUpOk"(
     (new CustomerSettings()).selectPopUpOk(
         	td
          , 	rowNo)
+
+def static "CustomerSettings.selectPPGs"(
+    	String item	) {
+    (new CustomerSettings()).selectPPGs(
+        	item)
+}
+
+def static "CustomerSettings.clickAddPPGButton"(
+    	String item	) {
+    (new CustomerSettings()).clickAddPPGButton(
+        	item)
+
 }

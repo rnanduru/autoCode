@@ -13,6 +13,13 @@ import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import org.openqa.selenium.By as By
+import java.util.List;
+
+import org.openqa.selenium.WebDriver as WebDriver
+
+import org.openqa.selenium.WebElement as WebElement
 
 import common.*
 import internal.GlobalVariable
@@ -92,5 +99,27 @@ public class CustomerSettings {
 		}
 	}
 
+	@Keyword
+	public static void removeAllPPGAndGroups(){
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all", 1);
+		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
+		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","OK");
+	}
 
+	@Keyword
+	public static void selectPPGs(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/CustomerSettings/input_select_ppg'), dataObj.get("ADD_PPG"))
+		}
+	}
+	@Keyword
+	public static void selectPPGs(String item){
+		CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/CustomerSettings/input_select_ppg'), item)
+	}
+	@Keyword
+	public static void clickAddPPGButton(String item){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_add_ppg'))
+		CompassUIElements.kendoDialogBoxHandler("true","PPG(s) added to the list","Ok");
+	}
 }

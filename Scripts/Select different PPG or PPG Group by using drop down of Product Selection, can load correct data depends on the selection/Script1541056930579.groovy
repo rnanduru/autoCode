@@ -15,3 +15,13 @@ import internal.GlobalVariable as GlobalVariable
 import common.*
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
+CustomKeywords.'AccountPlanner.verifyHeaderListItemsData'(findTestData('AccountPlanner'), '1')
+
+CustomKeywords.'AccountPlanner.enterAccountPlannerSubHeader'(findTestData('AccountPlanner'), '1')
+
+CustomKeywords.'AccountPlanner.enterProductCostingData'()
+
+CustomKeywords.'AccountPlanner.selectUnits'('')
+
+CustomKeywords.'AccountPlanner.clickAddNewBtn'()
+

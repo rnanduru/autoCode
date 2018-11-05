@@ -51,7 +51,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>' Customer Settings'</initValue>
-      <name>menu_customer_setting</name>
+      <initValue>'Customer Settings'</initValue>
+      <name>menu_customer_settings</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

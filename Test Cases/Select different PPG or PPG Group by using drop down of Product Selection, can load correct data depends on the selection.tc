@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Select different PPG or PPG Group by using drop down of Product Selection, can load correct data depends on the selection</name>
+   <tag>AccountPlaner</tag>
+   <comment></comment>
+   <testCaseGuid>c75f67c1-9602-4902-a0de-302260e96995</testCaseGuid>
+</TestCaseEntity>

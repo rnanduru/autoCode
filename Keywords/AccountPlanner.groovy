@@ -41,9 +41,15 @@ public class AccountPlanner {
 	public static void selectHeaderItem(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
-			selectPlanYear(dataObj.get('PLAN_YEAR'))
+			selectPlanYear(dataObj.get('PLAN_YEAR'))r
 			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
 			selectCategory(dataObj.get('CATEGORY'))
+		}
+	}
+	public static void selectPPGs(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_product_selection'),dataObj.get("PRODUCT_SELECTION"))
 		}
 	}
 	@Keyword
@@ -66,6 +72,13 @@ public class AccountPlanner {
 		}
 	}
 	@Keyword
+	public static void enterAccountPlannerSubHeader(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			enterAccountPlannerSubHeader(dataObj.get('PRODUCT_SELECTION'))
+		}
+	}
+	@Keyword
 	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category, String newString){
 		selectPlanYear("")
 		selectCustomerPlan("")
@@ -84,6 +97,11 @@ public class AccountPlanner {
 	@Keyword
 	public static void verifyDataInCategoryList(String expValue){
 		TestObject to = General.createObject("//compass-plan-selection-header-component//div[2]//span[3]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']")
+		CompassUIElements.verifyElementData(to, expValue)
+	}
+	@Keyword
+	public static void VerifyDataInProductList(String expValue){
+		TestObject to=General.createObject("//kendo-combobox[@placeholder='Select PPG...']/span/kendo-searchbar/input[@class='k-input']")
 		CompassUIElements.verifyElementData(to, expValue)
 	}
 	@Keyword
