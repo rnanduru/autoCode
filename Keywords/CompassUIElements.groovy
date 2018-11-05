@@ -163,13 +163,18 @@ public class CompassUIElements {
 	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
 		String tblXPath = tblObj.findPropertyValue("xpath")+"//table"
 		WebDriver driver = DriverFactory.getWebDriver()
-
+		waitCompassLoad()
 		if(rowNo.equalsIgnoreCase("all")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
-
+			boolean isChecked;
 			for(int i=1;i<rows.size();i++){
-				WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
+				if(checkElementVisible(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"), 2)){
+					isChecked = WebUI.getAttribute(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"), "checked");// WebUI.verifyElementAttributeValue(, "value", "on", 5)
+					if(!isChecked)
+						WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"))
+				}
 			}
+			println "test"
 		}
 		else if(rowNo.contains(":")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))

@@ -49,4 +49,9 @@
       <initValue>'MM/dd/yyyy'</initValue>
       <name>defaultdateformat</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Customer Settings'</initValue>
+      <name>menu_customer_settings</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

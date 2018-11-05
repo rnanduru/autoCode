@@ -46,6 +46,12 @@ public class AccountPlanner {
 			selectCategory(dataObj.get('CATEGORY'))
 		}
 	}
+	public static void selectPPGs(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_product_selection'),dataObj.get("PRODUCT_SELECTION"))
+		}
+	}
 	@Keyword
 	public static void enterProductCostingData(){
 	}

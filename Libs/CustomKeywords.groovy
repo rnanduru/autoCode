@@ -240,6 +240,64 @@ def static "HamburgMenu.clickHamburgMenu"(
         	menuItem)
 }
 
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
 def static "Dashboard.verifyDashboardElements"(
     	TestObject to	) {
     (new Dashboard()).verifyDashboardElements(
@@ -346,64 +404,6 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -437,5 +437,11 @@ def static "CustomerSettings.selectPPGs"(
 def static "CustomerSettings.selectPPGs"(
     	String item	) {
     (new CustomerSettings()).selectPPGs(
+        	item)
+}
+
+def static "CustomerSettings.clickAddPPGButton"(
+    	String item	) {
+    (new CustomerSettings()).clickAddPPGButton(
         	item)
 }

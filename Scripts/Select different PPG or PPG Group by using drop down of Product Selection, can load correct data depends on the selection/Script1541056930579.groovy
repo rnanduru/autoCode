@@ -17,7 +17,11 @@ CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_plann
 
 CustomKeywords.'AccountPlanner.verifyHeaderListItemsData'(findTestData('AccountPlanner'), '1')
 
-CustomKeywords.'AccountPlanner.clickAddNewBtn'()
+CustomKeywords.'AccountPlanner.enterAccountPlannerSubHeader'(findTestData('AccountPlanner'), '1')
+
+CustomKeywords.'AccountPlanner.enterProductCostingData'()
+
+CustomKeywords.'AccountPlanner.selectUnits'('')
 
 CustomKeywords.'AccountPlanner.clickAddNewBtn'()
 
