@@ -24,3 +24,5 @@ CustomKeywords.'CustomerSettings.clickAddPPGButton'()
 
 not_run: CustomKeywords.'CustomerSettings.removeAllPPGAndGroups'()
 
+//CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'("true", "Please select at least one PPG", "Ok")
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'("true", "Please select at least one PPG","","","Ok")

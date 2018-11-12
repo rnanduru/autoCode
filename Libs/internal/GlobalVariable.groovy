@@ -61,14 +61,11 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
-
-
     public static Object menu_customer_settings
      
 
     static {
         def allVariables = [:]        
-
         allVariables.put('default', ['url' : 'https://compassreg.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy', 'menu_customer_settings' : 'Customer Settings'])
         
         String profileName = RunConfiguration.getExecutionProfile()
@@ -84,6 +81,6 @@ public class GlobalVariable {
         multivalueseperator = selectedVariables['multivalueseperator']
         defaultdateformat = selectedVariables['defaultdateformat']
         menu_customer_settings = selectedVariables['menu_customer_settings']
-      
+        
     }
 }

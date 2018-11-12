@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
-   <description>btn_create_view</description>
-   <name>btn_create_view</name>
+   <description></description>
+   <name>txt_version_save</name>
    <tag></tag>
-   <elementGuidId>953f550f-7c03-4185-8e16-73e1f431c9e9</elementGuidId>
+   <elementGuidId>93434097-e79d-4bb2-9851-dbc35c350daa</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//accounts-planner//div[@class='col-md-12 form-group']/div/kendo-dropdownlist/following-sibling::button[contains(text(),'Create View')]</value>
+         <value>//kendo-textbox-container[@class='k-textbox-container k-state-empty k-state-invalid']/input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//accounts-planner//div[@class='col-md-12 form-group']/div/kendo-dropdownlist/following-sibling::button[contains(text(),'Create View')]</value>
+      <value>//kendo-textbox-container[@class='k-textbox-container k-state-empty k-state-invalid']/input</value>
    </webElementProperties>
 </WebElementEntity>

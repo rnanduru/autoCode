@@ -29,8 +29,8 @@ DriverCleanerCollector.getInstance().addDriverCleaner(new com.kms.katalon.core.c
 
 
 
-RunConfiguration.setExecutionSettingFile("C:\\Users\\Admin\\Documents\\autoCode\\Reports\\Smoke Tests\\20181105_120204\\execution.properties")
+RunConfiguration.setExecutionSettingFile("C:\\Users\\Admin\\Documents\\autoCode\\Reports\\Smoke Tests\\20181112_160144\\execution.properties")
 
 TestCaseMain.beforeStart()
 
-TestCaseMain.startTestSuite('Test Suites/Smoke Tests', suiteProperties, [new TestCaseBinding('Test Cases/Login Test', 'Test Cases/Login Test',  null), new TestCaseBinding('Test Cases/CheckItems', 'Test Cases/CheckItems',  null)])
+TestCaseMain.startTestSuite('Test Suites/Smoke Tests', suiteProperties, [new TestCaseBinding('Test Cases/CreateVersion', 'Test Cases/CreateVersion',  null)])

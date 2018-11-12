@@ -3,6 +3,11 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import java.lang.String.CaseInsensitiveComparator
+
+import org.openqa.selenium.WebDriver
+
+import com.gargoylesoftware.htmlunit.javascript.host.media.webkitMediaStream
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
@@ -15,6 +20,10 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import common.*
 import internal.GlobalVariable
+import org.openqa.selenium.JavascriptExecutor;
+import com.kms.katalon.core.webui.driver.DriverFactory
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 public class AccountPlanner {
 	@Keyword
@@ -127,8 +136,9 @@ public class AccountPlanner {
 	//click on create view button
 	@Keyword
 	public static void clickCreateViewbtn(){
+		TestObject to=General.createObject("//accounts-planner//div[@class='col-md-12 form-group']/div/kendo-dropdownlist/following-sibling::button[contains(text(),'Create View')]")
 		//call CustomUI button click method
-		CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_create_view');
+		CompassUIElements.clickButton(to);
 	}
 
 	@Keyword
@@ -137,26 +147,111 @@ public class AccountPlanner {
 		//call CustomUI button click method
 		CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_close_view')
 	}
-	
+
 	//Enter view name in the text input field
+
 	@Keyword
 	public static void setViewName(){
+		WebDriver driver = DriverFactory.getWebDriver()
 		//call CustomUIElements setText menthod
-		CompassUIElements.setText('Object Repository/Compass/AccountPlaner/input_view_name', "viewname")
+		TestObject to=General.createObject("//div/label[text()='View Name:']/following-sibling::input[contains(@class,'k-textbox')]")
+		WebUI.delay(5)
+		//WebUI.mouseOver(to)
+
+		CompassUIElements.setText(to, "viewname1")
+
 	}
-	
+
+
 	//click on save button
 	@Keyword
 	public static void clickSavebtn(){
+
+		TestObject to=General.createObject("//accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/div/button[text()='Save']")
+
 		//call CustomUIElements button enable
-		boolean elementclickable=CompassUIElements.checkButtonEnable('Object Repository/Compass/AccountPlaner/btn_view_save')
+		boolean elementclickable=CompassUIElements.checkButtonEnable(to)
 		if(elementclickable==true)
 		{
 			//call CustomUIElements button click
-			CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_view_save')
-			
+			CompassUIElements.clickButton(to)
+
+			//CompassUIElements.waitCompassLoad()
+			//boolean result=CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/AccountPlaner/txt_saved"), 5)
+			//boolean result=CompassUIElements.checkElementVisible(findTestObject("//div[text()='Info Account Planner has been Saved']"), 5)
+
+
+			//def exp=WebUI.getText(findTestObject("Object Repository/Compass/AccountPlaner/txt_saved"))
+
+			/*boolean result=WebUI.verifyElementText(findTestObject("Object Repository/Compass/AccountPlaner/txt_saved"), popupmessage)
+			 println "saved : "+result
+			 if(result==true){
+			 println "saved : "+result
+			 CompassUIElements.waitCompassLoad()
+			 }
+			 else
+			 {
+			 println "saved "+result}*/
+
+
 		}
 	}
-	
+
+	//handle message popup
+	@Keyword
+	public static void messagePopupHandle(String popupmessage)
+	{
+		WebUI.delay(2)
+
+		TestObject to1=General.createObject("//div[text()='"+popupmessage+"']")
+		WebUI.waitForElementVisible(to1, 0, FailureHandling.STOP_ON_FAILURE)
+		def exp=WebUI.getText(to1)
+		println "exp"+exp
+		//CompassUIElements.waitCompassLoad()
+
+		WebUI.verifyMatch(exp,popupmessage, false)
+		//CompassUIElements.waitCompassLoad()
+	}
+	//click close view
+	@Keyword
+	public static void closeView() {
+		CompassUIElements.waitCompassLoad()
+		TestObject to=General.createObject("//button[contains(text(),'Close View')]")
+		WebUI.click(to)
+	}
+	//select view from list box
+	@Keyword
+	public static void selectView(String view)
+	{
+		CompassUIElements.selectListBox(findTestObject("Object Repository/Compass/AccountPlaner/ddb_viewlist"), view)
+
+	}
+
+	//click version button
+	@Keyword
+	public static void clickVersion(){
+		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/AccountPlaner/btn_versions"))
+	}
+	@Keyword
+	public static void selectButtonList(String data)
+	{
+		CompassUIElements.selectKendoButtonList(data)
+	}
+	//select created version
+	@Keyword
+	public static void selectVersion(String version)
+	{
+		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_versionlist'), version)
+	}
+
+	//verify selected version from list
+
+	@Keyword
+	public static void verifySelectedVersion(String version)
+	{
+		TestObject to=General.createObject("//span[contains(text(),'"+version+"')]")
+		WebUI.verifyElementVisible(to)
+	}
+
 }
 

@@ -11,21 +11,19 @@ import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.sun.corba.se.impl.presentation.rmi.InvocationHandlerFactoryImpl.CustomCompositeInvocationHandlerImpl
+
 import internal.GlobalVariable as GlobalVariable
-import common.*
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
-WebUI.delay(5)
-CustomKeywords.'AccountPlanner.getAllCheckboxes'()
-WebUI.delay(5)
-CustomKeywords.'CustomerSettings.clickDeleteBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpDelete'(findTestData("CustomerSettings"), '1')
-WebUI.delay(5)
-CustomKeywords.'CustomerSettings.selectItemsfromExcel'(findTestData("CustomerSettings"), '1')
 
-CustomKeywords.'CustomerSettings.clickAddPPGBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpOk'(findTestData("CustomerSettings"), '1')
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
+
+CustomKeywords.'AccountPlanner.clickCreateViewbtn'()
+//WebUI.delay(5)
+CustomKeywords.'AccountPlanner.setViewName'()
+//WebUI.delay(5)
+CustomKeywords.'AccountPlanner.clickSavebtn'()
+CustomKeywords.'AccountPlanner.messagePopupHandle'('Info Account Planner has been Saved')
+
+CustomKeywords.'AccountPlanner.closeView'()
 WebUI.delay(5)
-CustomKeywords.'CustomerSettings.saveBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpOk'(findTestData("CustomerSettings"), '1')
-
-
+CustomKeywords.'AccountPlanner.selectView'('Standard')

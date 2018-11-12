@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>CreateView on account planner page</description>
+   <name>CreateView</name>
+   <tag>CreateView on account planner page</tag>
+   <comment></comment>
+   <testCaseGuid>aa640c17-14ef-4f52-83a8-e2c50666b3e3</testCaseGuid>
+</TestCaseEntity>

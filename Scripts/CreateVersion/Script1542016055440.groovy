@@ -12,20 +12,11 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
-import common.*
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
-WebUI.delay(5)
-CustomKeywords.'AccountPlanner.getAllCheckboxes'()
-WebUI.delay(5)
-CustomKeywords.'CustomerSettings.clickDeleteBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpDelete'(findTestData("CustomerSettings"), '1')
-WebUI.delay(5)
-CustomKeywords.'CustomerSettings.selectItemsfromExcel'(findTestData("CustomerSettings"), '1')
 
-CustomKeywords.'CustomerSettings.clickAddPPGBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpOk'(findTestData("CustomerSettings"), '1')
-WebUI.delay(5)
-CustomKeywords.'CustomerSettings.saveBtn'()
-CustomKeywords.'CustomerSettings.selectPopUpOk'(findTestData("CustomerSettings"), '1')
+CustomKeywords.'AccountPlanner.clickVersion'()
+CustomKeywords.'AccountPlanner.selectButtonList'('Save As')
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'("true", "Version name:", "PPG130","Save for all PPGs in the Category","Save")
 
-
+CustomKeywords.'AccountPlanner.messagePopupHandle'('Saved Successfully')
+CustomKeywords.'AccountPlanner.selectVersion'('VER_PPG130')
+CustomKeywords.'AccountPlanner.verifySelectedVersion'('VER_PPG130')

@@ -32,6 +32,12 @@ import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+
+
 import internal.GlobalVariable
 import common.*
 public class CompassUIElements {
@@ -192,9 +198,9 @@ public class CompassUIElements {
 	public static void clickCreateViewbtn(String data)
 	{
 		if(data.equalsIgnoreCase('create_view'))
-		WebUI.verifyElementText(findTestObject("//button[contains(text(),'"+data+"')]"), data)
+			WebUI.verifyElementText(findTestObject("//button[contains(text(),'"+data+"')]"), data)
 	}
-	
+
 	//set text in input field box
 	@Keyword
 	public static void setText(TestObject to,String text){
@@ -245,7 +251,7 @@ public class CompassUIElements {
 
 	}
 	@Keyword
-	public static kendoDialogBoxHandler(String idDisplayed,String verifyText,String buttonToClick) {
+	public static kendoDialogBoxHandler(String idDisplayed,String verifyText,String ppgname,String ppgtype,String buttonToClick) {
 		TestObject tb = General.createObject("//kendo-dialog")
 
 		String dialog_pls_confirm = tb.findPropertyValue("xpath")
@@ -282,6 +288,22 @@ public class CompassUIElements {
 		if(!verifyText.equalsIgnoreCase("")){
 			if(!WebUI.getText(messObj).toLowerCase().contains(verifyText.toLowerCase()))
 				KeywordUtil.markFailed("Dialog box text is not matched")
+			else if(verifyText.equalsIgnoreCase("Version Name:"))
+			{
+				WebUI.delay(8)
+				println "delay"
+				TestObject to=General.createObject("/html/body/app-root/div/div[1]/div/accounts-planner/kendo-dialog[5]/div[2]/div/div[1]/b")
+				WebUI.click(to)
+				TestObject to1=General.createObject("//div/input[@name='version' and @id='ppg']/following-sibling::label[contains(.,'"+ppgtype+"')]")
+				WebUI.delay(5)
+				/*RobotX.RoboKeyPressSpecial("<tab>")
+				RobotX.RoboKeyPressSpecial("<tab>")*/
+				
+				WebUI.click(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"))
+				WebUI.setText(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"), ppgname)
+				
+				WebUI.click(to1)
+			}
 		}
 		String buttonPath = tb1+"//kendo-dialog-titlebar/following-sibling::kendo-dialog-actions//button[contains(.,"+buttonToClick+")]"
 
@@ -306,6 +328,14 @@ public class CompassUIElements {
 			//else
 			//	KeywordUtil.markFailed("Item "+data+" does not exists in the list of values to check");
 		}
+	}
+	//Kendo button list
+	@Keyword
+	public static void selectKendoButtonList(String data)
+	{
+		waitCompassLoad()
+		TestObject to=General.createObject("//kendo-popup//kendo-button-list/ul//li[contains(.,'"+data+"')]")
+		WebUI.click(to)
 	}
 }
 
