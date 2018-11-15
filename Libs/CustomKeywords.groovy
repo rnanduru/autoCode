@@ -3,126 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
+import com.kms.katalon.core.testobject.TestObject
+
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
-import com.kms.katalon.core.testobject.TestObject
-
-
-def static "AccountPlanner.selectPlanYear"(
-    	String plan_year	) {
-    (new AccountPlanner()).selectPlanYear(
-        	plan_year)
-}
-
-def static "AccountPlanner.selectCustomerPlan"(
-    	String plan	) {
-    (new AccountPlanner()).selectCustomerPlan(
-        	plan)
-}
-
-def static "AccountPlanner.selectCategory"(
-    	String category	) {
-    (new AccountPlanner()).selectCategory(
-        	category)
-}
-
-def static "AccountPlanner.selectPPG"(
-    	String ppg	) {
-    (new AccountPlanner()).selectPPG(
-        	ppg)
-}
-
-def static "AccountPlanner.selectUnits"(
-    	String unit	) {
-    (new AccountPlanner()).selectUnits(
-        	unit)
-}
-
-def static "AccountPlanner.selectHeaderItem"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new AccountPlanner()).selectHeaderItem(
-        	td
-         , 	rowNo)
-}
-
-def static "AccountPlanner.enterProductCostingData"() {
-    (new AccountPlanner()).enterProductCostingData()
-}
-
-def static "AccountPlanner.clickAddNewBtn"() {
-    (new AccountPlanner()).clickAddNewBtn()
-}
-
-def static "AccountPlanner.clickApplyEDLPBtn"() {
-    (new AccountPlanner()).clickApplyEDLPBtn()
-}
-
-def static "AccountPlanner.clickColumnBtn"() {
-    (new AccountPlanner()).clickColumnBtn()
-}
-
-def static "AccountPlanner.enterAccountPlannerHeader"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new AccountPlanner()).enterAccountPlannerHeader(
-        	td
-         , 	rowNo)
-}
-
-def static "AccountPlanner.enterAccountPlannerSubHeader"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new AccountPlanner()).enterAccountPlannerSubHeader(
-        	td
-         , 	rowNo)
-}
-
-def static "AccountPlanner.enterAccountPlannerHeader"(
-    	String planYear	
-     , 	String custPlan	
-     , 	String category	
-     , 	String newString	) {
-    (new AccountPlanner()).enterAccountPlannerHeader(
-        	planYear
-         , 	custPlan
-         , 	category
-         , 	newString)
-}
-
-def static "AccountPlanner.verifyDataInPlanYearList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInPlanYearList(
-        	expValue)
-}
-
-def static "AccountPlanner.verifyDataInCustomerPlanList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInCustomerPlanList(
-        	expValue)
-}
-
-def static "AccountPlanner.verifyDataInCategoryList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInCategoryList(
-        	expValue)
-}
-
-def static "AccountPlanner.VerifyDataInProductList"(
-    	String expValue	) {
-    (new AccountPlanner()).VerifyDataInProductList(
-        	expValue)
-}
-
-def static "AccountPlanner.verifyHeaderListItemsData"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new AccountPlanner()).verifyHeaderListItemsData(
-        	td
-         , 	rowNo)
-}
 
 def static "CompassUIElements.selectListBox"(
     	TestObject to	
@@ -206,6 +92,36 @@ def static "CompassUIElements.kendoGridSelectCheckBox"(
          , 	column)
 }
 
+def static "CompassUIElements.BuildTableColumns"(
+    	TestObject tb	) {
+    (new CompassUIElements()).BuildTableColumns(
+        	tb)
+}
+
+def static "CompassUIElements.EnterValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).EnterValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.EnterDateInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String date	) {
+    (new CompassUIElements()).EnterDateInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	date)
+}
+
 def static "CompassUIElements.kendoGridEnterTextInCell"(
     	String rowNo	
      , 	int column	
@@ -225,77 +141,195 @@ def static "CompassUIElements.kendoGridGetTextInCell"(
 }
 
 def static "CompassUIElements.kendoDialogBoxHandler"(
-    	String idDisplayed	
+    	String isDisplayed	
      , 	String verifyText	
      , 	String buttonToClick	) {
     (new CompassUIElements()).kendoDialogBoxHandler(
-        	idDisplayed
+        	isDisplayed
          , 	verifyText
          , 	buttonToClick)
+}
+
+def static "CompassUIElements.SelectValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).SelectValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "AccountPlanner.selectPlanYear"(
+    	String plan_year	) {
+    (new AccountPlanner()).selectPlanYear(
+        	plan_year)
+}
+
+def static "AccountPlanner.selectCustomerPlan"(
+    	String plan	) {
+    (new AccountPlanner()).selectCustomerPlan(
+        	plan)
+}
+
+def static "AccountPlanner.selectCategory"(
+    	String category	) {
+    (new AccountPlanner()).selectCategory(
+        	category)
+}
+
+def static "AccountPlanner.selectPPG"(
+    	String PRODUCT_SELECTION	) {
+    (new AccountPlanner()).selectPPG(
+        	PRODUCT_SELECTION)
+}
+
+def static "AccountPlanner.selectUnits"(
+    	String UNITS	) {
+    (new AccountPlanner()).selectUnits(
+        	UNITS)
+}
+
+def static "AccountPlanner.whiteSpaceClick"() {
+    (new AccountPlanner()).whiteSpaceClick()
+}
+
+def static "AccountPlanner.clickSavebutton"() {
+    (new AccountPlanner()).clickSavebutton()
+}
+
+def static "AccountPlanner.selectMiddleHeader"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).selectMiddleHeader(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.prod"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).prod(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.AccountPlannerKendoDialogBox1"() {
+    (new AccountPlanner()).AccountPlannerKendoDialogBox1()
+}
+
+def static "AccountPlanner.AccountPlannerKendoDialogBox2"() {
+    (new AccountPlanner()).AccountPlannerKendoDialogBox2()
+}
+
+def static "AccountPlanner.selectHeaderItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).selectHeaderItem(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.enterProductCostingData"() {
+    (new AccountPlanner()).enterProductCostingData()
+}
+
+def static "AccountPlanner.clickAddNewBtn"() {
+    (new AccountPlanner()).clickAddNewBtn()
+}
+
+def static "AccountPlanner.clickApplyEDLPBtn"() {
+    (new AccountPlanner()).clickApplyEDLPBtn()
+}
+
+def static "AccountPlanner.clickColumnBtn"() {
+    (new AccountPlanner()).clickColumnBtn()
+}
+
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.enterAccountPlannerHeader"(
+    	String planYear	
+     , 	String custPlan	
+     , 	String category	
+     , 	String newString	) {
+    (new AccountPlanner()).enterAccountPlannerHeader(
+        	planYear
+         , 	custPlan
+         , 	category
+         , 	newString)
+}
+
+def static "AccountPlanner.verifyDataInPlanYearList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInPlanYearList(
+        	expValue)
+}
+
+def static "AccountPlanner.verifyDataInCustomerPlanList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInCustomerPlanList(
+        	expValue)
+}
+
+def static "AccountPlanner.verifyDataInCategoryList"(
+    	String expValue	) {
+    (new AccountPlanner()).verifyDataInCategoryList(
+        	expValue)
+}
+
+def static "AccountPlanner.clickProductCost"() {
+    (new AccountPlanner()).clickProductCost()
+}
+
+def static "AccountPlanner.VerifyDataInProductList"(
+    	String expValue	) {
+    (new AccountPlanner()).VerifyDataInProductList(
+        	expValue)
+}
+
+def static "AccountPlanner.VerifyDataInUnits"(
+    	String expValue	) {
+    (new AccountPlanner()).VerifyDataInUnits(
+        	expValue)
+}
+
+def static "AccountPlanner.VerifyListItemsData"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).VerifyListItemsData(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.ProductCostingTable"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).ProductCostingTable(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.verifyHeaderListItemsData"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).verifyHeaderListItemsData(
+        	td
+         , 	rowNo)
 }
 
 def static "HamburgMenu.clickHamburgMenu"(
     	String menuItem	) {
     (new HamburgMenu()).clickHamburgMenu(
         	menuItem)
-}
-
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
 }
 
 def static "Dashboard.verifyDashboardElements"(
@@ -402,6 +436,64 @@ def static "Dashboard.closeSelectionChart"(
     	String chartName	) {
     (new Dashboard()).closeSelectionChart(
         	chartName)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
 }
 
 def static "Login.loginCompass"(

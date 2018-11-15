@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>the user does not enter the start date and the end date and the EDLP Rate per Case or ELDP Rate per Unit or Spend Rate EDLP mandatory field error message should be prompted</name>
+   <tag>Accountplanner</tag>
+   <comment></comment>
+   <testCaseGuid>5a8b6156-db4f-4db9-92d2-d3599306ad21</testCaseGuid>
+</TestCaseEntity>

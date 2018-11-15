@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Swich version between Units and Cases get correct data</name>
+   <tag>Accountplanner</tag>
+   <comment></comment>
+   <testCaseGuid>dd07a46b-fafd-4af4-bc41-1469fc131f56</testCaseGuid>
+</TestCaseEntity>

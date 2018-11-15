@@ -5,6 +5,7 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import org.apache.poi.ss.usermodel.Chart
 import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.server.handler.WebDriverHandler
@@ -23,7 +24,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor
 import internal.GlobalVariable
 
 public class CompassUIElements {
@@ -196,6 +197,115 @@ public class CompassUIElements {
 			WebUI.click(General.createObject(tblXPath+"//tr["+Integer.valueOf(rowNo)+"]/td["+column+"]"))
 	}
 	@Keyword
+	public static BuildTableColumns(TestObject tb){
+		waitCompassLoad()
+		//get the columns and indexs into a Map
+		def baseXPath = tb.findPropertyValue("xpath")+"/div/div"
+		tb.addProperty("xpath", ConditionType.EQUALS, baseXPath) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
+		ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 0)
+		def columnsIndexes = [:]
+		int index = 0
+		def column = ""
+		TestObject twe;
+
+		WebDriver driver = DriverFactory.getWebDriver()
+
+		WebElement element;
+		JavascriptExecutor executor;
+
+		for(WebElement we:wes){
+			twe = tb.addProperty("xpath",ConditionType.EQUALS,baseXPath+"["+String.valueOf((Integer.valueOf(index)+1))+"]")
+			element = WebUiCommonHelper.findWebElement(twe, 10)
+			executor = ((driver) as JavascriptExecutor)
+			column = executor.executeScript('return arguments[0].innerText;', element).toString()
+			//column = new General().runJS(twe,"return arguments[0].innerText;", 20).toString() //we.getAttribute("innerText").trim()//we.getText().trim()
+			if((column.equalsIgnoreCase(""))||(column.equalsIgnoreCase(" ")))
+				column = "column"+index
+			columnsIndexes.put(column,index)
+			index++
+		}
+		return columnsIndexes
+	}
+	@Keyword
+	public static void  EnterValueInTableCell(TestObject tb, String rowNo,String column,String data){
+		waitCompassLoad()
+		if((data.equalsIgnoreCase(""))||(data.equalsIgnoreCase("<null>")))
+			return 
+
+		println "In COlumn "+column
+
+		def columns = [:]
+
+		columns = BuildTableColumns(tb)
+
+		def colNo = Integer.valueOf(columns.get(column.toString()))+1
+
+		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
+			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
+			tb.addProperty("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
+			ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 0)
+			rowNo = wes.size
+		}
+
+		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//input")
+
+		WebUI.click(tbd)
+
+		WebUI.setText(tbd, data)
+	}
+	@Keyword
+	public static void EnterDateInTableCell(TestObject tb,String rowNo,String column,String date){
+		waitCompassLoad()
+		if((date.equalsIgnoreCase(""))||(date.equalsIgnoreCase("<null>")))
+			return
+
+		println "In COlumn "+column
+
+		def columns = [:]
+
+		columns = BuildTableColumns(tb)
+
+		def colNo = Integer.valueOf((columns.get(column.toString()))+1)
+
+		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
+			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
+			tb.addProperty("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
+			ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 2)
+			rowNo = wes.size
+		}
+
+		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//span[@class='k-icon k-i-calendar']")
+
+		WebUI.click(tbd)
+
+		String[] dates = date.split("/")
+
+		def monthEx = dates[0]
+
+		String monthString = """//kendo-calendar//span[(text() = '
+                    ${monthEx}
+                ' or . = '
+                    ${monthEx}
+                ')]"""
+
+		WebUI.delay(1)
+
+		TestObject calMonth = new General().createObject(monthString)
+
+		WebUI.click(calMonth)
+
+		WebUI.delay(4)
+
+		println "Clicked Month"
+
+		def monthName = new General().FormatDate(date, "MMM/dd/yyyy", "EEEE, MMMM dd, yyyy")
+
+		TestObject da = new General().createObject("//kendo-calendar//table/tbody/tr/td[contains(@title, '${monthName}')]/span")
+
+		WebUI.click(da)
+
+	}
+	@Keyword
 	public static void kendoGridEnterTextInCell(String rowNo,int column,String data){
 
 	}
@@ -204,7 +314,8 @@ public class CompassUIElements {
 
 	}
 	@Keyword
-	public static kendoDialogBoxHandler(String idDisplayed,String verifyText,String buttonToClick) {
+	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String buttonToClick) {
+		waitCompassLoad()
 		TestObject tb = General.createObject("//kendo-dialog")
 
 		String dialog_pls_confirm = tb.findPropertyValue("xpath")
@@ -225,9 +336,9 @@ public class CompassUIElements {
 			index++
 		}
 
-		if((tb1.equalsIgnoreCase("")) && (idDisplayed.equalsIgnoreCase("true")))
+		if((tb1.equalsIgnoreCase("")) &&(isDisplayed.equalsIgnoreCase("true")))
 			KeywordUtil.markFailedAndStop("Dialog box is not displayed")
-		else if((!tb1.equalsIgnoreCase("")) && (idDisplayed.equalsIgnoreCase("false")))
+		else if((!tb1.equalsIgnoreCase("")) && (isDisplayed.equalsIgnoreCase("false")))
 			KeywordUtil.markFailedAndStop("Dialog box is displayed")
 		//verify the text message
 
@@ -248,9 +359,28 @@ public class CompassUIElements {
 
 		WebUI.click(buttonObj)
 	}
+	@Keyword
+	public static void SelectValueInTableCell(TestObject tb,String rowNo,String column,String data){
+
+		def columns = [:]
+
+		columns = BuildTableColumns(tb)
+
+		def colNo = Integer.valueOf(columns.get(column.toString()))+1
+
+		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
+			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
+			tb.addProperty("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
+			ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 0)
+			rowNo = wes.size
+		}
+
+		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//span[@class='k-i-arrow-s k-icon']")
+
+		CompassUIElements.selectListBox(tbd, data)
+	}
 	public static void checkItemInMultiSelectBox(TestObject to,String item)
 	{
-
 		String toObject = to.findPropertyValue("xpath");
 		String[] items = item.split(GlobalVariable.multivalueseperator);
 		TestObject itemInList;
