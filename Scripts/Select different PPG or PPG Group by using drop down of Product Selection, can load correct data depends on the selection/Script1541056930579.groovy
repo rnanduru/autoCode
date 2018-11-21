@@ -17,9 +17,9 @@ import groovy.lang.MissingMethodException as MissingMethodException
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'CompassUIElements.selectListBox'(findTestObject('Compass/AccountPlaner/ddb_product_selection'), '1')
+CustomKeywords.'AccountPlanner.selectMiddleHeader'(findTestData('AccountPlanner'), '1')
 
-CustomKeywords.'AccountPlanner.verifyHeaderListItemsData'(findTestData('AccountPlanner'), '1')
+//CustomKeywords.'AccountPlanner.verifyHeaderListItemsData'(findTestData('AccountPlanner'), '1')
 
-CustomKeywords.'AccountPlanner.VerifyDataInProductList'('003 32z Velveeta Loaf 12 $96.12')
+//CustomKeywords.'AccountPlanner.VerifyListItemsData'(findTestData('AccountPlanner'), '1')
 

@@ -1,32 +1,22 @@
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.*
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
-import org.apache.poi.ss.usermodel.Chart
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.remote.server.handler.WebDriverHandler
 
 import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.util.KeywordUtil
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor
-import internal.GlobalVariable
 
+import common.*
+import internal.GlobalVariable
 public class CompassUIElements {
 	@Keyword
 	public static void selectListBox(TestObject to,String data){
@@ -57,7 +47,26 @@ public class CompassUIElements {
 	public static void selectMultiList(){
 	}
 	@Keyword
-	public static void clickButtonItem(TestObject to, String buttonItem){
+	public static boolean checkButtonEnable(TestObject to){
+		WebUI.verifyElementClickable(to)
+	}
+	@Keyword
+	public static void productCostTableItemsDelete(){
+		int count=countAllDeleteButtons("//product-costing/div/div[3]/div//div[@class='scrollable ng-star-inserted']//div[@class='delete-cell pointer'][1]")
+		WebDriver driver = DriverFactory.getWebDriver()
+		for(int i=1;i<=count;i++){
+			driver.findElement(By.xpath("//product-costing/div/div[3]/div//div[@class='scrollable ng-star-inserted'][1]//div[@class='delete-cell pointer'][1]")).click()
+			WebUI.delay(1)
+		}
+	}
+	@Keyword
+	public static int countAllDeleteButtons(String to) {
+
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> ele=driver.findElements(By.xpath(to))
+		int rowcount=ele.size()
+		println "size "+rowcount
+		return rowcount
 	}
 	@Keyword
 	public static void kendoMultiSelectList(TestObject to, String item){
@@ -161,6 +170,38 @@ public class CompassUIElements {
 	}
 
 	@Keyword
+	public static int countAllCheckboxes(String to)
+	{
+
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> ele=driver.findElements(By.xpath(to))
+		int rowcount=ele.size()
+		return rowcount
+	}
+
+	@Keyword
+	public static void checkAllCheckboxes(int size)
+	{
+		for(int rownumber=1;rownumber<=size;rownumber++){
+
+			TestObject to=General.createObject("//div[@id='k-tabstrip-tabpanel-0']//kendo-grid-list//tbody/tr["+rownumber+"]/td[1]")
+			WebUI.click(to)
+		}
+	}
+	//click on create view button in account planner page
+	@Keyword
+	public static void clickCreateViewbtn(String data)
+	{
+		if(data.equalsIgnoreCase('create_view'))
+			WebUI.verifyElementText(findTestObject("//button[contains(text(),'"+data+"')]"), data)
+	}
+
+	//set text in input field box
+	@Keyword
+	public static void setText(TestObject to,String text){
+		WebUI.setText(to, text)
+	}
+	@Keyword
 	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
 		String tblXPath = tblObj.findPropertyValue("xpath")+"//table"
 		WebDriver driver = DriverFactory.getWebDriver()
@@ -230,7 +271,7 @@ public class CompassUIElements {
 	public static void  EnterValueInTableCell(TestObject tb, String rowNo,String column,String data){
 		waitCompassLoad()
 		if((data.equalsIgnoreCase(""))||(data.equalsIgnoreCase("<null>")))
-			return 
+			return
 
 		println "In COlumn "+column
 
@@ -314,7 +355,7 @@ public class CompassUIElements {
 
 	}
 	@Keyword
-	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String buttonToClick) {
+	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String ppgname,String ppgtype,String buttonToClick) {
 		waitCompassLoad()
 		TestObject tb = General.createObject("//kendo-dialog")
 
@@ -336,7 +377,7 @@ public class CompassUIElements {
 			index++
 		}
 
-		if((tb1.equalsIgnoreCase("")) &&(isDisplayed.equalsIgnoreCase("true")))
+		if((tb1.equalsIgnoreCase(""))&&(isDisplayed.equalsIgnoreCase("true")))
 			KeywordUtil.markFailedAndStop("Dialog box is not displayed")
 		else if((!tb1.equalsIgnoreCase("")) && (isDisplayed.equalsIgnoreCase("false")))
 			KeywordUtil.markFailedAndStop("Dialog box is displayed")
@@ -352,6 +393,22 @@ public class CompassUIElements {
 		if(!verifyText.equalsIgnoreCase("")){
 			if(!WebUI.getText(messObj).toLowerCase().contains(verifyText.toLowerCase()))
 				KeywordUtil.markFailed("Dialog box text is not matched")
+			else if(verifyText.equalsIgnoreCase("Version Name:"))
+			{
+				WebUI.delay(8)
+				println "delay"
+				TestObject to=General.createObject("/html/body/app-root/div/div[1]/div/accounts-planner/kendo-dialog[5]/div[2]/div/div[1]/b")
+				WebUI.click(to)
+				TestObject to1=General.createObject("//div/input[@name='version' and @id='ppg']/following-sibling::label[contains(.,'"+ppgtype+"')]")
+				WebUI.delay(5)
+				RobotX.RoboKeyPressSpecial("<tab>")
+				RobotX.RoboKeyPressSpecial("<tab>")
+				General.robotEnterString(ppgname)
+				/*//WebUI.click(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"))
+				 WebUI.setText(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"),ppgname)
+				 */
+				WebUI.click(to1)
+			}
 		}
 		String buttonPath = tb1+"//kendo-dialog-titlebar/following-sibling::kendo-dialog-actions//button[contains(.,"+buttonToClick+")]"
 
@@ -379,6 +436,24 @@ public class CompassUIElements {
 
 		CompassUIElements.selectListBox(tbd, data)
 	}
+	@Keyword
+	public static void GetValueInTablecell(TestObject tb,String rowNo,String column){
+		def columns = [:]
+
+		columns = BuildTableColumns(tb)
+
+		def colNo = Integer.valueOf(columns.get(column.toString()))+1
+
+		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
+			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
+			tb.getProperties("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
+			ArrayList<WebElement> wes = WebUiCommonHelper.findWebElements(tb, 0)
+			rowNo = wes.size
+			TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//span[@class='k-i-arrow-s k-icon']")
+
+		}
+
+	}
 	public static void checkItemInMultiSelectBox(TestObject to,String item)
 	{
 		String toObject = to.findPropertyValue("xpath");
@@ -395,4 +470,24 @@ public class CompassUIElements {
 			//	KeywordUtil.markFailed("Item "+data+" does not exists in the list of values to check");
 		}
 	}
+	//Kendo button list
+	@Keyword
+	public static void selectKendoButtonList(String data)
+	{
+		waitCompassLoad()
+		TestObject to=General.createObject("//kendo-popup//kendo-button-list/ul//li[contains(.,'"+data+"')]")
+		WebUI.click(to)
+	}
+	@Keyword
+	public static void kendoGetText(TestObject to, String value){
+		waitCompassLoad()
+		String actual=WebUI.getText(to)
+		if(actual.equalsIgnoreCase(value)){
+			println 'text value is equal'+actual
+		}else{
+			println 'text is not equal'
+		}
+
+	}
+
 }

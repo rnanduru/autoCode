@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>On Product Costing tab, Delete button works correctly</name>
+   <tag>Accountplanner</tag>
+   <comment></comment>
+   <testCaseGuid>b26f3abf-a6bc-47ce-8408-b32afb9c6766</testCaseGuid>
+</TestCaseEntity>

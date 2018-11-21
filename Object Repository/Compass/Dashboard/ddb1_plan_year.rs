@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>ddb1_plan_year</name>
+   <tag></tag>
+   <elementGuidId>f50cfc16-a6ee-4a7d-961d-0af8e56178ba</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//compass-plan-selection-header-component/div[2]/div[2]/span[1]/kendo-dropdownlist/span[@role='listbox']/span[1]</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//compass-plan-selection-header-component/div[2]/div[2]/span[1]/kendo-dropdownlist/span[@role='listbox']/span[1]</value>
+   </webElementProperties>
+</WebElementEntity>

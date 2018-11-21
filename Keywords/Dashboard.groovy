@@ -19,7 +19,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
-
+import common.*
 public class Dashboard {
 	@Keyword
 	public static void verifyDashboardElements(TestObject to){
@@ -49,6 +49,18 @@ public class Dashboard {
 		CompassUIElements.clickButton(findTestObject('Compass/Dashboard/btn_dashboard_header'))
 	}
 	@Keyword
+	public static void verifyPlanyear(String PlanYear){
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/Dashboard/ddb1_plan_year'),PlanYear)
+	}
+	@Keyword
+	public static void verifyCustomerPlan(String CustomerPlan){
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/Dashboard/ddb_verify_customer_plan'), CustomerPlan)
+	}
+	@Keyword
+	public static void verifyCategory(String Category){
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/Dashboard/ddb_verify_category'), Category)
+	}
+	@Keyword
 	public static void toggleAddSelections(boolean display){
 		if(display) {
 			if(!CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/Dashboard/ddb_add_sections"), 2))
@@ -74,6 +86,7 @@ public class Dashboard {
 			selectCategory(dataObj.get('CATEGORY'))
 		}
 	}
+
 	@Keyword
 	public static void selectAddSectionsItem(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
@@ -102,6 +115,15 @@ public class Dashboard {
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
 			CompassUIElements.kendoVerifyChartVisible(dataObj.get('CHART_LIST'))
+		}
+	}
+	@Keyword
+	public static void verifyDashboardHeaderElementData(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			verifyPlanyear(dataObj.get('Planyear'))
+			verifyCustomerPlan(dataObj.get('CustomerPlan'))
+			verifyCategory(dataObj.get('Category'))
 		}
 	}
 	@Keyword

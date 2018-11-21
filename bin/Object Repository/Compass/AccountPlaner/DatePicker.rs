@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>DatePicker</name>
+   <tag></tag>
+   <elementGuidId>40117c6c-1bb4-443e-b40b-e333e7463065</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//app-root/div/div[@class='row']/div/accounts-planner[@class='ng-star-inserted']/div[2]/div[4]/div[@class='relative']/kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div/div[3]/div/div/div/div[5]/kendo-datepicker[@required='']//span[@role='button']/span</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//app-root/div/div[@class='row']/div/accounts-planner[@class='ng-star-inserted']/div[2]/div[4]/div[@class='relative']/kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div/div[3]/div/div/div/div[5]/kendo-datepicker[@required='']//span[@role='button']/span</value>
+   </webElementProperties>
+</WebElementEntity>

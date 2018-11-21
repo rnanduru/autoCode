@@ -19,5 +19,5 @@ CustomKeywords.'AccountPlanner.clickAddNewBtn'()
 
 CustomKeywords.'AccountPlanner.clickSavebutton'()
 
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'OK')
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met',"","",'OK')
 

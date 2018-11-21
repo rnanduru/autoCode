@@ -15,7 +15,9 @@ import internal.GlobalVariable as GlobalVariable
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'AccountPlanner.verifyHeaderListItemsData'(findTestData('AccountPlanner'), '1')
+CustomKeywords.'AccountPlanner.selectHeaderItem'(findTestData('AccountPlanner'), '1')
+
+CustomKeywords.'AccountPlanner.VerifyListItemsData'(findTestData('AccountPlanner'), '1')
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_dashboard)
 

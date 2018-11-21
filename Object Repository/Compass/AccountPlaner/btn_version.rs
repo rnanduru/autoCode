@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description>btn_version</description>
+   <name>btn_version</name>
+   <tag></tag>
+   <elementGuidId>1f762256-8e47-4100-9cef-465ef1253c63</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//div/kendo-dropdownbutton/button[contains(text(),'Versions')]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div/kendo-dropdownbutton/button[contains(text(),'Versions')]</value>
+   </webElementProperties>
+</WebElementEntity>

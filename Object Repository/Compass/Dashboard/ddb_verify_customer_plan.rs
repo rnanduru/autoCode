@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>ddb_verify_customer_plan</name>
+   <tag></tag>
+   <elementGuidId>5d2f59de-dc9a-42fd-942f-3d338225ab4f</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//compass-plan-selection-header-component/div[2]/div[2]/span[2]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//compass-plan-selection-header-component/div[2]/div[2]/span[2]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input']</value>
+   </webElementProperties>
+</WebElementEntity>

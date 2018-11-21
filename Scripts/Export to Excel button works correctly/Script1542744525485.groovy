@@ -13,14 +13,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-//CustomKeywords.'CustomerSettings.removeAllPPGAndGroups'()
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'CustomerSettings.removeAllPPGAndGroups'()
+CustomKeywords.'AccountPlanner.clickProductCost'()
 
-CustomKeywords.'CustomerSettings.selectPPGs'(findTestData('CustomerSettings'), '1')
+CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
 
-CustomKeywords.'CustomerSettings.clickAddPPGButton'()
-
-not_run: CustomKeywords.'CustomerSettings.removeAllPPGAndGroups'()
+CustomKeywords.'AccountPlanner.exportToExecel'()
 

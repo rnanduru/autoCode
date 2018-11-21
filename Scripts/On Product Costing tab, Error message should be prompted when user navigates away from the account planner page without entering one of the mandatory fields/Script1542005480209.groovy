@@ -20,4 +20,4 @@ CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_setti
 CustomKeywords.'AccountPlanner.AccountPlannerKendoDialogBox1'()
 
 CustomKeywords.'AccountPlanner.AccountPlannerKendoDialogBox2'()
-
+WebUI.delay(3)

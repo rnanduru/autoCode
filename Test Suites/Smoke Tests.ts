@@ -4,7 +4,11 @@
    <name>Smoke Tests</name>
    <tag></tag>
    <isRerun>false</isRerun>
+<<<<<<< HEAD
    <lastRun>2018-11-15T17:37:01</lastRun>
+=======
+   <lastRun>2018-11-12T16:05:57</lastRun>
+>>>>>>> 12af137eb267f3d7cf0d7088c4ecabb49c87b87b
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>30</pageLoadTimeout>
@@ -18,8 +22,31 @@
       <testCaseId>Test Cases/Login Test</testCaseId>
    </testCaseLink>
    <testCaseLink>
+<<<<<<< HEAD
       <guid>1735a007-e75b-4db5-9578-eefffe8da989</guid>
       <isReuseDriver>false</isReuseDriver>
+=======
+      <guid>87f56823-555e-414c-94f5-ecac9a47a765</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/CreateView</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>45d925bd-fa8f-4c33-91d7-1950ac923cfd</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CreateVersion</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>a1b03148-d4fe-4a0c-9abf-a1582f310ed7</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/Go to Account Planner, the data is loading correctly according global header selection</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>7091ad5f-d66b-44a0-8fae-027f2e91ddd2</guid>
+      <isReuseDriver>false</isReuseDriver>
+>>>>>>> 12af137eb267f3d7cf0d7088c4ecabb49c87b87b
       <isRun>false</isRun>
       <testCaseId>Test Cases/New Test Case</testCaseId>
    </testCaseLink>

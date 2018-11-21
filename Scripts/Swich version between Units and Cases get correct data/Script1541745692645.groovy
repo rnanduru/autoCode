@@ -13,11 +13,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'AccountPlanner.selectUnits'('Units')
+CustomKeywords.'AccountPlanner.selectMiddleHeader'(findTestData('AccountPlanner'), '1')
 
 CustomKeywords.'AccountPlanner.whiteSpaceClick'()
 
-CustomKeywords.'AccountPlanner.VerifyListItemsData'(findTestData('AccountPlanner'), '1')
+CustomKeywords.'AccountPlanner.clickProductCost'()
 
-not_run: CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
+not_run: CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
 

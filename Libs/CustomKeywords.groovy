@@ -32,12 +32,20 @@ def static "CompassUIElements.selectMultiList"() {
     (new CompassUIElements()).selectMultiList()
 }
 
-def static "CompassUIElements.clickButtonItem"(
-    	TestObject to	
-     , 	String buttonItem	) {
-    (new CompassUIElements()).clickButtonItem(
-        	to
-         , 	buttonItem)
+def static "CompassUIElements.checkButtonEnable"(
+    	TestObject to	) {
+    (new CompassUIElements()).checkButtonEnable(
+        	to)
+}
+
+def static "CompassUIElements.productCostTableItemsDelete"() {
+    (new CompassUIElements()).productCostTableItemsDelete()
+}
+
+def static "CompassUIElements.countAllDeleteButtons"(
+    	String to	) {
+    (new CompassUIElements()).countAllDeleteButtons(
+        	to)
 }
 
 def static "CompassUIElements.kendoMultiSelectList"(
@@ -80,6 +88,32 @@ def static "CompassUIElements.checkElementVisible"(
     (new CompassUIElements()).checkElementVisible(
         	to
          , 	timeOut)
+}
+
+def static "CompassUIElements.countAllCheckboxes"(
+    	String to	) {
+    (new CompassUIElements()).countAllCheckboxes(
+        	to)
+}
+
+def static "CompassUIElements.checkAllCheckboxes"(
+    	int size	) {
+    (new CompassUIElements()).checkAllCheckboxes(
+        	size)
+}
+
+def static "CompassUIElements.clickCreateViewbtn"(
+    	String data	) {
+    (new CompassUIElements()).clickCreateViewbtn(
+        	data)
+}
+
+def static "CompassUIElements.setText"(
+    	TestObject to	
+     , 	String text	) {
+    (new CompassUIElements()).setText(
+        	to
+         , 	text)
 }
 
 def static "CompassUIElements.kendoGridSelectCheckBox"(
@@ -143,10 +177,14 @@ def static "CompassUIElements.kendoGridGetTextInCell"(
 def static "CompassUIElements.kendoDialogBoxHandler"(
     	String isDisplayed	
      , 	String verifyText	
+     , 	String ppgname	
+     , 	String ppgtype	
      , 	String buttonToClick	) {
     (new CompassUIElements()).kendoDialogBoxHandler(
         	isDisplayed
          , 	verifyText
+         , 	ppgname
+         , 	ppgtype
          , 	buttonToClick)
 }
 
@@ -160,6 +198,30 @@ def static "CompassUIElements.SelectValueInTableCell"(
          , 	rowNo
          , 	column
          , 	data)
+}
+
+def static "CompassUIElements.GetValueInTablecell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	) {
+    (new CompassUIElements()).GetValueInTablecell(
+        	tb
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.selectKendoButtonList"(
+    	String data	) {
+    (new CompassUIElements()).selectKendoButtonList(
+        	data)
+}
+
+def static "CompassUIElements.kendoGetText"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).kendoGetText(
+        	to
+         , 	value)
 }
 
 def static "AccountPlanner.selectPlanYear"(
@@ -181,15 +243,19 @@ def static "AccountPlanner.selectCategory"(
 }
 
 def static "AccountPlanner.selectPPG"(
-    	String PRODUCT_SELECTION	) {
+    	String ProductSelection	) {
     (new AccountPlanner()).selectPPG(
-        	PRODUCT_SELECTION)
+        	ProductSelection)
 }
 
 def static "AccountPlanner.selectUnits"(
-    	String UNITS	) {
+    	String units	) {
     (new AccountPlanner()).selectUnits(
-        	UNITS)
+        	units)
+}
+
+def static "AccountPlanner.exportToExecel"() {
+    (new AccountPlanner()).exportToExecel()
 }
 
 def static "AccountPlanner.whiteSpaceClick"() {
@@ -208,10 +274,18 @@ def static "AccountPlanner.selectMiddleHeader"(
          , 	rowNo)
 }
 
-def static "AccountPlanner.prod"(
+def static "AccountPlanner.getDataFromProductCostingTable"(
     	TestData td	
      , 	String rowNo	) {
-    (new AccountPlanner()).prod(
+    (new AccountPlanner()).getDataFromProductCostingTable(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.productCostingTable"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).productCostingTable(
         	td
          , 	rowNo)
 }
@@ -268,52 +342,44 @@ def static "AccountPlanner.enterAccountPlannerHeader"(
          , 	newString)
 }
 
-def static "AccountPlanner.verifyDataInPlanYearList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInPlanYearList(
-        	expValue)
+def static "AccountPlanner.DataInPlanYearList"(
+    	String PlanYearList	) {
+    (new AccountPlanner()).DataInPlanYearList(
+        	PlanYearList)
 }
 
-def static "AccountPlanner.verifyDataInCustomerPlanList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInCustomerPlanList(
-        	expValue)
+def static "AccountPlanner.DataInCustomerPlanList"(
+    	String CustomerPlanList	) {
+    (new AccountPlanner()).DataInCustomerPlanList(
+        	CustomerPlanList)
 }
 
-def static "AccountPlanner.verifyDataInCategoryList"(
-    	String expValue	) {
-    (new AccountPlanner()).verifyDataInCategoryList(
-        	expValue)
+def static "AccountPlanner.DataInCategoryList"(
+    	String CategoryList	) {
+    (new AccountPlanner()).DataInCategoryList(
+        	CategoryList)
 }
 
 def static "AccountPlanner.clickProductCost"() {
     (new AccountPlanner()).clickProductCost()
 }
 
-def static "AccountPlanner.VerifyDataInProductList"(
-    	String expValue	) {
-    (new AccountPlanner()).VerifyDataInProductList(
-        	expValue)
+def static "AccountPlanner.DataInProductList"(
+    	String ProductList	) {
+    (new AccountPlanner()).DataInProductList(
+        	ProductList)
 }
 
-def static "AccountPlanner.VerifyDataInUnits"(
-    	String expValue	) {
-    (new AccountPlanner()).VerifyDataInUnits(
-        	expValue)
+def static "AccountPlanner.DataInUnits"(
+    	String Units	) {
+    (new AccountPlanner()).DataInUnits(
+        	Units)
 }
 
 def static "AccountPlanner.VerifyListItemsData"(
     	TestData td	
      , 	String rowNo	) {
     (new AccountPlanner()).VerifyListItemsData(
-        	td
-         , 	rowNo)
-}
-
-def static "AccountPlanner.ProductCostingTable"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new AccountPlanner()).ProductCostingTable(
         	td
          , 	rowNo)
 }
@@ -326,116 +392,76 @@ def static "AccountPlanner.verifyHeaderListItemsData"(
          , 	rowNo)
 }
 
+def static "AccountPlanner.accountPlannerHeaderListData"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).accountPlannerHeaderListData(
+        	td
+         , 	rowNo)
+}
+
+def static "AccountPlanner.getAllCheckboxes"() {
+    (new AccountPlanner()).getAllCheckboxes()
+}
+
+def static "AccountPlanner.clickCreateViewbtn"() {
+    (new AccountPlanner()).clickCreateViewbtn()
+}
+
+def static "AccountPlanner.clickClosebtn"() {
+    (new AccountPlanner()).clickClosebtn()
+}
+
+def static "AccountPlanner.setViewName"() {
+    (new AccountPlanner()).setViewName()
+}
+
+def static "AccountPlanner.clickSavebtn"() {
+    (new AccountPlanner()).clickSavebtn()
+}
+
+def static "AccountPlanner.messagePopupHandle"(
+    	String popupmessage	) {
+    (new AccountPlanner()).messagePopupHandle(
+        	popupmessage)
+}
+
+def static "AccountPlanner.closeView"() {
+    (new AccountPlanner()).closeView()
+}
+
+def static "AccountPlanner.selectView"(
+    	String view	) {
+    (new AccountPlanner()).selectView(
+        	view)
+}
+
+def static "AccountPlanner.clickVersion"() {
+    (new AccountPlanner()).clickVersion()
+}
+
+def static "AccountPlanner.selectButtonList"(
+    	String data	) {
+    (new AccountPlanner()).selectButtonList(
+        	data)
+}
+
+def static "AccountPlanner.selectVersion"(
+    	String version	) {
+    (new AccountPlanner()).selectVersion(
+        	version)
+}
+
+def static "AccountPlanner.verifySelectedVersion"(
+    	String version	) {
+    (new AccountPlanner()).verifySelectedVersion(
+        	version)
+}
+
 def static "HamburgMenu.clickHamburgMenu"(
     	String menuItem	) {
     (new HamburgMenu()).clickHamburgMenu(
         	menuItem)
-}
-
-def static "Dashboard.verifyDashboardElements"(
-    	TestObject to	) {
-    (new Dashboard()).verifyDashboardElements(
-        	to)
-}
-
-def static "Dashboard.selectPlanYear"(
-    	String plan_year	) {
-    (new Dashboard()).selectPlanYear(
-        	plan_year)
-}
-
-def static "Dashboard.selectCustomerPlan"(
-    	String plan	) {
-    (new Dashboard()).selectCustomerPlan(
-        	plan)
-}
-
-def static "Dashboard.selectCategory"(
-    	String category	) {
-    (new Dashboard()).selectCategory(
-        	category)
-}
-
-def static "Dashboard.btnClickAddSections"() {
-    (new Dashboard()).btnClickAddSections()
-}
-
-def static "Dashboard.ddbClickAddSections"(
-    	String AddSections	) {
-    (new Dashboard()).ddbClickAddSections(
-        	AddSections)
-}
-
-def static "Dashboard.btnClickDashboardHeader"() {
-    (new Dashboard()).btnClickDashboardHeader()
-}
-
-def static "Dashboard.toggleAddSelections"(
-    	boolean display	) {
-    (new Dashboard()).toggleAddSelections(
-        	display)
-}
-
-def static "Dashboard.selectHeaderItem"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new Dashboard()).selectHeaderItem(
-        	td
-         , 	rowNo)
-}
-
-def static "Dashboard.selectAddSectionsItem"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new Dashboard()).selectAddSectionsItem(
-        	td
-         , 	rowNo)
-}
-
-def static "Dashboard.selectAddSectionsItem"(
-    	String item	) {
-    (new Dashboard()).selectAddSectionsItem(
-        	item)
-}
-
-def static "Dashboard.deleteAddSectionsItem"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new Dashboard()).deleteAddSectionsItem(
-        	td
-         , 	rowNo)
-}
-
-def static "Dashboard.deleteAddSectionsItem"(
-    	Object item	) {
-    (new Dashboard()).deleteAddSectionsItem(
-        	item)
-}
-
-def static "Dashboard.verifyChartsExist"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new Dashboard()).verifyChartsExist(
-        	td
-         , 	rowNo)
-}
-
-def static "Dashboard.verifyChartsEventExist"(
-    	TestData td	
-     , 	String rowNo	) {
-    (new Dashboard()).verifyChartsEventExist(
-        	td
-         , 	rowNo)
-}
-
-def static "Dashboard.verifyDashboardHeaderElement"() {
-    (new Dashboard()).verifyDashboardHeaderElement()
-}
-
-def static "Dashboard.closeSelectionChart"(
-    	String chartName	) {
-    (new Dashboard()).closeSelectionChart(
-        	chartName)
 }
 
 def static "General.openAppURLRobo"(
@@ -496,6 +522,138 @@ def static "RobotX.RoboKeyPressSpecial"(
         	data)
 }
 
+def static "Dashboard.verifyDashboardElements"(
+    	TestObject to	) {
+    (new Dashboard()).verifyDashboardElements(
+        	to)
+}
+
+def static "Dashboard.selectPlanYear"(
+    	String plan_year	) {
+    (new Dashboard()).selectPlanYear(
+        	plan_year)
+}
+
+def static "Dashboard.selectCustomerPlan"(
+    	String plan	) {
+    (new Dashboard()).selectCustomerPlan(
+        	plan)
+}
+
+def static "Dashboard.selectCategory"(
+    	String category	) {
+    (new Dashboard()).selectCategory(
+        	category)
+}
+
+def static "Dashboard.btnClickAddSections"() {
+    (new Dashboard()).btnClickAddSections()
+}
+
+def static "Dashboard.ddbClickAddSections"(
+    	String AddSections	) {
+    (new Dashboard()).ddbClickAddSections(
+        	AddSections)
+}
+
+def static "Dashboard.btnClickDashboardHeader"() {
+    (new Dashboard()).btnClickDashboardHeader()
+}
+
+def static "Dashboard.verifyPlanyear"(
+    	String PlanYear	) {
+    (new Dashboard()).verifyPlanyear(
+        	PlanYear)
+}
+
+def static "Dashboard.verifyCustomerPlan"(
+    	String CustomerPlan	) {
+    (new Dashboard()).verifyCustomerPlan(
+        	CustomerPlan)
+}
+
+def static "Dashboard.verifyCategory"(
+    	String Category	) {
+    (new Dashboard()).verifyCategory(
+        	Category)
+}
+
+def static "Dashboard.toggleAddSelections"(
+    	boolean display	) {
+    (new Dashboard()).toggleAddSelections(
+        	display)
+}
+
+def static "Dashboard.selectHeaderItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).selectHeaderItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.selectAddSectionsItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).selectAddSectionsItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.selectAddSectionsItem"(
+    	String item	) {
+    (new Dashboard()).selectAddSectionsItem(
+        	item)
+}
+
+def static "Dashboard.deleteAddSectionsItem"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).deleteAddSectionsItem(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.deleteAddSectionsItem"(
+    	Object item	) {
+    (new Dashboard()).deleteAddSectionsItem(
+        	item)
+}
+
+def static "Dashboard.verifyChartsExist"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).verifyChartsExist(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.verifyDashboardHeaderElementData"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).verifyDashboardHeaderElementData(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.verifyChartsEventExist"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new Dashboard()).verifyChartsEventExist(
+        	td
+         , 	rowNo)
+}
+
+def static "Dashboard.verifyDashboardHeaderElement"() {
+    (new Dashboard()).verifyDashboardHeaderElement()
+}
+
+def static "Dashboard.closeSelectionChart"(
+    	String chartName	) {
+    (new Dashboard()).closeSelectionChart(
+        	chartName)
+}
+
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -512,6 +670,68 @@ def static "Wait.waitCompassLoad"(
     	String data	) {
     (new Wait()).waitCompassLoad(
         	data)
+}
+
+def static "CustomerSettings.clickDeleteBtn"() {
+    (new CustomerSettings()).clickDeleteBtn()
+}
+
+def static "CustomerSettings.clickAddPPGBtn"() {
+    (new CustomerSettings()).clickAddPPGBtn()
+}
+
+def static "CustomerSettings.clickGroupBtn"() {
+    (new CustomerSettings()).clickGroupBtn()
+}
+
+def static "CustomerSettings.saveBtn"() {
+    (new CustomerSettings()).saveBtn()
+}
+
+def static "CustomerSettings.selectItem"(
+    	int i	) {
+    (new CustomerSettings()).selectItem(
+        	i)
+}
+
+def static "CustomerSettings.selectPPG"() {
+    (new CustomerSettings()).selectPPG()
+}
+
+def static "CustomerSettings.selectItemsFromList"(
+    	String data	) {
+    (new CustomerSettings()).selectItemsFromList(
+        	data)
+}
+
+def static "CustomerSettings.selectItemsfromExcel"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectItemsfromExcel(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.clickOnPopUp"(
+    	String titlename	) {
+    (new CustomerSettings()).clickOnPopUp(
+        	titlename)
+}
+
+def static "CustomerSettings.selectPopUpDelete"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPopUpDelete(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.selectPopUpOk"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPopUpOk(
+        	td
+         , 	rowNo)
 }
 
 def static "CustomerSettings.removeAllPPGAndGroups"() {
