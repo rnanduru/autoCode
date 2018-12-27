@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>ddb_selectPPG</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>443069cb-6875-47c9-9e0c-fc6a0f23fb9a</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-      </entry>
-      <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='CMA LE'])[1]/following::span[3]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='CMA LE'])[1]/following::span[3]</value>
    </webElementProperties>
 </WebElementEntity>

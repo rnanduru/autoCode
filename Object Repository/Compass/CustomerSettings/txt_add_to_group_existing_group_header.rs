@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>txt_add_to_group_existing_group_header</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>f941b76d-0615-4df4-b882-135dc077d734</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-      </entry>
-      <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//span[.='Add to Existing Group']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//span[.='Add to Existing Group']</value>
    </webElementProperties>
 </WebElementEntity>

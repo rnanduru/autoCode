@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>btn_baseplanning_month</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>4be32143-c6ab-4bf3-ab1b-a49fa398a408</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-      </entry>
-      <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//div[@id='k-tabstrip-tabpanel-1']//span[@class='k-link' and contains(.,'Month')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//div[@id='k-tabstrip-tabpanel-1']//span[@class='k-link' and contains(.,'Month')]</value>
    </webElementProperties>
 </WebElementEntity>

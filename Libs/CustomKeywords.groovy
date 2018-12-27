@@ -3,226 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
-import com.kms.katalon.core.testobject.TestObject
-
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
+import com.kms.katalon.core.testobject.TestObject
 
-def static "CompassUIElements.selectListBox"(
-    	TestObject to	
-     , 	String data	) {
-    (new CompassUIElements()).selectListBox(
-        	to
-         , 	data)
-}
-
-def static "CompassUIElements.waitCompassLoad"() {
-    (new CompassUIElements()).waitCompassLoad()
-}
-
-def static "CompassUIElements.clickButton"(
-    	TestObject to	) {
-    (new CompassUIElements()).clickButton(
-        	to)
-}
-
-def static "CompassUIElements.selectMultiList"() {
-    (new CompassUIElements()).selectMultiList()
-}
-
-def static "CompassUIElements.checkButtonEnable"(
-    	TestObject to	) {
-    (new CompassUIElements()).checkButtonEnable(
-        	to)
-}
-
-def static "CompassUIElements.productCostTableItemsDelete"() {
-    (new CompassUIElements()).productCostTableItemsDelete()
-}
-
-def static "CompassUIElements.countAllDeleteButtons"(
-    	String to	) {
-    (new CompassUIElements()).countAllDeleteButtons(
-        	to)
-}
-
-def static "CompassUIElements.kendoMultiSelectList"(
-    	TestObject to	
-     , 	String item	) {
-    (new CompassUIElements()).kendoMultiSelectList(
-        	to
-         , 	item)
-}
-
-def static "CompassUIElements.kendoDeleteMultiSelectItem"(
-    	String item	) {
-    (new CompassUIElements()).kendoDeleteMultiSelectItem(
-        	item)
-}
-
-def static "CompassUIElements.kendoChartWidgetClose"(
-    	String chartDisplayName	) {
-    (new CompassUIElements()).kendoChartWidgetClose(
-        	chartDisplayName)
-}
-
-def static "CompassUIElements.kendoVerifyChartVisible"(
-    	String chartName	) {
-    (new CompassUIElements()).kendoVerifyChartVisible(
-        	chartName)
-}
-
-def static "CompassUIElements.verifyElementData"(
-    	TestObject to	
-     , 	String value	) {
-    (new CompassUIElements()).verifyElementData(
-        	to
-         , 	value)
-}
-
-def static "CompassUIElements.checkElementVisible"(
-    	TestObject to	
-     , 	int timeOut	) {
-    (new CompassUIElements()).checkElementVisible(
-        	to
-         , 	timeOut)
-}
-
-def static "CompassUIElements.countAllCheckboxes"(
-    	String to	) {
-    (new CompassUIElements()).countAllCheckboxes(
-        	to)
-}
-
-def static "CompassUIElements.checkAllCheckboxes"(
-    	int size	) {
-    (new CompassUIElements()).checkAllCheckboxes(
-        	size)
-}
-
-def static "CompassUIElements.clickCreateViewbtn"(
-    	String data	) {
-    (new CompassUIElements()).clickCreateViewbtn(
-        	data)
-}
-
-def static "CompassUIElements.setText"(
-    	TestObject to	
-     , 	String text	) {
-    (new CompassUIElements()).setText(
-        	to
-         , 	text)
-}
-
-def static "CompassUIElements.kendoGridSelectCheckBox"(
-    	TestObject tblObj	
-     , 	String rowNo	
-     , 	int column	) {
-    (new CompassUIElements()).kendoGridSelectCheckBox(
-        	tblObj
-         , 	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.BuildTableColumns"(
-    	TestObject tb	) {
-    (new CompassUIElements()).BuildTableColumns(
-        	tb)
-}
-
-def static "CompassUIElements.EnterValueInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String data	) {
-    (new CompassUIElements()).EnterValueInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.EnterDateInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String date	) {
-    (new CompassUIElements()).EnterDateInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	date)
-}
-
-def static "CompassUIElements.kendoGridEnterTextInCell"(
-    	String rowNo	
-     , 	int column	
-     , 	String data	) {
-    (new CompassUIElements()).kendoGridEnterTextInCell(
-        	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.kendoGridGetTextInCell"(
-    	String rowNo	
-     , 	int column	) {
-    (new CompassUIElements()).kendoGridGetTextInCell(
-        	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.kendoDialogBoxHandler"(
-    	String isDisplayed	
-     , 	String verifyText	
-     , 	String ppgname	
-     , 	String ppgtype	
-     , 	String buttonToClick	) {
-    (new CompassUIElements()).kendoDialogBoxHandler(
-        	isDisplayed
-         , 	verifyText
-         , 	ppgname
-         , 	ppgtype
-         , 	buttonToClick)
-}
-
-def static "CompassUIElements.SelectValueInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String data	) {
-    (new CompassUIElements()).SelectValueInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.GetValueInTablecell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	) {
-    (new CompassUIElements()).GetValueInTablecell(
-        	tb
-         , 	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.selectKendoButtonList"(
-    	String data	) {
-    (new CompassUIElements()).selectKendoButtonList(
-        	data)
-}
-
-def static "CompassUIElements.kendoGetText"(
-    	TestObject to	
-     , 	String value	) {
-    (new CompassUIElements()).kendoGetText(
-        	to
-         , 	value)
-}
 
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
@@ -262,8 +48,84 @@ def static "AccountPlanner.whiteSpaceClick"() {
     (new AccountPlanner()).whiteSpaceClick()
 }
 
+def static "AccountPlanner.eventHeaderWhitespaceClick"() {
+    (new AccountPlanner()).eventHeaderWhitespaceClick()
+}
+
+def static "AccountPlanner.clickEvents"() {
+    (new AccountPlanner()).clickEvents()
+}
+
 def static "AccountPlanner.clickSavebutton"() {
     (new AccountPlanner()).clickSavebutton()
+}
+
+def static "AccountPlanner.btnclickEvents"() {
+    (new AccountPlanner()).btnclickEvents()
+}
+
+def static "AccountPlanner.clickEventsCreteButton"() {
+    (new AccountPlanner()).clickEventsCreteButton()
+}
+
+def static "AccountPlanner.eventsCreateAlert1"() {
+    (new AccountPlanner()).eventsCreateAlert1()
+}
+
+def static "AccountPlanner.clickBaseplaningQuarter"() {
+    (new AccountPlanner()).clickBaseplaningQuarter()
+}
+
+def static "AccountPlanner.clickBaseplaningMonth"() {
+    (new AccountPlanner()).clickBaseplaningMonth()
+}
+
+def static "AccountPlanner.clickBaseplaningWeek"() {
+    (new AccountPlanner()).clickBaseplaningWeek()
+}
+
+def static "AccountPlanner.createEventName"(
+    	String eventName	) {
+    (new AccountPlanner()).createEventName(
+        	eventName)
+}
+
+def static "AccountPlanner.createEventID"(
+    	String eventid	) {
+    (new AccountPlanner()).createEventID(
+        	eventid)
+}
+
+def static "AccountPlanner.addContractorNumbers"(
+    	String contractorNumbers	) {
+    (new AccountPlanner()).addContractorNumbers(
+        	contractorNumbers)
+}
+
+def static "AccountPlanner.customer"(
+    	String customer	) {
+    (new AccountPlanner()).customer(
+        	customer)
+}
+
+def static "AccountPlanner.startdate"(
+    	String startDate	) {
+    (new AccountPlanner()).startdate(
+        	startDate)
+}
+
+def static "AccountPlanner.Enddate"(
+    	String endDate	) {
+    (new AccountPlanner()).Enddate(
+        	endDate)
+}
+
+def static "AccountPlanner.multiEventCreateDataInput"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).multiEventCreateDataInput(
+        	td
+         , 	rowNo)
 }
 
 def static "AccountPlanner.selectMiddleHeader"(
@@ -458,6 +320,426 @@ def static "AccountPlanner.verifySelectedVersion"(
         	version)
 }
 
+def static "AccountPlanner.updateConsumptionCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String value	) {
+    (new AccountPlanner()).updateConsumptionCellValue(
+        	colName
+         , 	row
+         , 	value)
+}
+
+def static "AccountPlanner.updateDistributionCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String value	) {
+    (new AccountPlanner()).updateDistributionCellValue(
+        	colName
+         , 	row
+         , 	value)
+}
+
+def static "AccountPlanner.updateVelocityCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String value	) {
+    (new AccountPlanner()).updateVelocityCellValue(
+        	colName
+         , 	row
+         , 	value)
+}
+
+def static "AccountPlanner.getConsumptionCellValue"(
+    	String colName	
+     , 	int row	) {
+    (new AccountPlanner()).getConsumptionCellValue(
+        	colName
+         , 	row)
+}
+
+def static "AccountPlanner.getDistributionCellValue"(
+    	String colName	
+     , 	int row	) {
+    (new AccountPlanner()).getDistributionCellValue(
+        	colName
+         , 	row)
+}
+
+def static "AccountPlanner.getVelocityCellValue"(
+    	String colName	
+     , 	int row	) {
+    (new AccountPlanner()).getVelocityCellValue(
+        	colName
+         , 	row)
+}
+
+def static "AccountPlanner.getConsumptionCellTotal"(
+    	String colName	) {
+    (new AccountPlanner()).getConsumptionCellTotal(
+        	colName)
+}
+
+def static "AccountPlanner.getDistributionCellTotal"(
+    	String colName	) {
+    (new AccountPlanner()).getDistributionCellTotal(
+        	colName)
+}
+
+def static "AccountPlanner.getVelocityCellTotal"(
+    	String colName	) {
+    (new AccountPlanner()).getVelocityCellTotal(
+        	colName)
+}
+
+def static "AccountPlanner.toggleQMW"(
+    	String toggleBy	) {
+    (new AccountPlanner()).toggleQMW(
+        	toggleBy)
+}
+
+def static "AccountPlanner.verifyConsumptionCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String expValue	) {
+    (new AccountPlanner()).verifyConsumptionCellValue(
+        	colName
+         , 	row
+         , 	expValue)
+}
+
+def static "AccountPlanner.verifyDistributionCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String expValue	) {
+    (new AccountPlanner()).verifyDistributionCellValue(
+        	colName
+         , 	row
+         , 	expValue)
+}
+
+def static "AccountPlanner.verifyVelocityCellValue"(
+    	String colName	
+     , 	int row	
+     , 	String expValue	) {
+    (new AccountPlanner()).verifyVelocityCellValue(
+        	colName
+         , 	row
+         , 	expValue)
+}
+
+def static "CompassUIElements.selectListBox"(
+    	TestObject to	
+     , 	String data	) {
+    (new CompassUIElements()).selectListBox(
+        	to
+         , 	data)
+}
+
+def static "CompassUIElements.waitCompassLoad"() {
+    (new CompassUIElements()).waitCompassLoad()
+}
+
+def static "CompassUIElements.clickButton"(
+    	TestObject to	) {
+    (new CompassUIElements()).clickButton(
+        	to)
+}
+
+def static "CompassUIElements.executeJavaScript"(
+    	TestObject to	
+     , 	String javascript	) {
+    (new CompassUIElements()).executeJavaScript(
+        	to
+         , 	javascript)
+}
+
+def static "CompassUIElements.selectMultiList"() {
+    (new CompassUIElements()).selectMultiList()
+}
+
+def static "CompassUIElements.checkButtonEnable"(
+    	TestObject to	) {
+    (new CompassUIElements()).checkButtonEnable(
+        	to)
+}
+
+def static "CompassUIElements.productCostTableItemsDelete"() {
+    (new CompassUIElements()).productCostTableItemsDelete()
+}
+
+def static "CompassUIElements.countAllDeleteButtons"(
+    	String to	) {
+    (new CompassUIElements()).countAllDeleteButtons(
+        	to)
+}
+
+def static "CompassUIElements.kendoMultiSelectList"(
+    	TestObject to	
+     , 	String item	) {
+    (new CompassUIElements()).kendoMultiSelectList(
+        	to
+         , 	item)
+}
+
+def static "CompassUIElements.kendoDeleteMultiSelectItem"(
+    	String item	) {
+    (new CompassUIElements()).kendoDeleteMultiSelectItem(
+        	item)
+}
+
+def static "CompassUIElements.kendoChartWidgetClose"(
+    	String chartDisplayName	) {
+    (new CompassUIElements()).kendoChartWidgetClose(
+        	chartDisplayName)
+}
+
+def static "CompassUIElements.kendoVerifyChartVisible"(
+    	String chartName	) {
+    (new CompassUIElements()).kendoVerifyChartVisible(
+        	chartName)
+}
+
+def static "CompassUIElements.verifyElementData"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).verifyElementData(
+        	to
+         , 	value)
+}
+
+def static "CompassUIElements.checkElementVisible"(
+    	TestObject to	
+     , 	int timeOut	) {
+    (new CompassUIElements()).checkElementVisible(
+        	to
+         , 	timeOut)
+}
+
+def static "CompassUIElements.countAllCheckboxes"(
+    	String to	) {
+    (new CompassUIElements()).countAllCheckboxes(
+        	to)
+}
+
+def static "CompassUIElements.checkAllCheckboxes"(
+    	int size	) {
+    (new CompassUIElements()).checkAllCheckboxes(
+        	size)
+}
+
+def static "CompassUIElements.clickBasePlanningQMW"(
+    	String data	) {
+    (new CompassUIElements()).clickBasePlanningQMW(
+        	data)
+}
+
+def static "CompassUIElements.clickCreateViewbtn"(
+    	String data	) {
+    (new CompassUIElements()).clickCreateViewbtn(
+        	data)
+}
+
+def static "CompassUIElements.setText"(
+    	TestObject to	
+     , 	String text	) {
+    (new CompassUIElements()).setText(
+        	to
+         , 	text)
+}
+
+def static "CompassUIElements.kendoGridOperation"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	String column	
+     , 	String operation	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridOperation(
+        	tblObj
+         , 	rowNo
+         , 	column
+         , 	operation
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridCellOperation"(
+    	String tblXPath1	
+     , 	String operation	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridCellOperation(
+        	tblXPath1
+         , 	operation
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridSelectCheckBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	String column	) {
+    (new CompassUIElements()).kendoGridSelectCheckBox(
+        	tblObj
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoGridSelectCheckBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridSelectCheckBox(
+        	tblObj
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoGridEnterTextBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridEnterTextBox(
+        	tblObj
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridSelectListBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridSelectListBox(
+        	tblObj
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.BuildTableColumns"(
+    	TestObject tb	) {
+    (new CompassUIElements()).BuildTableColumns(
+        	tb)
+}
+
+def static "CompassUIElements.EnterValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).EnterValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.EnterDateInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String date	) {
+    (new CompassUIElements()).EnterDateInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	date)
+}
+
+def static "CompassUIElements.kendoGridEnterTextInCell"(
+    	String rowNo	
+     , 	int column	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridEnterTextInCell(
+        	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridGetTextInCell"(
+    	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridGetTextInCell(
+        	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoDialogBoxHandler"(
+    	String isDisplayed	
+     , 	String verifyText	
+     , 	String ppgname	
+     , 	String ppgtype	
+     , 	String buttonToClick	) {
+    (new CompassUIElements()).kendoDialogBoxHandler(
+        	isDisplayed
+         , 	verifyText
+         , 	ppgname
+         , 	ppgtype
+         , 	buttonToClick)
+}
+
+def static "CompassUIElements.SelectValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).SelectValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.GetValueInTablecell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	) {
+    (new CompassUIElements()).GetValueInTablecell(
+        	tb
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.selectKendoButtonList"(
+    	String data	) {
+    (new CompassUIElements()).selectKendoButtonList(
+        	data)
+}
+
+def static "CompassUIElements.kendoGetText"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).kendoGetText(
+        	to
+         , 	value)
+}
+
+def static "CompassUIElements.isElementPresent"(
+    	TestObject to	
+     , 	int timeOut	) {
+    (new CompassUIElements()).isElementPresent(
+        	to
+         , 	timeOut)
+}
+
+def static "CompassUIElements.isElementAttributeExists"(
+    	TestObject to	
+     , 	String attribute	
+     , 	int timeOut	) {
+    (new CompassUIElements()).isElementAttributeExists(
+        	to
+         , 	attribute
+         , 	timeOut)
+}
+
+def static "CompassUIElements.kendoEnterText"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).kendoEnterText(
+        	to
+         , 	value)
+}
+
 def static "HamburgMenu.clickHamburgMenu"(
     	String menuItem	) {
     (new HamburgMenu()).clickHamburgMenu(
@@ -544,6 +826,12 @@ def static "Dashboard.selectCategory"(
     	String category	) {
     (new Dashboard()).selectCategory(
         	category)
+}
+
+def static "Dashboard.selectCustomer"(
+    	String customer	) {
+    (new Dashboard()).selectCustomer(
+        	customer)
 }
 
 def static "Dashboard.btnClickAddSections"() {
@@ -688,20 +976,44 @@ def static "CustomerSettings.saveBtn"() {
     (new CustomerSettings()).saveBtn()
 }
 
+def static "CustomerSettings.groupBtn"() {
+    (new CustomerSettings()).groupBtn()
+}
+
 def static "CustomerSettings.selectItem"(
     	int i	) {
     (new CustomerSettings()).selectItem(
         	i)
 }
 
-def static "CustomerSettings.selectPPG"() {
-    (new CustomerSettings()).selectPPG()
+def static "CustomerSettings.addToGroup"(
+    	String isNew	
+     , 	String grpName	) {
+    (new CustomerSettings()).addToGroup(
+        	isNew
+         , 	grpName)
+}
+
+def static "CustomerSettings.createNewGroupname"() {
+    (new CustomerSettings()).createNewGroupname()
+}
+
+def static "CustomerSettings.clickBtnOfselectPPG"() {
+    (new CustomerSettings()).clickBtnOfselectPPG()
+}
+
+def static "CustomerSettings.clickGroupWindow"() {
+    (new CustomerSettings()).clickGroupWindow()
 }
 
 def static "CustomerSettings.selectItemsFromList"(
     	String data	) {
     (new CustomerSettings()).selectItemsFromList(
         	data)
+}
+
+def static "CustomerSettings.clickPPGActivationCheckboxes"() {
+    (new CustomerSettings()).clickPPGActivationCheckboxes()
 }
 
 def static "CustomerSettings.selectItemsfromExcel"(
@@ -716,6 +1028,10 @@ def static "CustomerSettings.clickOnPopUp"(
     	String titlename	) {
     (new CustomerSettings()).clickOnPopUp(
         	titlename)
+}
+
+def static "CustomerSettings.ClickPPgBtn"() {
+    (new CustomerSettings()).ClickPPgBtn()
 }
 
 def static "CustomerSettings.selectPopUpDelete"(
@@ -738,18 +1054,42 @@ def static "CustomerSettings.removeAllPPGAndGroups"() {
     (new CustomerSettings()).removeAllPPGAndGroups()
 }
 
-def static "CustomerSettings.selectPPGs"(
+def static "CustomerSettings.removeOnePPGAndGroup"() {
+    (new CustomerSettings()).removeOnePPGAndGroup()
+}
+
+def static "CustomerSettings.setValuesInPPGActivationTable"(
     	TestData td	
      , 	String rowNo	) {
-    (new CustomerSettings()).selectPPGs(
+    (new CustomerSettings()).setValuesInPPGActivationTable(
         	td
          , 	rowNo)
 }
 
-def static "CustomerSettings.selectPPGs"(
+def static "CustomerSettings.selectPPgs"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectPPgs(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.whitespace"() {
+    (new CustomerSettings()).whitespace()
+}
+
+def static "CustomerSettings.selectPPG"(
     	String item	) {
-    (new CustomerSettings()).selectPPGs(
+    (new CustomerSettings()).selectPPG(
         	item)
+}
+
+def static "CustomerSettings.clickSelectPPGTextBox"() {
+    (new CustomerSettings()).clickSelectPPGTextBox()
+}
+
+def static "CustomerSettings.clearTextPPg"() {
+    (new CustomerSettings()).clearTextPPg()
 }
 
 def static "CustomerSettings.clickAddPPGButton"(

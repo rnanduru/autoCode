@@ -13,3 +13,20 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
+
+CustomKeywords.'AccountPlanner.btnclickEvents'()
+
+CustomKeywords.'AccountPlanner.clickEventsCreteButton'()
+
+CustomKeywords.'AccountPlanner.eventsCreateAlert1'()
+WebUI.delay(2)
+
+WebUI.switchToWindowTitle('Event Header')
+
+CustomKeywords.'AccountPlanner.multiEventCreateDataInput'(findTestData('AccountPlanner'), '1')
+
+CustomKeywords.'AccountPlanner.startdate'(findTestData('AccountPlanner'), '1')
+
+not_run: CustomKeywords.'AccountPlanner.Enddate'(findTestData('AccountPlanner'), '1')
+

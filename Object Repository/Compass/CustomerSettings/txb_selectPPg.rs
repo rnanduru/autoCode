@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>txb_selectPPg</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>70421e7f-598d-48a7-9ee5-7c232370018c</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-      </entry>
-      <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//span/input[@class='k-input ng-valid ng-dirty ng-touched']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
+      <matchCondition>contains</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//span/input[@class='k-input ng-valid ng-dirty ng-touched']</value>
    </webElementProperties>
 </WebElementEntity>

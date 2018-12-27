@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>btn_Eventheader_whitespaceclick</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>bcc86abf-1941-4ce1-a057-4400465e881d</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-      </entry>
-      <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//h3[@class='page-title float-left ' and text()='Event Header ']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//h3[@class='page-title float-left ' and text()='Event Header ']</value>
    </webElementProperties>
 </WebElementEntity>

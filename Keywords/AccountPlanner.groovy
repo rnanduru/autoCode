@@ -5,6 +5,7 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import org.stringtemplate.v4.compiler.STParser.compoundElement_return
 import java.lang.String.CaseInsensitiveComparator
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 import com.gargoylesoftware.htmlunit.javascript.host.media.webkitMediaStream
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
@@ -18,11 +19,21 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain
 import internal.GlobalVariable
+
+import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
+
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import org.openqa.selenium.interactions.Action
 
 public class AccountPlanner {
+	public static HashMap consumptionAllCols,distriAllCols,velAllCols;
+	public static String baseDiv;
+	public static String baseDataDiv;
+	public static String baseTotalsDiv;
+	public static iTable;
+
 	@Keyword
 	public static void selectPlanYear(String plan_year){
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_plan_year'), plan_year)
@@ -52,11 +63,105 @@ public class AccountPlanner {
 		WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/white_space'))
 	}
 	@Keyword
+	public static void eventHeaderWhitespaceClick(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_Eventheader_whitespaceclick'))
+	}
+	@Keyword
+	public static void clickEvents(){
+		TestObject to=General.createObject("//accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/div/kendo-dropdownbutton[2]/button[contains(text(),'Events')]")
+		//call CustomUIElements button enable
+		boolean elementclickable=CompassUIElements.checkButtonEnable(to)
+		if(elementclickable==true)
+		{
+			//call CustomUIElements button click
+			CompassUIElements.clickButton(to)
+		}
+	}
+	@Keyword
 	public static void clickSavebutton(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_save'))
 	}
-
-
+	@Keyword
+	public static void btnclickEvents(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/ddb_events'))
+	}
+	@Keyword
+	public static void clickEventsCreteButton(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_events_create'))
+	}
+	@Keyword
+	public static void eventsCreateAlert1(){
+		WebDriver driver = DriverFactory.getWebDriver()
+		if(driver.findElements(By.xpath("//kendo-dialog")).size()>=0){
+			CompassUIElements.kendoDialogBoxHandler("True","Failed to load Kraft fiscal weeks !", "", "", "Ok")
+		}
+	}
+	/*@Keyword
+	 public static void clickBaseplaningQMWbtn(TestData td,String rowNo){
+	 Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+	 for(Map dataObj :dataMap.values()){
+	 //CompassUIElements.clickButton(findTestObject("//div[@id='k-tabstrip-tabpanel-1']/div/div/div/div[@class='black v-column']/span[contains(text(),'"+data+"')]"))	
+	 CompassUIElements.clickBasePlanningQMW(dataObj.get('TIME'))
+	 }
+	 }*/
+	@Keyword
+	public static void clickBaseplaningQuarter(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_quarter'))
+	}
+	@Keyword
+	public static void clickBaseplaningMonth(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_month'))
+	}
+	@Keyword
+	public static void clickBaseplaningWeek(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_week'))
+	}
+	@Keyword
+	public static void createEventName(String eventName){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/txt_events_create_eventname'))
+		WebUI.delay(2)
+		println 'createEventName is  '+eventName
+		CompassUIElements.setText(findTestObject('Object Repository/Compass/AccountPlaner/txt_events_create_eventname'),eventName)
+	}
+	@Keyword
+	public static void createEventID(String eventid){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/txt_event_id'))
+		WebUI.delay(2)
+		CompassUIElements.setText(findTestObject('Object Repository/Compass/AccountPlaner/txt_event_id'),eventid)
+	}
+	@Keyword
+	public static void addContractorNumbers(String contractorNumbers){
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement element= WebUiCommonHelper.findWebElement(findTestObject('Object Repository/Compass/AccountPlaner/txt_add_contractor_numbers'), 0)
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript(element);
+		CompassUIElements.setText(findTestObject('Object Repository/Compass/AccountPlaner/txt_add_contractor_numbers'),contractorNumbers)
+	}
+	@Keyword
+	public static void customer(String customer){
+		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_eventCrete_customer'),customer)
+	}
+	@Keyword
+	public static void startdate(String startDate){
+		WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_start_datepicker'),startDate)
+	}
+	@Keyword
+	public static void Enddate(String endDate){
+		WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_event_end_datepicker'),endDate)
+	}
+	@Keyword
+	public static void multiEventCreateDataInput(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			createEventName(dataObj.get('CREATE_EVENT_NAME'))
+			WebUI.delay(2)
+			customer(dataObj.get('CUSTOMER'))
+			eventHeaderWhitespaceClick()
+			//addContractorNumbers(dataObj.get('CONTRACTOR_NUMBERS'))
+			//startdate(dataObj.get('START_DATE1'))
+			//Enddate(dataObj.get('END_DATE1'))
+		}
+	}
 	@Keyword
 	public static void selectMiddleHeader(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
@@ -158,6 +263,7 @@ public class AccountPlanner {
 			enterAccountPlannerHeader(dataObj.get('PLAN_YEAR'), dataObj.get('CUSTOMER PLAN'), dataObj.get('CATEGORY'))
 		}
 	}
+
 	@Keyword
 	public static void enterAccountPlannerHeader(String planYear,String custPlan,String category, String newString){
 		selectPlanYear("")
@@ -254,7 +360,6 @@ public class AccountPlanner {
 
 	}
 
-
 	//click on save button
 	@Keyword
 	public static void clickSavebtn(){
@@ -337,7 +442,6 @@ public class AccountPlanner {
 	}
 
 	//verify selected version from list
-
 	@Keyword
 	public static void verifySelectedVersion(String version)
 	{
@@ -345,5 +449,184 @@ public class AccountPlanner {
 		WebUI.verifyElementVisible(to)
 	}
 
+	@Keyword
+	public static void updateConsumptionCellValue(String colName,int row,String value){
+		actionBasePlanCellValue("consumption",colName,row,"enter",value);
+	}
+
+	@Keyword
+	public static void updateDistributionCellValue(String colName,int row,String value){
+		actionBasePlanCellValue("distribution",colName,row,"enter",value);
+	}
+
+	@Keyword
+	public static void updateVelocityCellValue(String colName,int row,String value){
+		actionBasePlanCellValue("velocity",colName,row,"enter",value);
+	}
+
+	@Keyword
+	public static String getConsumptionCellValue(String colName,int row){
+		actionBasePlanCellValue("consumption",colName,row,"get","");
+	}
+
+	@Keyword
+	public static String getDistributionCellValue(String colName,int row){
+		actionBasePlanCellValue("distribution",colName,row,"get","");
+	}
+
+	@Keyword
+	public static String getVelocityCellValue(String colName,int row){
+		actionBasePlanCellValue("velocity",colName,row,"get","");
+	}
+
+	@Keyword
+	public static String getConsumptionCellTotal(String colName){
+		actionBasePlanCellValue("consumption",colName,0,"get","");
+	}
+
+	@Keyword
+	public static String getDistributionCellTotal(String colName){
+		actionBasePlanCellValue("distribution",colName,0,"get","");
+	}
+
+	@Keyword
+	public static String getVelocityCellTotal(String colName){
+		actionBasePlanCellValue("velocity",colName,0,"get","");
+	}
+	@Keyword
+	public static void toggleQMW(String toggleBy){
+		if(toggleBy.equalsIgnoreCase("M")){
+			if(CompassUIElements.isElementPresent(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_month'), 2))
+				WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_month'))
+		}
+		else if(toggleBy.equalsIgnoreCase("Q")){
+			if(CompassUIElements.isElementPresent(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_quarter'), 2))
+				WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_quarter'))
+		}
+		else if(toggleBy.equalsIgnoreCase("W")){
+			if(CompassUIElements.isElementPresent(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_week'), 2))
+				WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_week'))
+		}
+	}
+	@Keyword
+	public static void verifyConsumptionCellValue(String colName,int row,String expValue){
+		WebUI.verifyMatch(expValue, actionBasePlanCellValue("consumption",colName,row,"get",""), false, FailureHandling.STOP_ON_FAILURE);
+	}
+
+	@Keyword
+	public static void verifyDistributionCellValue(String colName,int row,String expValue){
+		WebUI.verifyMatch(expValue, actionBasePlanCellValue("consumption",colName,row,"get",""), false, FailureHandling.STOP_ON_FAILURE);
+	}
+
+	@Keyword
+	public static void verifyVelocityCellValue(String colName,int row,String expValue){
+		WebUI.verifyMatch(expValue, actionBasePlanCellValue("consumption",colName,row,"get",""), false, FailureHandling.STOP_ON_FAILURE);
+	}
+	public static String actionBasePlanCellValue(String tableName,String colName,int row,String action,String value){
+		cookConsumptionTableObjects(tableName);
+		int com = (int) Math.ceil(row / 13)
+		int quo = (int) Math.floor(row % 13)
+		int cell = 0;
+		int row1;
+		if(quo == 0){
+			row1 = 3;
+			cell = 4;
+		}
+		else if(quo <= 5){
+			row1 = 1;
+			cell = quo;
+		}
+		else if(quo <= 9){
+			row1 = 2;
+			cell = quo - 5;
+		}
+		else{
+			row1 = 3;
+			cell = quo - 9;
+		}
+		String cellDiv;
+		if(tableName.toLowerCase().contains("consumption")){
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+consumptionAllCols.get(colName)+"]"
+			baseTotalsDiv = baseDiv + "/div[3]/div["+consumptionAllCols.get(colName)+"]"
+		}
+		else if(tableName.toLowerCase().contains("distribution")){
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+distriAllCols.get(colName)+"]"
+			baseTotalsDiv = baseDiv + "/div[3]/div["+distriAllCols.get(colName)+"]"
+		}
+		else if(tableName.toLowerCase().contains("velocity")){
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+velAllCols.get(colName)+"]"
+			baseTotalsDiv = baseDiv + "/div[3]/div["+velAllCols.get(colName)+"]"
+		}
+		//String cellDiv = baseDataDiv + "/div["+com+"]/div["+row+"]/div["+cell+"]/div["+allCols.get(colName)+"]//input"
+		println cellDiv
+
+		if(action.equalsIgnoreCase("enter")){
+			TestObject cellInputObj = General.createObject(cellDiv+"\\input");
+			boolean isDisabled = CompassUIElements.isElementAttributeExists(cellInputObj, "disabled", 2);
+			if(!isDisabled){
+				WebUI.setText(cellInputObj, value);
+			}
+			return "true"
+		}
+		else if(action.equalsIgnoreCase("get")){
+			if(row != 0)
+				return CompassUIElements.executeJavaScript(General.createObject(cellDiv), 'return arguments[0].innerText;');
+			else
+				return CompassUIElements.executeJavaScript(General.createObject(baseTotalsDiv), 'return arguments[0].innerText;');
+		}
+	}
+
+	public static void cookConsumptionTableObjects(String tableName){
+		if(tableName.toLowerCase().contains("consumption"))
+			iTable = 1;
+		else if(tableName.toLowerCase().contains("distribution"))
+			iTable = 2;
+		else if(tableName.toLowerCase().contains("velocity"))
+			iTable = 3;
+
+		baseDiv = "//div[@id='k-tabstrip-tabpanel-1']/div/div[1]//div[@class='scrollable-bpl']/div["+iTable+"]";
+		baseDataDiv = "//div[@id='k-tabstrip-tabpanel-1']/div/div[3]/div[@class='scrollable-bpl']/div["+iTable+"]";
+		String headDiv = baseDiv + "/div[1]";
+		String baseColDiv = baseDiv + "/div[2]";
+		if((consumptionAllCols == null) && (tableName.toLowerCase().contains("consumption")))
+			consumptionAllCols = getConsumptionTableHeads(baseColDiv);
+		else if((distriAllCols == null) && (tableName.toLowerCase().contains("distribution")))
+			distriAllCols = getConsumptionTableHeads(baseColDiv);
+		else if((velAllCols == null) && (tableName.toLowerCase().contains("velocity")))
+			velAllCols = getConsumptionTableHeads(baseColDiv);
+	}
+	public static HashMap getConsumptionTableHeads(String colDiv){
+		//get all child div objects of the colDiv
+		//get the span value and put in a hash map "col name","iterator"
+		//TestObject colDivObj = General.
+		HashMap colMap = new HashMap();
+		TestObject colObj,colSpanObj;
+		String colString = "Test";
+		String colSpanObjString,textVal;
+		int i=1,k=1;
+
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement element;
+		JavascriptExecutor executor;
+		executor = ((driver) as JavascriptExecutor)
+		while(colString != ""){
+			colString = colDiv + "/div["+i+"]";
+			colObj = General.createObject(colString);
+			println colString;
+			boolean isPresent = CompassUIElements.isElementPresent(colObj,5)
+
+			if(isPresent){
+				colSpanObjString = colString + "/span";
+				colSpanObj = General.createObject(colSpanObjString);
+				textVal = executor.executeScript('return arguments[0].innerText;', WebUiCommonHelper.findWebElement(colSpanObj, 2)).toString()
+				colMap.put(textVal, k)
+				k++;
+			}
+			else
+				colString = "";
+			i++;
+		}
+		return colMap;
+	}
 }
 

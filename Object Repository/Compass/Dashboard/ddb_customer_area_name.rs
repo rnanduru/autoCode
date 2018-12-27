@@ -10,7 +10,7 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//compass-plan-selection-header-component/div[2]/div[2]/span[4]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//div[@class='row']/kendo-dropdownlist[4]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +20,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//compass-plan-selection-header-component/div[2]/div[2]/span[4]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//div[@class='row']/kendo-dropdownlist[4]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
    </webElementProperties>
 </WebElementEntity>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ddb_category</name>
+   <name>txb_add_to_group_createNewGroup</name>
    <tag></tag>
-   <elementGuidId>3baae6d6-8d25-48a2-ad81-9ee18766a6cf</elementGuidId>
+   <elementGuidId>b91ba65d-b222-4797-aaa6-b9dfc1f734c0</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//kendo-textbox-container/input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -20,6 +20,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//kendo-textbox-container/input</value>
    </webElementProperties>
 </WebElementEntity>

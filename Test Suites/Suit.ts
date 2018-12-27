@@ -4,7 +4,7 @@
    <name>Suit</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2018-11-21T19:34:41</lastRun>
+   <lastRun>2018-12-27T14:01:26</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>100</pageLoadTimeout>
@@ -20,7 +20,7 @@
    <testCaseLink>
       <guid>3e3267da-eb68-4e98-8eac-bb653479bd26</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Dashboard Verify Elements, Select Planning Items</testCaseId>
    </testCaseLink>
    <testCaseLink>
@@ -38,43 +38,43 @@
    <testCaseLink>
       <guid>ce661ac3-17dd-46dc-b1c7-8eb005291c8f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Account Planner Create a Product Plan</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>395f34e8-2bbc-4bb0-8604-7dd499c79558</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Select different PPG or PPG Group by using drop down of Product Selection, can load correct data depends on the selection</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>f8593516-acad-42e8-90eb-10980e588e7f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Swich version between Units and Cases get correct data</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>c4d8bdc6-ba89-4c0c-a593-74a1f2b2fb6a</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/On Product Costing tab, Error message should be prompted when user navigates away from the account planner page without entering one of the mandatory fields</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>e25da535-1f2e-4db9-b181-68ae4abf4c90</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/On Product Costing tab, Error message should be promted when user navigates away from the Prodcut Costing tab without Apply EDLP or entering one of the mandatory fields</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>d4081339-d8b0-4054-aa35-1fc3fa5b52fc</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/the user does not enter the start date and the end date and the EDLP Rate per Case or ELDP Rate per Unit or Spend Rate EDLP mandatory field error message should be prompted</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>b259301d-43fa-4ec7-adf5-8f97f346b758</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/On Product Costing tab, Delete button works correctly</testCaseId>
    </testCaseLink>
    <testCaseLink>

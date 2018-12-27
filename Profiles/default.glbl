@@ -54,4 +54,9 @@
       <initValue>'Customer Settings'</initValue>
       <name>menu_customer_settings</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'KIWI'</initValue>
+      <name>GroupName</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
