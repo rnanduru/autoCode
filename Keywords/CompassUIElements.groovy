@@ -225,9 +225,9 @@ public class CompassUIElements {
 		if(rowNo.equalsIgnoreCase("all")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
 			boolean isChecked;
-			for(int i=1;i<rows.size();i++){
-				tblXPath = tblXPath+"//tr["+i+"]/td["+column+"]";
-				kendoGridCellOperation(tblXPath,operation,data)
+			for(int i=1;i<rows.size()-1;i++){
+				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]";
+				kendoGridCellOperation(tblXPath1,operation,data)
 			}
 			println "test"
 		}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to export all related data on the page for both tabs via the ‘Export to Excel’ file, based on the week selection</description>
+   <name>ExportDataBasedOnWeekSelection</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>8386cc0e-1f26-448a-8c39-f2269dd2e6ed</testCaseGuid>
+</TestCaseEntity>

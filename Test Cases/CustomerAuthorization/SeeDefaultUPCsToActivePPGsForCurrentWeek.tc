@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to see the page load by default showing all the UPCs associated to all active PPGs for the current week (shipped UPCs)</description>
+   <name>SeeDefaultUPCsToActivePPGsForCurrentWeek</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c779329c-7a1b-47cd-befe-afaf5989e2f2</testCaseGuid>
+</TestCaseEntity>

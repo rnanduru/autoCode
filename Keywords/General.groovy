@@ -143,6 +143,11 @@ public class General {
 		return formattedDate
 	}
 	@Keyword
+	public static int getCurrentweekNum(){
+		Calendar now=Calendar.getInstance();
+		return now.get(Calendar.WEEK_OF_YEAR);
+	}
+	@Keyword
 	public static String GetValue(String data1){
 		//check for the text file with data
 		//if exists read the content and
