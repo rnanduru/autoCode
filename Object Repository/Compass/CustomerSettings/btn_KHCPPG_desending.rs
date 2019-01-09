@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>btn_KHCPPG_desending</name>
+   <tag></tag>
+   <elementGuidId>86ab83dd-a07c-462a-ba8e-f35989258809</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']/div/div[@role='presentation']/table[@role='presentation']/thead[@role='presentation']/tr[1]/th[2]/a/span</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']/div/div[@role='presentation']/table[@role='presentation']/thead[@role='presentation']/tr[1]/th[2]/a/span</value>
+   </webElementProperties>
+</WebElementEntity>

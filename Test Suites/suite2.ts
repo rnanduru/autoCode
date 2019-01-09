@@ -33,7 +33,7 @@
       <guid>0612ce5f-8d7c-4eb7-88ff-279726d5bbb5</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/Save button works correctly The info message box should be promted after saving data</testCaseId>
+      <testCaseId>Test Cases/Verify Save button works correctly or Not</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>c191a0c1-4f1a-4a5f-a84b-ea0293be8fda</guid>

@@ -127,11 +127,11 @@ public class CompassUIElements {
 				obj= General.createObject("//*[contains(.,'"+data+"') and ancestor::*[name()='kendo-chart']]//ancestor::*[name()='kendo-chart']/preceding-sibling::span")
 			else if(data.equalsIgnoreCase("events"))
 				obj = General.createObject("//th[contains(.,'Event ID')]//ancestor::*[name()='kendo-grid']/preceding-sibling::span")
-			if(checkElementVisible(obj, 1)){
+			if(checkElementVisible(obj, 5)){
 				WebUI.click(obj)
 				waitCompassLoad()
 				itemObj = General.createObject("//div[@class='k-multiselect-wrap k-floatwrap']//li/span[contains(.,'"+data+"')]")
-				if(checkElementVisible(itemObj, 1)){
+				if(checkElementVisible(itemObj, 5)){
 					KeywordUtil.markFailed("Though the widget "+data+" is remove, it is still showing up in the add sections list")
 				}
 			}
@@ -147,7 +147,7 @@ public class CompassUIElements {
 			boolean isVisible = true
 			try{
 
-				isVisible = WebUI.waitForElementVisible(itemObj,1)
+				isVisible = WebUI.waitForElementVisible(itemObj,5)
 
 			}
 			catch(Exception e){
@@ -155,7 +155,7 @@ public class CompassUIElements {
 			}
 			if(!isVisible)
 			{
-				KeywordUtil.markFailed("The chart with name "+data+" is not visible")
+				KeywordUtil.markPassed("The chart with name "+data+" is not visible")
 			}
 		}
 	}
@@ -268,7 +268,7 @@ public class CompassUIElements {
 		executor = ((driver) as JavascriptExecutor)
 		if(operation.equalsIgnoreCase("check"))
 		{
-			tblObj1 = tblXPath1+"/input";
+			tblObj1 = tblXPath1;
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
 				isChecked = WebUI.getAttribute(General.createObject(tblObj1), "checked");
@@ -286,9 +286,10 @@ public class CompassUIElements {
 		}
 		else if(operation.equalsIgnoreCase("get"))
 		{
-			tblObj1 = tblXPath1;
+			tblObj1 = tblXPath1+"//input";
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
-			return executor.executeScript("return arguments[0].innerText;",element).toString()
+			String stext=executor.executeScript("return arguments[0].innerText;",element).toString()
+			print 'stext'
 
 		}
 		else if(operation.equalsIgnoreCase("list"))
@@ -296,11 +297,11 @@ public class CompassUIElements {
 			if(data.contains("\$")){
 				data = data.replace("\$","\$");
 			}
-			tblObj1 = tblXPath1 + "//Select/option[contains(text()="+data+"')]"
+			tblObj1 = tblXPath1 + "//Select" // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
-			element.click();
+			//element.click();
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
-				executor.executeScript("arguments[0].value='"+data+"';",element)
+				executor.executeScript("var select = arguments[0]; for(var i = 0; i < select.options.length; i++){ if(select.options[i].text == arguments[1]){ select.options[i].selected = true; } };",element,data)
 			}
 		}
 	}
@@ -318,6 +319,10 @@ public class CompassUIElements {
 	public static void kendoGridEnterTextBox(TestObject tblObj,String rowNo,String column,String data){
 		//TestObject tblObj,String rowNo,int column,String operation,String data
 		kendoGridOperation(tblObj,rowNo,column,"set",data)
+	}
+	@Keyword
+	public static void KendoGridSortTableData(TestObject tblObj,String column,String rowNo,String data){
+		kendoGridOperation(tblObj,rowNo,column,"","get","")
 	}
 	@Keyword
 	public static void kendoGridSelectListBox(TestObject tblObj,String rowNo,String column,String data){

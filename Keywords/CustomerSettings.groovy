@@ -1,26 +1,18 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
-import com.kms.katalon.core.testdata.TestData
-import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 
-import org.eclipse.persistence.internal.jpa.parsing.jpql.antlr.JPQLParser.generalCaseExpression_scope
-import org.openqa.selenium.By as By
-import java.util.List;
-
+import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver as WebDriver
-
 import org.openqa.selenium.WebElement as WebElement
+
+import com.kms.katalon.core.annotation.Keyword
+import com.kms.katalon.core.model.FailureHandling
+import com.kms.katalon.core.testdata.TestData
+import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.webui.common.WebUiCommonHelper
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import common.*
 import internal.GlobalVariable
@@ -87,12 +79,11 @@ public class CustomerSettings {
 	}
 	@Keyword
 	public static void clickPPGActivationCheckboxes(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all", 1);
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all",1)
 	}
 
 	@Keyword
 	public static void selectItemsfromExcel(TestData td,String rowNo){
-		selectPPG()
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
 			selectItemsFromList(dataObj.get('PPG_NAME'))
@@ -137,7 +128,7 @@ public class CustomerSettings {
 
 	@Keyword
 	public static void removeAllPPGAndGroups(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all", 1);
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all",'');
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
 		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","","","OK");
 	}
@@ -156,6 +147,120 @@ public class CustomerSettings {
 			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),dataObj.get('GRID_ROW'),'11',dataObj.get('Shp_Lead_WK'))
 			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),dataObj.get('GRID_ROW'), '15',dataObj.get('COMMENTS'))
 		}
+	}
+	@Keyword
+	public static Map<String,String> getAllTableValuesInPPGActivationTable(TestObject to){
+
+		WebDriver driver=DriverFactory.getWebDriver()
+		//WebElement element=driver.findElements(By.xpath("//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']/div[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[2]"));
+		def headers = to.findPropertyValue("xpath")+"//thead[@role='presentation']/tr[1]/th"
+		to.addProperty("xpath", ConditionType.EQUALS, headers)
+		List<WebElement> tableHeaders=WebUiCommonHelper.findWebElements(to, 0)
+		Map<String,String> dataMap=new HashMap<String,String>();
+		WebElement element;
+		WebElement element1;
+		WebElement rowData1;
+		JavascriptExecutor executor;
+		def column = ""
+		def row=""
+		TestObject to1;
+		TestObject to2;
+		for(int i=2;i<=tableHeaders.size();i++){
+			def headXpath=to.findPropertyValue("xpath")+"//thead[@role='presentation']/tr[1]/th["+i+"]/a[@href='#']";
+			to1=to.addProperty("xpath", ConditionType.EQUALS, headXpath)
+			element = WebUiCommonHelper.findWebElement(to1, 0)
+			executor = ((driver) as JavascriptExecutor)
+			column = executor.executeScript('return arguments[0].innerText;', element).toString()
+			println "column data is......"+column
+			def rows=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr"
+			to.addProperty("xpath", ConditionType.EQUALS, rows)
+			List<WebElement> rowCount=WebUiCommonHelper.findWebElements(to, 30)
+			def rowValue=""
+
+			for(int j=1;j<=rowCount.size();j++){
+				def rowData=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr["+j+"]/td["+i+"]";
+				to2=to.addProperty("xpath", ConditionType.EQUALS, rowData)
+				element1 = WebUiCommonHelper.findWebElement(to2, 10)
+				row=executor.executeScript('return arguments[0].innerText;', element1).toString()
+				if(!rowValue.equalsIgnoreCase("")){
+					rowValue=rowValue+GlobalVariable.multivalueseperator+row
+				}
+				else
+					rowValue=row
+
+				println "row data is...."+ row
+				println "column is.."+column+":   "+row
+				dataMap.put(column, rowValue)
+			}
+		}
+
+
+		return dataMap;
+
+
+
+		/*	WebUI.click(findTestObject('Object Repository/Compass/CustomerSettings/btn_KHCPPG_desending'))
+		 ArrayList<String> sortedList = new ArrayList<>();
+		 for(String s:obtainedList){
+		 sortedList.add(s);
+		 }
+		 Collections.sort(sortedList);
+		 Assert.assertTrue((sortedList.equals(obtainedList)))*/
+
+		//CompassUIElements.KendoGridSortTableData(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),'2','Get','')
+	}
+
+	@Keyword
+	public static void verifySorting(TestObject to){
+
+		def headers = to.findPropertyValue("xpath")+"//thead[@role='presentation']/tr[1]/th"
+		to.addProperty("xpath", ConditionType.EQUALS, headers)
+		List<WebElement> tableHeaders=WebUiCommonHelper.findWebElements(to, 0)
+		for(int i=0;i<tableHeaders.size();i++){
+
+			Map<String, String> unSortedMap=getAllTableValuesInPPGActivationTable(to)
+
+			tableHeaders.get(i).click()
+			System.out.println("Unsorted Map : " + unSortedMap);
+
+			//LinkedHashMap preserve the ordering of elements in which they are inserted
+			/*LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+			 unSortedMap.entrySet(){
+			 .stream()
+			 .sorted(Map.Entry.comparingByValue())
+			 .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
+			 */
+			//tableHeaders.get(i).click()
+		}
+
+
+
+
+	}
+
+	@Keyword
+	public static void clickOnPPGActivationTableColumn(String colName){
+
+		WebUI.click(General.createObject("//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']/div/div[@role='presentation']/table[@role='presentation']/thead[@role='presentation']/tr[1]/th/a[@href='#' and text()='"+colName+"']"))
+
+	}
+
+	@Keyword
+	public static void verifyValuesOrder(String columnName,String concString ,String strSeperator, String order){
+		ArrayList<String> inString=new ArrayList<String>()
+		inString=concString.split(strSeperator)
+		ArrayList<String> inString2=new ArrayList<String>()
+		inString2=inString
+		if(order.equalsIgnoreCase("Asc")){
+			Collections.sort(inString2)
+		}
+		else{
+			Collections.sort(inString2, Collections.reverseOrder());
+		}
+		if(!inString.equals(inString2)){
+			KeywordUtil.markFailed("Column is not sorted "+columnName)
+		}
+
 	}
 	@Keyword
 	public static void selectPPgs(TestData td,String rowNo){

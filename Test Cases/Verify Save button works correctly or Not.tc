@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Save button works correctly or Not</name>
+   <tag>Account planner</tag>
+   <comment></comment>
+   <testCaseGuid>17f46cf0-9f0f-4981-967e-4772ecdc2f0a</testCaseGuid>
+</TestCaseEntity>

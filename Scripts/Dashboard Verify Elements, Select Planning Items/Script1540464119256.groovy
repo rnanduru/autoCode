@@ -22,13 +22,15 @@ CustomKeywords.'Dashboard.btnClickDashboardHeader'()
 
 CustomKeywords.'Dashboard.btnClickAddSections'()
 
-not_run: CustomKeywords.'Dashboard.toggleAddSelections'(true)
+CustomKeywords.'Dashboard.selectAddSectionsItem'(findTestData('Dashboard'), '1')
 
 CustomKeywords.'Dashboard.btnClickAddSections'()
 
-CustomKeywords.'Dashboard.selectAddSectionsItem'(findTestData('Dashboard'), '1')
+CustomKeywords.'Dashboard.btnClickAddSections'()
 
 CustomKeywords.'Dashboard.deleteAddSectionsItem'(findTestData('Dashboard'), '1')
+
+CustomKeywords.'Dashboard.btnClickAddSections'()
 
 CustomKeywords.'Dashboard.closeSelectionChart'('Trade Rate by Month;GSV LE vs')
 

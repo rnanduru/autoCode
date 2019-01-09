@@ -254,6 +254,10 @@ def static "AccountPlanner.verifyHeaderListItemsData"(
          , 	rowNo)
 }
 
+def static "AccountPlanner.verifyHeaderItemsData"() {
+    (new AccountPlanner()).verifyHeaderItemsData()
+}
+
 def static "AccountPlanner.accountPlannerHeaderListData"(
     	TestData td	
      , 	String rowNo	) {
@@ -601,6 +605,18 @@ def static "CompassUIElements.kendoGridEnterTextBox"(
         	tblObj
          , 	rowNo
          , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.KendoGridSortTableData"(
+    	TestObject tblObj	
+     , 	String column	
+     , 	String rowNo	
+     , 	String data	) {
+    (new CompassUIElements()).KendoGridSortTableData(
+        	tblObj
+         , 	column
+         , 	rowNo
          , 	data)
 }
 
@@ -1064,6 +1080,36 @@ def static "CustomerSettings.setValuesInPPGActivationTable"(
     (new CustomerSettings()).setValuesInPPGActivationTable(
         	td
          , 	rowNo)
+}
+
+def static "CustomerSettings.getAllTableValuesInPPGActivationTable"(
+    	TestObject to	) {
+    (new CustomerSettings()).getAllTableValuesInPPGActivationTable(
+        	to)
+}
+
+def static "CustomerSettings.verifySorting"(
+    	TestObject to	) {
+    (new CustomerSettings()).verifySorting(
+        	to)
+}
+
+def static "CustomerSettings.clickOnPPGActivationTableColumn"(
+    	String colName	) {
+    (new CustomerSettings()).clickOnPPGActivationTableColumn(
+        	colName)
+}
+
+def static "CustomerSettings.verifyValuesOrder"(
+    	String columnName	
+     , 	String concString	
+     , 	String strSeperator	
+     , 	String order	) {
+    (new CustomerSettings()).verifyValuesOrder(
+        	columnName
+         , 	concString
+         , 	strSeperator
+         , 	order)
 }
 
 def static "CustomerSettings.selectPPgs"(

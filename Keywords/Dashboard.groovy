@@ -89,15 +89,16 @@ public class Dashboard {
 			selectPlanYear(dataObj.get('PLAN_YEAR'))
 			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
 			selectCategory(dataObj.get('CATEGORY'))
-			selectCustomer(dataObj.get('CUSTOMER'))
+			//selectCustomer(dataObj.get('CUSTOMER'))
 		}
 	}
 	@Keyword
 	public static void selectAddSectionsItem(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
-			//CompassUIElements.kendoMultiSelectList(findTestObject('Compass/Dashboard/ddb_add_sections'), dataObj.get('ADD_SECTIONS'))
-			selectAddSectionsItem(dataObj.get('ADD_SECTIONS'))
+			CompassUIElements.kendoMultiSelectList(findTestObject('Compass/Dashboard/ddb_add_sections'), dataObj.get('ADD_SECTIONS'))
+			//selectAddSectionsItem(dataObj.get('ADD_SECTIONS'))
+			
 		}
 	}
 	@Keyword
