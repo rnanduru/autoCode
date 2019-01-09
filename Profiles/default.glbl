@@ -59,4 +59,14 @@
       <initValue>'KIWI'</initValue>
       <name>GroupName</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Event Management'</initValue>
+      <name>Event_Management</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Customer Authorization'</initValue>
+      <name>Customer_Authorization</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

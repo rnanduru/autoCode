@@ -68,10 +68,20 @@ public class GlobalVariable {
      */
     public static Object GroupName
      
+    /**
+     * <p></p>
+     */
+    public static Object Event_Management
+     
+    /**
+     * <p></p>
+     */
+    public static Object Customer_Authorization
+     
 
     static {
         def allVariables = [:]        
-        allVariables.put('default', ['url' : 'https://compassreg.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy', 'menu_customer_settings' : 'Customer Settings', 'GroupName' : 'KIWI'])
+        allVariables.put('default', ['url' : 'https://compassreg.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy', 'menu_customer_settings' : 'Customer Settings', 'GroupName' : 'KIWI', 'Event_Management' : 'Event Management', 'Customer_Authorization' : 'Customer Authorization'])
         
         String profileName = RunConfiguration.getExecutionProfile()
         
@@ -87,6 +97,8 @@ public class GlobalVariable {
         defaultdateformat = selectedVariables['defaultdateformat']
         menu_customer_settings = selectedVariables['menu_customer_settings']
         GroupName = selectedVariables['GroupName']
+        Event_Management = selectedVariables['Event_Management']
+        Customer_Authorization = selectedVariables['Customer_Authorization']
         
     }
 }

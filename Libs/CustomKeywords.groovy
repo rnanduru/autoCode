@@ -3,12 +3,78 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
+import com.kms.katalon.core.testobject.TestObject
+
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
-import com.kms.katalon.core.testobject.TestObject
 
+def static "EventManagement.clickExportToExcel"() {
+    (new EventManagement()).clickExportToExcel()
+}
+
+def static "EventManagement.clickEventsTab"() {
+    (new EventManagement()).clickEventsTab()
+}
+
+def static "EventManagement.clickProductsTab"() {
+    (new EventManagement()).clickProductsTab()
+}
+
+def static "EventManagement.kendoGridFilterCell"(
+    	TestObject tb	
+     , 	String column	
+     , 	String filterBy	
+     , 	String apply	) {
+    (new EventManagement()).kendoGridFilterCell(
+        	tb
+         , 	column
+         , 	filterBy
+         , 	apply)
+}
+
+def static "EventManagement.deleteAnyEvent"(
+    	int rowNumber	) {
+    (new EventManagement()).deleteAnyEvent(
+        	rowNumber)
+}
+
+def static "EventManagement.hideAndShowColumns"() {
+    (new EventManagement()).hideAndShowColumns()
+}
+
+def static "EventManagement.verifyTotalNumOfHeaders"(
+    	int row	
+     , 	int col	) {
+    (new EventManagement()).verifyTotalNumOfHeaders(
+        	row
+         , 	col)
+}
+
+def static "EventManagement.clickColumnsButton"() {
+    (new EventManagement()).clickColumnsButton()
+}
+
+def static "EventManagement.sortAndFilterColumns"() {
+    (new EventManagement()).sortAndFilterColumns()
+}
+
+def static "EventManagement.filterColumns"(
+    	TestObject to	) {
+    (new EventManagement()).filterColumns(
+        	to)
+}
+
+def static "EventManagement.clickCreateEventButton"(
+    	int row	) {
+    (new EventManagement()).clickCreateEventButton(
+        	row)
+}
+
+def static "EventManagement.createEvent"() {
+    (new EventManagement()).createEvent()
+}
 
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
@@ -762,64 +828,6 @@ def static "HamburgMenu.clickHamburgMenu"(
         	menuItem)
 }
 
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
 def static "Dashboard.verifyDashboardElements"(
     	TestObject to	) {
     (new Dashboard()).verifyDashboardElements(
@@ -958,6 +966,68 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.getCurrentweekNum"() {
+    (new General()).getCurrentweekNum()
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -992,6 +1062,10 @@ def static "CustomerSettings.saveBtn"() {
     (new CustomerSettings()).saveBtn()
 }
 
+def static "CustomerSettings.saveUPCBtn"() {
+    (new CustomerSettings()).saveUPCBtn()
+}
+
 def static "CustomerSettings.groupBtn"() {
     (new CustomerSettings()).groupBtn()
 }
@@ -1000,6 +1074,10 @@ def static "CustomerSettings.selectItem"(
     	int i	) {
     (new CustomerSettings()).selectItem(
         	i)
+}
+
+def static "CustomerSettings.clickUPCActivationBtn"() {
+    (new CustomerSettings()).clickUPCActivationBtn()
 }
 
 def static "CustomerSettings.addToGroup"(
@@ -1120,6 +1198,14 @@ def static "CustomerSettings.selectPPgs"(
          , 	rowNo)
 }
 
+def static "CustomerSettings.selectUPCs"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).selectUPCs(
+        	td
+         , 	rowNo)
+}
+
 def static "CustomerSettings.whitespace"() {
     (new CustomerSettings()).whitespace()
 }
@@ -1142,4 +1228,30 @@ def static "CustomerSettings.clickAddPPGButton"(
     	String item	) {
     (new CustomerSettings()).clickAddPPGButton(
         	item)
+}
+
+def static "CustomerSettings.clickAddUPCButton"() {
+    (new CustomerSettings()).clickAddUPCButton()
+}
+
+def static "CustomerAuthorization.clickKHCWeeksDropDown"() {
+    (new CustomerAuthorization()).clickKHCWeeksDropDown()
+}
+
+def static "CustomerAuthorization.selectKHCWeeks"(
+    	int num	) {
+    (new CustomerAuthorization()).selectKHCWeeks(
+        	num)
+}
+
+def static "CustomerAuthorization.clickEDLPTab"() {
+    (new CustomerAuthorization()).clickEDLPTab()
+}
+
+def static "CustomerAuthorization.clickHILOTab"() {
+    (new CustomerAuthorization()).clickHILOTab()
+}
+
+def static "CustomerAuthorization.clickExportToExcel"() {
+    (new CustomerAuthorization()).clickExportToExcel()
 }

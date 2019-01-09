@@ -4,7 +4,11 @@
    <name>Suit</name>
    <tag></tag>
    <isRerun>false</isRerun>
+<<<<<<< HEAD
    <lastRun>2019-01-08T19:35:17</lastRun>
+=======
+   <lastRun>2019-01-03T13:42:28</lastRun>
+>>>>>>> 26a8feaed5bcd48d519100b03cc035c4a557f440
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>100</pageLoadTimeout>

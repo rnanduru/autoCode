@@ -6,12 +6,11 @@
    <elementGuidId>55718500-db02-4272-95e6-1eb6e2d12d1c</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value>//compass-plan-selection-header-component/div[2]/div[2]/span[2]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <key>XPATH</key>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value></value>
+         <key>BASIC</key>
+         <value>//div[@class='row']/kendo-dropdownlist[2]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,6 +20,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//compass-plan-selection-header-component/div[2]/div[2]/span[2]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//div[@class='row']/kendo-dropdownlist[2]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
    </webElementProperties>
 </WebElementEntity>

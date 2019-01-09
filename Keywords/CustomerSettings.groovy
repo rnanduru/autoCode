@@ -36,6 +36,12 @@ public class CustomerSettings {
 	public static void saveBtn() {
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomSettings/btn_save'))
 	}
+
+	@Keyword
+	public static void saveUPCBtn() {
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_upcsave'))
+	}
+
 	@Keyword
 	public static void groupBtn(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_group'))
@@ -43,6 +49,10 @@ public class CustomerSettings {
 	@Keyword
 	public static void selectItem(int i){
 		CompassUIElements.clickButton(findTestObject("//div/button[position()='"+i+"']"))
+	}
+	@Keyword
+	public static void clickUPCActivationBtn(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_upcactivation'))
 	}
 	@Keyword
 	public static void addToGroup(String isNew,String grpName){
@@ -269,6 +279,15 @@ public class CustomerSettings {
 			CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/CustomerSettings/input_select_ppg'), dataObj.get("ADD_PPG"))
 		}
 	}
+
+	@Keyword
+	public static void selectUPCs(TestData td,String rowNo){
+
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td,rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/CustomerSettings/input_select_upc'), dataObj.get("ADD_PPG"))
+		}
+	}
 	@Keyword
 	public static void whitespace(){
 		WebUI.click(findTestObject('Object Repository/Compass/CustomerSettings/whitspace'))
@@ -276,7 +295,6 @@ public class CustomerSettings {
 	@Keyword
 	public static void selectPPG(String item){
 		CompassUIElements.checkItemInMultiSelectBox(findTestObject('Object Repository/Compass/CustomerSettings/input_select_ppg'), item)
-
 	}
 	@Keyword
 	public boolean clickSelectPPGTextBox(){
@@ -291,6 +309,11 @@ public class CustomerSettings {
 	public static void clickAddPPGButton(String item){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_add_ppg'))
 		//CompassUIElements.kendoDialogBoxHandler("true","1 PPG(s) has been added to the activation list","","","Ok");
+	}
+
+	@Keyword
+	public static void clickAddUPCButton(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_add_upc'))
 	}
 
 }
