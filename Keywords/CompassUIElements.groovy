@@ -575,12 +575,26 @@ public class CompassUIElements {
 	}
 	@Keyword
 	public static void kendoGetText(TestObject to, String value){
-		waitCompassLoad()
+		kendoVerifyText(to,value,"true")
+/*		waitCompassLoad()
 		String actual=WebUI.getText(to)
 		if(actual.equalsIgnoreCase(value)){
 			println 'text value is equal'+actual
 		}else{
 			println 'text is not equal'
+		}*/
+
+	}
+	@Keyword
+	public static void kendoVerifyText(TestObject to, String value,String doMatch){
+		waitCompassLoad()
+		String actual=WebUI.getText(to)
+		println "actaul value"+  actual
+		println "actaul value"+  value
+		if((!actual.equalsIgnoreCase(value)) && (doMatch.equalsIgnoreCase("true"))){
+			KeywordUtil.markFailed("Values do not match expected is "+value+" actual is "+actual);
+		}else{
+			println 'text is equal'
 		}
 
 	}
