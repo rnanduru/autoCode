@@ -272,17 +272,19 @@ public class AccountPlanner {
 	}
 	@Keyword
 	public static void DataInPlanYearList(String PlanYearList){
-		CompassUIElements.kendoGetText(findTestObject("//compass-plan-selection-header-component//div[1]//kendo-dropdownlist//span//span[@class='k-input'and text()='2019']"),PlanYearList)
+		//CompassUIElements.kendoGetText(findTestObject("//div[@class='row']/kendo-dropdownlist[1]/span[@role='listbox']/span[@class='k-input']"),PlanYearList)
+
+		CompassUIElements.kendoGetText(findTestObject('Compass/AccountPlaner/txt_plan_year'), PlanYearList)
 	}
 	@Keyword
 	public static void DataInCustomerPlanList(String CustomerPlanList ){
 		/*CompassUIElements.kendoGetText(findTestObject("//compass-plan-selection-header-component//div[2]//span[2]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input'and text()='2019 ALBERTSONS / Recipe Grated n Cul']"),CustomerPlanList)*/
-		CompassUIElements.kendoGetText(findTestObject("//compass-plan-selection-header-component[@class='ng-tns-c4-0']//div[@class='row']/kendo-dropdownlist[2]/span[@role='listbox']/span[@class='k-input' and text()='2019 WalMart  / Recipe Grated n Cul']"), CustomerPlanList)
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/AccountPlaner/txt_customerplan'),CustomerPlanList)
 	}
 	@Keyword
 	public static void DataInCategoryList(String CategoryList){
 		/*CompassUIElements.kendoGetText(("//compass-plan-selection-header-component//div[2]//span[3]/kendo-dropdownlist/span[@role='listbox']/span[@class='k-input'and text()='Recipe Cheese']"), CategoryList)*/
-		CompassUIElements.kendoGetText(findTestObject("//compass-plan-selection-header-component[@class='ng-tns-c4-0']//div[@class='row']/kendo-dropdownlist[3]/span[@role='listbox']//span[@class='k-input'and text()='Recipe Cheese']"),CategoryList)
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/AccountPlaner/txt_category'),CategoryList)
 	}
 	@Keyword
 	public static void clickProductCost(){
@@ -296,7 +298,6 @@ public class AccountPlanner {
 	public static void DataInUnits(String Units){
 		//TestObject to=General.createObject
 		CompassUIElements.kendoGetText(findTestObject("//kendo-dropdownlist/span//span[@class='k-input' and text()='Units']"),Units)
-
 	}
 	@Keyword
 	public static void VerifyListItemsData(TestData td,String rowNo)  {
@@ -310,16 +311,10 @@ public class AccountPlanner {
 	public static void verifyHeaderListItemsData(TestData td, String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
-			DataInPlanYearList(dataObj.get(''))
-			DataInCustomerPlanList(dataObj.get(''))
-			DataInCategoryList(dataObj.get(''))
+			DataInPlanYearList(dataObj.get('PLAN_YEAR'))
+			DataInCustomerPlanList(dataObj.get('CUSTOMER_PLAN'))
+			DataInCategoryList(dataObj.get('CATEGORY'))
 		}
-	}
-	@Keyword
-	public static void verifyHeaderItemsData(){
-		DataInPlanYearList()
-		DataInCustomerPlanList()
-		DataInCategoryList()
 	}
 	@Keyword
 	public static void accountPlannerHeaderListData(TestData td, String rowNo){

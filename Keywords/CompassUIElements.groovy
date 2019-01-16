@@ -222,12 +222,16 @@ public class CompassUIElements {
 		String tblXPath = (tblObj.findPropertyValue("xpath")+"//table").toString()
 		WebDriver driver = DriverFactory.getWebDriver()
 		waitCompassLoad()
+		println "xpath isssssss"+ tblXPath
 		if(rowNo.equalsIgnoreCase("all")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
-			boolean isChecked;
+			println "row size is "+rows.size()
+			boolean isChecked ;
 			for(int i=1;i<rows.size()-1;i++){
 				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]";
-				kendoGridCellOperation(tblXPath1,operation,data)
+
+				//table//tr[25]/td[1]
+				kendoGridCellOperation(tblXPath,operation,data)
 			}
 			println "test"
 		}
@@ -259,26 +263,28 @@ public class CompassUIElements {
 	}
 
 	@Keyword
-	public static String kendoGridCellOperation(String tblXPath1,String operation,String data){
+	public static String kendoGridCellOperation(String tblXPath,String operation,String data){
 		boolean isChecked = false;
 		String tblObj1;
 		WebDriver driver = DriverFactory.getWebDriver()
 		JavascriptExecutor executor;
 		WebElement element;
-		executor = ((driver) as JavascriptExecutor)
+		executor = ((driver) as JavascriptExecutor);
 		if(operation.equalsIgnoreCase("check"))
 		{
-			tblObj1 = tblXPath1;
+			tblObj1 = tblXPath;
+			println "xpath tyy"+tblObj1;
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
-				isChecked = WebUI.getAttribute(General.createObject(tblObj1), "checked");
+				isChecked = WebUI.getAttribute(General.createObject(tblObj1),"checked");
+				println "ischecked  " + isChecked
 				if(!isChecked)
 					executor.executeScript("arguments[0].click();",element)
 			}
 		}
 		else if(operation.equalsIgnoreCase("set"))
 		{
-			tblObj1 = tblXPath1+"//input";
+			tblObj1 = tblXPath+"//input";
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
 				executor.executeScript("arguments[0].value='"+data+"';",element)
@@ -286,7 +292,7 @@ public class CompassUIElements {
 		}
 		else if(operation.equalsIgnoreCase("get"))
 		{
-			tblObj1 = tblXPath1+"//input";
+			tblObj1 = tblXPath+"//input";
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			String stext=executor.executeScript("return arguments[0].innerText;",element).toString()
 			print 'stext'
@@ -297,7 +303,7 @@ public class CompassUIElements {
 			if(data.contains("\$")){
 				data = data.replace("\$","\$");
 			}
-			tblObj1 = tblXPath1 + "//Select" // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
+			tblObj1 = tblXPath + "//Select" // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			//element.click();
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
@@ -414,11 +420,13 @@ public class CompassUIElements {
 
 		def monthEx = dates[0]
 
-		String monthString = """//kendo-calendar//span[(text() = '
-					${monthEx}
-				' or . = '
-					${monthEx}
-				')]"""
+		/*String monthString = """//kendo-calendar//span[(text() = '
+		 ${monthEx}
+		 ' or . = '
+		 ${monthEx}
+		 ')]"""*/
+
+		String monthString = """(//kendo-calendar//li//span[contains(.,'${monthEx}')])[1]"""
 
 		WebUI.delay(1)
 
@@ -446,7 +454,7 @@ public class CompassUIElements {
 
 	}
 	@Keyword
-	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String ppgname,String ppgtype,String buttonToClick) {
+	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String buttonToClick) {
 		waitCompassLoad()
 		TestObject tb = General.createObject("//kendo-dialog")
 
@@ -484,22 +492,6 @@ public class CompassUIElements {
 		if(!verifyText.equalsIgnoreCase("")){
 			if(!WebUI.getText(messObj).toLowerCase().contains(verifyText.toLowerCase()))
 				KeywordUtil.markFailed("Dialog box text is not matched")
-			else if(verifyText.equalsIgnoreCase("Version Name:"))
-			{
-				WebUI.delay(8)
-				println "delay"
-				TestObject to=General.createObject("/html/body/app-root/div/div[1]/div/accounts-planner/kendo-dialog[5]/div[2]/div/div[1]/b")
-				WebUI.click(to)
-				TestObject to1=General.createObject("//div/input[@name='version' and @id='ppg']/following-sibling::label[contains(.,'"+ppgtype+"')]")
-				WebUI.delay(5)
-				RobotX.RoboKeyPressSpecial("<tab>")
-				RobotX.RoboKeyPressSpecial("<tab>")
-				General.robotEnterString(ppgname)
-				/*//WebUI.click(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"))
-				 WebUI.setText(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"),ppgname)
-				 */
-				WebUI.click(to1)
-			}
 		}
 		String buttonPath = tb1+"//kendo-dialog-titlebar/following-sibling::kendo-dialog-actions//button[contains(.,"+buttonToClick+")]"
 
@@ -576,13 +568,13 @@ public class CompassUIElements {
 	@Keyword
 	public static void kendoGetText(TestObject to, String value){
 		kendoVerifyText(to,value,"true")
-/*		waitCompassLoad()
-		String actual=WebUI.getText(to)
-		if(actual.equalsIgnoreCase(value)){
-			println 'text value is equal'+actual
-		}else{
-			println 'text is not equal'
-		}*/
+		/*		waitCompassLoad()
+		 String actual=WebUI.getText(to)
+		 if(actual.equalsIgnoreCase(value)){
+		 println 'text value is equal'+actual
+		 }else{
+		 println 'text is not equal'
+		 }*/
 
 	}
 	@Keyword
@@ -591,8 +583,8 @@ public class CompassUIElements {
 		String actual=WebUI.getText(to)
 		println "actaul value"+  actual
 		println "actaul value"+  value
-		if((!actual.equalsIgnoreCase(value)) && (doMatch.equalsIgnoreCase("true"))){
-			KeywordUtil.markFailed("Values do not match expected is "+value+" actual is "+actual);
+		if((!actual.replace(" ","").equalsIgnoreCase(value.replace(" ",""))) && (doMatch.equalsIgnoreCase("true"))){
+			KeywordUtil.markFailed("Values do not match expected is sot"+value.replace(" ","")+"eot actual is sot"+actual.replace(" ","")+"eot");
 		}else{
 			println 'text is equal'
 		}
