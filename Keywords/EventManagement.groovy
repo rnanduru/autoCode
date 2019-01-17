@@ -55,14 +55,14 @@ public class EventManagement {
 
 	@Keyword
 	public static void hideAndShowColumns(){
-		for(int rownumber=13;rownumber<=21;rownumber++){
+		for(int rownumber=13;rownumber<21;rownumber++){
 			TestObject to=General.createObject("//event-management-component[@class='ng-star-inserted']/kendo-dialog/div[2]/div/span["+rownumber+"]/label[@class='k-checkbox-label']")
 			WebUI.click(to)
 		}
 		WebUI.click(General.createObject("//event-management-component[@class='ng-star-inserted']/kendo-dialog//kendo-dialog-actions/button[@class='k-button ng-star-inserted']"))
 		WebUI.delay(2)
 	}
-	
+
 	@Keyword
 	public static void verifyTotalNumOfHeaders(int row,int col){
 		WebDriver driver = DriverFactory.getWebDriver()
@@ -97,11 +97,10 @@ public class EventManagement {
 			}
 		}
 	}
-	
-	
+
+
 	@Keyword
 	public static void filterColumns(TestObject to){
-		
 	}
 	@Keyword
 	public static void clickCreateEventButton(int row){
@@ -111,11 +110,42 @@ public class EventManagement {
 		obj=General.createObject("//app-root/kendo-popup//kendo-button-list[@class='ng-star-inserted']/ul/li["+row+"]")
 		WebUI.delay(2)
 		WebUI.click(obj)
-		
 	}
-	
+
 	@Keyword
-	public void createEvent(){
-		
+	public static void editByEventID(String event,String row){
+		TestObject filterIcon=General.createObject("//kendo-tabstrip/div["+row+"]//kendo-grid//div[@role='presentation']/table[@role='presentation']/thead[@role='presentation']/tr[2]/td[1]//kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-filter k-icon']")
+		WebUI.click(filterIcon)
+		WebUI.delay(2)
+		//Select Equal to Filter
+		WebUI.click(General.createObject("//kendo-list[@class='ng-star-inserted']//ul[@role='listbox']/li[1]"))
+		//Input textbox
+		//TestObject inpt=General.createObject("//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']//div[@role='presentation']/table[@role='presentation']//tr[2]/td[1]//kendo-grid-filter-wrapper-cell[@class='k-filtercell-wrapper']/input")
+		TestObject inpt=General.createObject("//kendo-tabstrip/div["+row+"]/kendo-grid//div[@role='presentation']/table[@role='presentation']//tr[2]/td[1]//kendo-grid-filter-wrapper-cell[@class='k-filtercell-wrapper']/input")
+		CompassUIElements.setText(inpt, event)
+		TestObject rowData=General.createObject("//kendo-tabstrip/div["+row+"]//kendo-grid//kendo-grid-list[@role='presentation']/div[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[1]//a")
+		WebUI.click(rowData)
+		CompassUIElements.waitCompassLoad()
+	}
+
+	@Keyword
+	public static void clickEventNameBtn(String str){
+		WebUI.click(findTestObject('Object Repository/Compass/EventManagement/btn_eventname'))
+		WebUI.delay(2)
+		WebUI.setText(findTestObject('Object Repository/Compass/EventManagement/txt_eventname'), str)
+	}
+
+	@Keyword
+	public static void clickSaveBtn(){
+		WebUI.click(findTestObject('Object Repository/Compass/EventManagement/btn_save'))
+		WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/Compass/EventManagement/btn_saveinfo_ok'))
+	}
+
+	@Keyword
+	public static void verifyEditEvent(String str,String eventName){
+		//event row Data 
+		TestObject rowData=General.createObject("//kendo-tabstrip/div["+str+"]/kendo-grid//kendo-grid-list[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[2]")
+		CompassUIElements.kendoVerifyText(rowData, eventName, "true")
 	}
 }

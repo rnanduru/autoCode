@@ -576,13 +576,13 @@ public class CompassUIElements {
 	@Keyword
 	public static void kendoGetText(TestObject to, String value){
 		kendoVerifyText(to,value,"true")
-/*		waitCompassLoad()
-		String actual=WebUI.getText(to)
-		if(actual.equalsIgnoreCase(value)){
-			println 'text value is equal'+actual
-		}else{
-			println 'text is not equal'
-		}*/
+		/*		waitCompassLoad()
+		 String actual=WebUI.getText(to)
+		 if(actual.equalsIgnoreCase(value)){
+		 println 'text value is equal'+actual
+		 }else{
+		 println 'text is not equal'
+		 }*/
 
 	}
 	@Keyword
