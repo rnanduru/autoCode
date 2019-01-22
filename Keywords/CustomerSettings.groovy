@@ -39,7 +39,7 @@ public class CustomerSettings {
 
 	@Keyword
 	public static void saveUPCBtn() {
-		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_upcsave'))
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_upc_save'))
 	}
 
 	@Keyword
@@ -52,7 +52,7 @@ public class CustomerSettings {
 	}
 	@Keyword
 	public static void clickUPCActivationBtn(){
-		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_upcactivation'))
+		CompassUIElements.clickButton(findTestObject('Compass/CustomerSettings/btn_upc_activation'))
 	}
 	@Keyword
 	public static void addToGroup(String isNew,String grpName){
@@ -74,7 +74,8 @@ public class CustomerSettings {
 	}
 	@Keyword
 	public static void clickBtnOfselectPPG(){
-		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn1selectppg'))
+		WebUI.click(findTestObject('Object Repository/Compass/CustomerSettings/btn1selectppg'))
+		//CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn1selectppg'))
 	}
 	@Keyword
 	public static void clickGroupWindow(){
@@ -89,7 +90,7 @@ public class CustomerSettings {
 	}
 	@Keyword
 	public static void clickPPGActivationCheckboxes(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all",1)
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),"all",1)
 	}
 
 	@Keyword
@@ -146,7 +147,7 @@ public class CustomerSettings {
 	public static void removeOnePPGAndGroup(){
 		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "1", 1)
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
-		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","","","OK");
+		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","OK");
 	}
 	@Keyword
 	public static void setValuesInPPGActivationTable(TestData td,String rowNo){
@@ -159,7 +160,19 @@ public class CustomerSettings {
 		}
 	}
 	@Keyword
-	public static Map<String,String> getAllTableValuesInPPGActivationTable(TestObject to){
+	public static void setValuesInUPCActivationTable(TestData td,String rowNo){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_upc_Activation'), dataObj.get('GRID_ROW'),'6',dataObj.get('Customer_Item_Desc'))
+			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_upc_Activation'), dataObj.get('GRID_ROW'),'11',dataObj.get('COMMENTS'))
+		}
+	}
+	@Keyword
+	public static void clickUPCBtn(){
+		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_upc_activation"))
+	}
+	@Keyword
+	public static Map<String,String> getAllTableValuesInPPGActivationTable(TestObject to,String inColumn){
 
 		WebDriver driver=DriverFactory.getWebDriver()
 		//WebElement element=driver.findElements(By.xpath("//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']/div[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[2]"));
@@ -175,40 +188,44 @@ public class CustomerSettings {
 		def row=""
 		TestObject to1;
 		TestObject to2;
-		for(int i=2;i<=tableHeaders.size();i++){
-			def headXpath=to.findPropertyValue("xpath")+"//thead[@role='presentation']/tr[1]/th["+i+"]/a[@href='#']";
+		boolean iFound = false;
+		int iColHeader = 2;
+		while(!iFound)
+		{
+			def headXpath=to.findPropertyValue("xpath")+"//thead[@role='presentation']/tr[1]/th["+iColHeader+"]/a[@href='#']";
 			to1=to.addProperty("xpath", ConditionType.EQUALS, headXpath)
 			element = WebUiCommonHelper.findWebElement(to1, 0)
 			executor = ((driver) as JavascriptExecutor)
 			column = executor.executeScript('return arguments[0].innerText;', element).toString()
 			println "column data is......"+column
-			def rows=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr"
-			to.addProperty("xpath", ConditionType.EQUALS, rows)
-			List<WebElement> rowCount=WebUiCommonHelper.findWebElements(to, 30)
-			def rowValue=""
-
-			for(int j=1;j<=rowCount.size();j++){
-				def rowData=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr["+j+"]/td["+i+"]";
-				to2=to.addProperty("xpath", ConditionType.EQUALS, rowData)
-				element1 = WebUiCommonHelper.findWebElement(to2, 10)
-				row=executor.executeScript('return arguments[0].innerText;', element1).toString()
-				if(!rowValue.equalsIgnoreCase("")){
-					rowValue=rowValue+GlobalVariable.multivalueseperator+row
-				}
-				else
-					rowValue=row
-
-				println "row data is...."+ row
-				println "column is.."+column+":   "+row
-				dataMap.put(column, rowValue)
-			}
+			if(column.trim().equalsIgnoreCase(inColumn))
+				iFound = true;
+			else
+				iColHeader++;
 		}
 
+		def rows=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr"
+		to.addProperty("xpath", ConditionType.EQUALS, rows)
+		List<WebElement> rowCount=WebUiCommonHelper.findWebElements(to, 30)
+		def rowValue=""
+
+		for(int j=1;j<=rowCount.size();j++){
+			def rowData=to.findPropertyValue("xpath")+"//table[@role='presentation']/tbody[@role='presentation']/tr["+j+"]/td["+iColHeader+"]";
+			to2=to.addProperty("xpath", ConditionType.EQUALS, rowData)
+			element1 = WebUiCommonHelper.findWebElement(to2, 10)
+			row=executor.executeScript('return arguments[0].innerText;', element1).toString()
+			if(j==1)
+				rowValue=row
+			if(!rowValue.equalsIgnoreCase("")){
+				rowValue=rowValue+GlobalVariable.multivalueseperator+row
+			}
+
+			println "row data is...."+ row
+			println "column is.."+column+":   "+row
+			dataMap.put(column.trim(), rowValue)
+		}
 
 		return dataMap;
-
-
-
 		/*	WebUI.click(findTestObject('Object Repository/Compass/CustomerSettings/btn_KHCPPG_desending'))
 		 ArrayList<String> sortedList = new ArrayList<>();
 		 for(String s:obtainedList){
@@ -251,9 +268,15 @@ public class CustomerSettings {
 	@Keyword
 	public static void clickOnPPGActivationTableColumn(String colName){
 
-		WebUI.click(General.createObject("//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']/div/div[@role='presentation']/table[@role='presentation']/thead[@role='presentation']/tr[1]/th/a[@href='#' and text()='"+colName+"']"))
+		WebUI.click(General.createObject("//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']/div/div[@role='presentation']//table[@role='presentation']//thead[@role='presentation']/tr[1]/th/a[@href='#' and text()='"+colName+"']"))
 
 	}
+	@Keyword
+	public static void clickOnUPCActivationTableColumn(String colName){
+		WebUI.click(General.createObject("//app-root//authorization-list//kendo-tabstrip/div[2]//kendo-grid/div[@role='grid']/div/div[@role='presentation']//table[@role='presentation']//thead[@role='presentation']/tr[1]/th/a[@href='#' and text()='"+colName+"']"))
+
+	}
+
 
 	@Keyword
 	public static void verifyValuesOrder(String columnName,String concString ,String strSeperator, String order){
@@ -261,7 +284,7 @@ public class CustomerSettings {
 		inString=concString.split(strSeperator)
 		ArrayList<String> inString2=new ArrayList<String>()
 		inString2=inString
-		if(order.equalsIgnoreCase("Asc")){
+		if(order.equalsIgnoreCase("asc")){
 			Collections.sort(inString2)
 		}
 		else{
