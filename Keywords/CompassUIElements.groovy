@@ -72,8 +72,18 @@ public class CompassUIElements {
 		}
 	}
 	@Keyword
+	public static void WherehouseWithdrawlSetText(String WWVolume){
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> ele=driver.findElements(By.xpath("//div/div[@class='grid-cell']/kendo-numerictextbox//input[@role='spinbutton']"))
+		int rowcount1=ele.size()
+		println "size of wwvolume rows"+rowcount1
+		for(int i=1;i<=rowcount1;i++){
+			driver.findElement(By.xpath("//div["+i+"]/div[@class='grid-cell']/kendo-numerictextbox//input[@role='spinbutton']")).sendKeys(WWVolume)
+			WebUI.delay(2)
+		}
+	}
+	@Keyword
 	public static int countAllDeleteButtons(String to) {
-
 		WebDriver driver = DriverFactory.getWebDriver()
 		List<WebElement> ele=driver.findElements(By.xpath(to))
 		int rowcount=ele.size()
@@ -228,11 +238,11 @@ public class CompassUIElements {
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
 			println "row size is "+rows.size()
 			boolean isChecked ;
-			for(int i=1;i<rows.size()-1;i++){
+			for(int i=1;i<=rows.size();i++){
 				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]";
 
 				//table//tr[25]/td[1]
-				kendoGridCellOperation(tblXPath,operation,data)
+				kendoGridCellOperation(tblXPath1,operation,data)
 			}
 			println "test"
 		}
@@ -275,12 +285,18 @@ public class CompassUIElements {
 		{
 			tblObj1 = tblXPath;
 			println "xpath tyy"+tblObj1;
-			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			//element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			element=driver.findElement(By.xpath(tblObj1))
+			println "is displayed"+	element.isDisplayed()
+			println "is Enabled"+	element.isEnabled()
+
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
 				isChecked = WebUI.getAttribute(General.createObject(tblObj1),"checked");
 				println "ischecked  " + isChecked
+				println "is selectedd"+element.isSelected()
 				if(!isChecked)
-					executor.executeScript("arguments[0].click();",element)
+					//executor.executeScript("arguments[0].click();",element);
+					element.click()
 			}
 		}
 		else if(operation.equalsIgnoreCase("set"))
@@ -606,13 +622,26 @@ public class CompassUIElements {
 	}
 	@Keyword
 	public static boolean isElementPresent(TestObject to,int timeOut){
-		try{
-			WebUI.verifyElementPresent(to, timeOut);
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
+		boolean status;
+
+		status = true;
+		println("In finding element =======================");
+		//com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI.verify
+		//return WebUI.verifyElementPresent(to, timeOut);
+
+		status = WebUI.verifyElementPresent(to, timeOut,FailureHandling.OPTIONAL)
+		return status;
+		println("After finding element =======================");
+
+		/*catch(Exception e){
+		 println("In catch finding element =======================");
+		 status = false;
+		 }
+		 catch(com.kms.katalon.core.webui.exception.WebElementNotFoundException e){
+		 println("In atch finding element =======================");
+		 status = false;
+		 }*/
+		//return status;
 	}
 	@Keyword
 	public static boolean isElementAttributeExists(TestObject to,String attribute,int timeOut){
