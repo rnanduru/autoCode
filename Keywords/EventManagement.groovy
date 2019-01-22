@@ -127,6 +127,19 @@ public class EventManagement {
 		WebUI.click(rowData)
 		CompassUIElements.waitCompassLoad()
 	}
+	/*
+	 * Verify's the corresponding PPGs eventsIDs
+	 */
+	@Keyword
+	public static void verifyPPGsEventID(){
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> element=driver.findElements(By.xpath("//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']/div[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr"))
+		if(element.size>0){
+			println "PPGs corresponding Event ID Exists"
+		}else{
+		    KeywordUtil.markFailed("PPGs corresponding Event ID Exists");
+		}
+	}
 
 	@Keyword
 	public static void clickEventNameBtn(String str){
@@ -144,8 +157,15 @@ public class EventManagement {
 
 	@Keyword
 	public static void verifyEditEvent(String str,String eventName){
-		//event row Data 
+		//event row Data
 		TestObject rowData=General.createObject("//kendo-tabstrip/div["+str+"]/kendo-grid//kendo-grid-list[@role='presentation']//table[@role='presentation']/tbody[@role='presentation']/tr[1]/td[2]")
 		CompassUIElements.kendoVerifyText(rowData, eventName, "true")
+	}
+	/*
+	 * Selects the PPGs above the event tab.
+	 */
+	@Keyword
+	public static void selectPPG(String ProductSelection){
+		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/EventManagement/ddb_product_selection'),ProductSelection)
 	}
 }
