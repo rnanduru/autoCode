@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>txt_customerplan</name>
+   <tag></tag>
+   <elementGuidId>73b5ebcf-5192-4865-9f8b-3f070c4cca67</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//div[@class='row']/kendo-dropdownlist[2]/span[@role='listbox']/span[@class='k-input']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div[@class='row']/kendo-dropdownlist[2]/span[@role='listbox']/span[@class='k-input']</value>
+   </webElementProperties>
+</WebElementEntity>

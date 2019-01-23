@@ -13,11 +13,15 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+/*(36).Able to apply EDLP changes, or see appropriate popup message telling you to do one of 5 updates to your line item 
+ * if EDLP has not been applied yet*/
+
 CustomKeywords.'AccountPlanner.clickAddNewBtn'()
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
 
-CustomKeywords.'AccountPlanner.AccountPlannerKendoDialogBox1'()
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'("true", "Do you want to save your Account Planner changes for", "OK")
 
-CustomKeywords.'AccountPlanner.AccountPlannerKendoDialogBox2'()
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'("true", "", "OK")
+
 WebUI.delay(3)

@@ -145,7 +145,7 @@ public class CustomerSettings {
 	}
 	@Keyword
 	public static void removeOnePPGAndGroup(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "1", 1)
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all", 1)
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
 		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","OK");
 	}
@@ -164,6 +164,7 @@ public class CustomerSettings {
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
 			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_upc_Activation'), dataObj.get('GRID_ROW'),'6',dataObj.get('Customer_Item_Desc'))
+			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_upc_Activation'), dataObj.get('GRID_ROW'),'7',dataObj.get('Customer_Item'))
 			CompassUIElements.kendoGridEnterTextBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_upc_Activation'), dataObj.get('GRID_ROW'),'11',dataObj.get('COMMENTS'))
 		}
 	}
@@ -272,7 +273,7 @@ public class CustomerSettings {
 
 	}
 	@Keyword
-	public static void clickOnUPCActivationTableColumn(String colName){
+	public static void clickOnUPCActivationTableColumn1(String colName){
 		WebUI.click(General.createObject("//app-root//authorization-list//kendo-tabstrip/div[2]//kendo-grid/div[@role='grid']/div/div[@role='presentation']//table[@role='presentation']//thead[@role='presentation']/tr[1]/th/a[@href='#' and text()='"+colName+"']"))
 
 	}

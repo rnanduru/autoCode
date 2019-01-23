@@ -34,10 +34,8 @@ public class CustomerAuthorization {
 	public static void clickExportToExcel(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerAuthorization/btn_exporttoexcel'))
 	}
-	
-	public static void verifyKendoGridFilter(){		
+
+	public static void verifyKendoGridFilter(){
 		WebDriver driver=DriverFactory.getWebDriver()
 	}
-	
-	
 }

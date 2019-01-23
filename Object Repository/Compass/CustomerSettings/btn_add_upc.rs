@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@class='float-left tool-bar']/button[contains(.,' Add UPC')]</value>
+         <value>//authorization-list//kendo-tabstrip/ul[@role='tablist']/li[2]/span[@class='k-link']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='float-left tool-bar']/button[contains(.,' Add UPC')]</value>
+      <value>//authorization-list//kendo-tabstrip/ul[@role='tablist']/li[2]/span[@class='k-link']</value>
    </webElementProperties>
 </WebElementEntity>

@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>(.//*[normalize-space(text()) and normalize-space(.)='LNUC: 0 |'])[1]/following::li[1]</value>
+         <value>//kendo-button-list[@class='ng-star-inserted']/ul/li[1]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='LNUC: 0 |'])[1]/following::li[1]</value>
+      <value>//kendo-button-list[@class='ng-star-inserted']/ul/li[1]</value>
    </webElementProperties>
 </WebElementEntity>

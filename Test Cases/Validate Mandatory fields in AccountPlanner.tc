@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>Validate Mandatory fields in AccountPlanner</name>
-   <tag>accountplanner</tag>
-   <comment></comment>
-   <testCaseGuid>1f300766-f7b2-47ee-9c33-5464ca422bc8</testCaseGuid>
-</TestCaseEntity>

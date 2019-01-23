@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>EditAllEditableFieldsInUPCActivation</name>
+   <tag>CustomerSettings</tag>
+   <comment></comment>
+   <testCaseGuid>0f344545-2f7f-450b-a2ec-3b8045a8be42</testCaseGuid>
+</TestCaseEntity>

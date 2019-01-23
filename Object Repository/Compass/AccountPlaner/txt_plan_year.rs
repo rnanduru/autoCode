@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>txt_plan_year</name>
+   <tag></tag>
+   <elementGuidId>c6900363-f687-4a65-9b36-bbdc2b0e1f92</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div[@class='row']/kendo-dropdownlist[1]/span[@role='listbox']/span[@class='k-input']</value>
+   </webElementProperties>
+</WebElementEntity>

@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[3]/kendo-datepicker/span/span/span</value>
+         <value>//kendo-datepicker[@placeholder='Execution End Date']//span[@role='button']/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[3]/kendo-datepicker/span/span/span</value>
+      <value>//kendo-datepicker[@placeholder='Execution End Date']//span[@role='button']/span</value>
    </webElementProperties>
 </WebElementEntity>

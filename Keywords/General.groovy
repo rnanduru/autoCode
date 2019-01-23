@@ -8,6 +8,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import java.util.Random;
 
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.checkpoint.Checkpoint
@@ -120,6 +121,12 @@ public class General {
 				}
 				data = data1
 			}
+			if(data.contains("{uid}")){
+				Random rand = new Random();
+				int value =	rand.nextInt((99 - 11) + 1) + 11;
+				def data1 = data.replace("{uid}", value);
+				data = data1;
+			}
 			if(data.equalsIgnoreCase(""))
 				data = "<null>"
 		}
@@ -171,5 +178,11 @@ public class General {
 		BufferedWriter out = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"\\Data Files\\Outputs\\" + variable +".txt"));
 		out.write(value);
 		out.close();
+	}
+	
+	@Keyword
+	public static String getRandomnum(int min,int max){
+		Random rand = new Random();
+		return rand.nextInt((max - min) + 1) + min;
 	}
 }

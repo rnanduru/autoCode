@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@class='float-left tool-bar']/button[contains(.,'Save')][1]</value>
+         <value>//div[@class='float-left tool-bar']//button[contains(.,'Save')][1]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//div[@class='float-left tool-bar']/button[contains(.,'Save')][1]</value>
+      <value>//div[@class='float-left tool-bar']//button[contains(.,'Save')][1]</value>
    </webElementProperties>
 </WebElementEntity>

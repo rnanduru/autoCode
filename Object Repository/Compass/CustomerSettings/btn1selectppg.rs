@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/div[@class='event-management__container']/div[@class='row']//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/div[@class='event-management__container']/div[@class='row']//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
    </webElementProperties>
 </WebElementEntity>

@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']//input</value>
+         <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']//input</value>
+      <value>//app-root//authorization-list//kendo-tabstrip/div[1]//kendo-grid//kendo-grid-list[@role='presentation']</value>
    </webElementProperties>
 </WebElementEntity>

@@ -174,10 +174,12 @@ def static "AccountPlanner.customer"(
         	customer)
 }
 
-def static "AccountPlanner.startdate"(
-    	String startDate	) {
-    (new AccountPlanner()).startdate(
-        	startDate)
+def static "AccountPlanner.startAndEndDate"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new AccountPlanner()).startAndEndDate(
+        	td
+         , 	rowNo)
 }
 
 def static "AccountPlanner.Enddate"(
@@ -232,10 +234,6 @@ def static "AccountPlanner.selectHeaderItem"(
     (new AccountPlanner()).selectHeaderItem(
         	td
          , 	rowNo)
-}
-
-def static "AccountPlanner.enterProductCostingData"() {
-    (new AccountPlanner()).enterProductCostingData()
 }
 
 def static "AccountPlanner.clickAddNewBtn"() {
@@ -320,10 +318,6 @@ def static "AccountPlanner.verifyHeaderListItemsData"(
          , 	rowNo)
 }
 
-def static "AccountPlanner.verifyHeaderItemsData"() {
-    (new AccountPlanner()).verifyHeaderItemsData()
-}
-
 def static "AccountPlanner.accountPlannerHeaderListData"(
     	TestData td	
      , 	String rowNo	) {
@@ -344,8 +338,10 @@ def static "AccountPlanner.clickClosebtn"() {
     (new AccountPlanner()).clickClosebtn()
 }
 
-def static "AccountPlanner.setViewName"() {
-    (new AccountPlanner()).setViewName()
+def static "AccountPlanner.setViewName"(
+    	String s	) {
+    (new AccountPlanner()).setViewName(
+        	s)
 }
 
 def static "AccountPlanner.clickSavebtn"() {
@@ -368,8 +364,18 @@ def static "AccountPlanner.selectView"(
         	view)
 }
 
+def static "AccountPlanner.clickWWDataButton"() {
+    (new AccountPlanner()).clickWWDataButton()
+}
+
 def static "AccountPlanner.clickVersion"() {
     (new AccountPlanner()).clickVersion()
+}
+
+def static "AccountPlanner.setVersionName"(
+    	String vName	) {
+    (new AccountPlanner()).setVersionName(
+        	vName)
 }
 
 def static "AccountPlanner.selectButtonList"(
@@ -538,6 +544,12 @@ def static "CompassUIElements.productCostTableItemsDelete"() {
     (new CompassUIElements()).productCostTableItemsDelete()
 }
 
+def static "CompassUIElements.WherehouseWithdrawlSetText"(
+    	String WWVolume	) {
+    (new CompassUIElements()).WherehouseWithdrawlSetText(
+        	WWVolume)
+}
+
 def static "CompassUIElements.countAllDeleteButtons"(
     	String to	) {
     (new CompassUIElements()).countAllDeleteButtons(
@@ -633,11 +645,11 @@ def static "CompassUIElements.kendoGridOperation"(
 }
 
 def static "CompassUIElements.kendoGridCellOperation"(
-    	String tblXPath1	
+    	String tblXPath	
      , 	String operation	
      , 	String data	) {
     (new CompassUIElements()).kendoGridCellOperation(
-        	tblXPath1
+        	tblXPath
          , 	operation
          , 	data)
 }
@@ -749,14 +761,10 @@ def static "CompassUIElements.kendoGridGetTextInCell"(
 def static "CompassUIElements.kendoDialogBoxHandler"(
     	String isDisplayed	
      , 	String verifyText	
-     , 	String ppgname	
-     , 	String ppgtype	
      , 	String buttonToClick	) {
     (new CompassUIElements()).kendoDialogBoxHandler(
         	isDisplayed
          , 	verifyText
-         , 	ppgname
-         , 	ppgtype
          , 	buttonToClick)
 }
 
@@ -794,6 +802,16 @@ def static "CompassUIElements.kendoGetText"(
     (new CompassUIElements()).kendoGetText(
         	to
          , 	value)
+}
+
+def static "CompassUIElements.kendoVerifyText"(
+    	TestObject to	
+     , 	String value	
+     , 	String doMatch	) {
+    (new CompassUIElements()).kendoVerifyText(
+        	to
+         , 	value
+         , 	doMatch)
 }
 
 def static "CompassUIElements.isElementPresent"(
@@ -966,18 +984,6 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
 def static "General.openAppURLRobo"(
     	String url	) {
     (new General()).openAppURLRobo(
@@ -1026,6 +1032,26 @@ def static "General.SetValue"(
     (new General()).SetValue(
         	variable
          , 	value)
+}
+
+def static "General.getRandomnum"(
+    	int min	
+     , 	int max	) {
+    (new General()).getRandomnum(
+        	min
+         , 	max)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
 }
 
 def static "Login.loginCompass"(
@@ -1160,10 +1186,24 @@ def static "CustomerSettings.setValuesInPPGActivationTable"(
          , 	rowNo)
 }
 
+def static "CustomerSettings.setValuesInUPCActivationTable"(
+    	TestData td	
+     , 	String rowNo	) {
+    (new CustomerSettings()).setValuesInUPCActivationTable(
+        	td
+         , 	rowNo)
+}
+
+def static "CustomerSettings.clickUPCBtn"() {
+    (new CustomerSettings()).clickUPCBtn()
+}
+
 def static "CustomerSettings.getAllTableValuesInPPGActivationTable"(
-    	TestObject to	) {
+    	TestObject to	
+     , 	String inColumn	) {
     (new CustomerSettings()).getAllTableValuesInPPGActivationTable(
-        	to)
+        	to
+         , 	inColumn)
 }
 
 def static "CustomerSettings.verifySorting"(
@@ -1175,6 +1215,12 @@ def static "CustomerSettings.verifySorting"(
 def static "CustomerSettings.clickOnPPGActivationTableColumn"(
     	String colName	) {
     (new CustomerSettings()).clickOnPPGActivationTableColumn(
+        	colName)
+}
+
+def static "CustomerSettings.clickOnUPCActivationTableColumn1"(
+    	String colName	) {
+    (new CustomerSettings()).clickOnUPCActivationTableColumn1(
         	colName)
 }
 

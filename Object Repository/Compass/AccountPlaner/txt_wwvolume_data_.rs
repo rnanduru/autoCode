@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>txt_wwvolume_data_</name>
+   <tag></tag>
+   <elementGuidId>1006b6c4-d3a4-4ffa-a915-3a6379f3a3b7</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//div[@class='ng-star-inserted']//kendo-numerictextbox//input[@role='spinbutton']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div[@class='ng-star-inserted']//kendo-numerictextbox//input[@role='spinbutton']</value>
+   </webElementProperties>
+</WebElementEntity>

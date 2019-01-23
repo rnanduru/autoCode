@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>SortDataAscOrDescInUPCActivation</name>
+   <tag>customersettings</tag>
+   <comment></comment>
+   <testCaseGuid>dcee7c50-d4e4-40d6-a737-e725d6d056ef</testCaseGuid>
+</TestCaseEntity>

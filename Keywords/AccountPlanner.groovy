@@ -1,4 +1,4 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpointfsdf
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -33,7 +33,6 @@ public class AccountPlanner {
 	public static String baseDataDiv;
 	public static String baseTotalsDiv;
 	public static iTable;
-
 	@Keyword
 	public static void selectPlanYear(String plan_year){
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_plan_year'), plan_year)
@@ -93,7 +92,7 @@ public class AccountPlanner {
 	public static void eventsCreateAlert1(){
 		WebDriver driver = DriverFactory.getWebDriver()
 		if(driver.findElements(By.xpath("//kendo-dialog")).size()>=0){
-			CompassUIElements.kendoDialogBoxHandler("True","Failed to load Kraft fiscal weeks !", "", "", "Ok")
+			CompassUIElements.kendoDialogBoxHandler("True","Failed to load Kraft fiscal weeks !","Ok")
 		}
 	}
 	/*@Keyword
@@ -142,8 +141,15 @@ public class AccountPlanner {
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/AccountPlaner/ddb_eventCrete_customer'),customer)
 	}
 	@Keyword
-	public static void startdate(String startDate){
-		WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_start_datepicker'),startDate)
+	public static void startAndEndDate(TestData td,String rowNo ){
+		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
+		for(Map dataObj :dataMap.values()){
+			CompassUIElements.EnterDateInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/btn_start_datepicker'),
+					dataObj.get('Row_No'), '', dataObj.get('Start_Date'))
+			CompassUIElements.EnterDateInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/btn_event_end_datepicker'),
+					dataObj.get('Row_No'), '', dataObj.get('End_Date'))
+
+		}
 	}
 	@Keyword
 	public static void Enddate(String endDate){
@@ -214,6 +220,7 @@ public class AccountPlanner {
 			CompassUIElements.SelectValueInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/tbl_product_costing'),
 					dataObj.get('Row_No'), 'Spend Method',dataObj.get('Spend_Method'))
 			WebUI.delay(2)
+			//CompassUIElements.clickButton('Object Repository/Compass/AccountPlaner/btn_prod_wwdata');
 
 			//CompassUIElements.kendoDialogBoxHandler('true','One of the following conditions are not met','OK')
 		}
@@ -225,7 +232,7 @@ public class AccountPlanner {
 	@Keyword
 	public static void AccountPlannerKendoDialogBox2(){
 
-		CompassUIElements.kendoDialogBoxHandler("true","One of the following conditions are not met","","","OK")
+		CompassUIElements.kendoDialogBoxHandler("true","One of the following conditions are not","OK")
 	}
 	@Keyword
 	public static void selectHeaderItem(TestData td,String rowNo){
@@ -242,9 +249,6 @@ public class AccountPlanner {
 	 TestObject to=General.createObject(findTestObject('Object Repository/Compass/AccountPlaner/ddb_product_selection'))
 	 TestObject to1=General.createObject(findTestObject('Object Repository/Compass/AccountPlaner/product_section_searchbar'))
 	 }*/
-	@Keyword
-	public static void enterProductCostingData(){
-	}
 	@Keyword
 	public static void clickAddNewBtn(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_add_new'))
@@ -352,14 +356,14 @@ public class AccountPlanner {
 	//Enter view name in the text input field
 
 	@Keyword
-	public static void setViewName(){
+	public static void setViewName(String s){
 		WebDriver driver = DriverFactory.getWebDriver()
 		//call CustomUIElements setText menthod
-		TestObject to=General.createObject("//div/label[text()='View Name:']/following-sibling::input[contains(@class,'k-textbox')]")
+		TestObject to=General.createObject("//input[@placeholder='View Name']")
 		WebUI.delay(5)
 		//WebUI.mouseOver(to)
 
-		CompassUIElements.setText(to, "viewname1")
+		CompassUIElements.setText(to,s)
 
 	}
 
@@ -367,7 +371,7 @@ public class AccountPlanner {
 	@Keyword
 	public static void clickSavebtn(){
 
-		TestObject to=General.createObject("//accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/div/button[text()='Save']")
+		TestObject to=General.createObject("//div[@class='col-md-12 form-group']/div/div/button[contains(text(),'Save')]")
 
 		//call CustomUIElements button enable
 		boolean elementclickable=CompassUIElements.checkButtonEnable(to)
@@ -416,21 +420,31 @@ public class AccountPlanner {
 	@Keyword
 	public static void closeView() {
 		CompassUIElements.waitCompassLoad()
-		TestObject to=General.createObject("//button[contains(text(),'Close View')]")
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='col-md-12 form-group']/div/button[@type='button']")
 		WebUI.click(to)
 	}
 	//select view from list box
 	@Keyword
 	public static void selectView(String view)
 	{
-		CompassUIElements.selectListBox(findTestObject("Object Repository/Compass/AccountPlaner/ddb_viewlist"), view)
+		CompassUIElements.selectListBox(findTestObject("Object Repository/Compass/AccountPlaner/ddb_viewlist"),view)
 
+	}
+	@Keyword
+	public static void clickWWDataButton(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_prod_wwdata'))
 	}
 
 	//click version button
 	@Keyword
 	public static void clickVersion(){
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/AccountPlaner/btn_versions"))
+	}
+	@Keyword
+	public static void setVersionName(String vName){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/txt_versionName'))
+		WebUI.delay(2)
+		CompassUIElements.setText(findTestObject('Object Repository/Compass/AccountPlaner/txt_versionName'),vName)
 	}
 	@Keyword
 	public static void selectButtonList(String data)
@@ -448,8 +462,9 @@ public class AccountPlanner {
 	@Keyword
 	public static void verifySelectedVersion(String version)
 	{
-		TestObject to=General.createObject("//span[contains(text(),'"+version+"')]")
-		WebUI.verifyElementVisible(to)
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/AccountPlaner/txt_verify_versionname'),version)
+		/*	TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='col-md-12 form-group']/div/kendo-dropdownlist[2]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon'][contains(text(),'"+version+"')]")
+		 WebUI.verifyElementVisible(to)*/
 	}
 
 	@Keyword

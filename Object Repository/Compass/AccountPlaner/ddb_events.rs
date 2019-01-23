@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>(.//*[normalize-space(text()) and normalize-space(.)='Save'])[1]/preceding::button[1]</value>
+         <value>//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='col-md-12 form-group']/div/kendo-dropdownbutton[2]/button[@role='menu']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>not equal</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Save'])[1]/preceding::button[1]</value>
+      <value>//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='col-md-12 form-group']/div/kendo-dropdownbutton[2]/button[@role='menu']</value>
    </webElementProperties>
 </WebElementEntity>
