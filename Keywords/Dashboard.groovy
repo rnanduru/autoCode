@@ -98,7 +98,7 @@ public class Dashboard {
 		for(Map dataObj :dataMap.values()){
 			CompassUIElements.kendoMultiSelectList(findTestObject('Compass/Dashboard/ddb_add_sections'), dataObj.get('ADD_SECTIONS'))
 			//selectAddSectionsItem(dataObj.get('ADD_SECTIONS'))
-			
+
 		}
 	}
 	@Keyword

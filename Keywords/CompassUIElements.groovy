@@ -41,6 +41,7 @@ public class CompassUIElements {
 	public static void clickButton(TestObject to){
 		waitCompassLoad()
 		WebUI.click(to)
+		waitCompassLoad()
 	}
 	@Keyword
 	public static String executeJavaScript(TestObject to,String javascript) {
@@ -431,7 +432,12 @@ public class CompassUIElements {
 		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//span[@class='k-icon k-i-calendar']")
 
 		WebUI.click(tbd)
+		selectDatePicker(date)
 
+	}
+	@Keyword
+	public static void selectDatePicker(String date)
+	{
 		String[] dates = date.split("/")
 
 		def monthEx = dates[0]
@@ -441,6 +447,10 @@ public class CompassUIElements {
 		 ' or . = '
 		 ${monthEx}
 		 ')]"""*/
+
+		if(monthEx.equalsIgnoreCase('Jan')){
+			monthEx='2019'
+		}
 
 		String monthString = """(//kendo-calendar//li//span[contains(.,'${monthEx}')])[1]"""
 
@@ -454,13 +464,17 @@ public class CompassUIElements {
 
 		println "Clicked Month"
 
-		def monthName = new General().FormatDate(date, "MMM/dd/yyyy", "EEEE, MMMM dd, yyyy")
+		def monthName = new General().FormatDate(date, "MMM/dd/yyyy", "EEEE, MMMM d, yyyy")
 
-		TestObject da = new General().createObject("//kendo-calendar//table/tbody/tr/td[contains(@title, '${monthName}')]/span")
+		TestObject da = new General().createObject("(//kendo-calendar//table/tbody/tr/td[contains(@title, '${monthName}')]/span)[1]")
 
 		WebUI.click(da)
-
 	}
+
+
+
+
+
 	@Keyword
 	public static void kendoGridEnterTextInCell(String rowNo,int column,String data){
 

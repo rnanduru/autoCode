@@ -88,6 +88,15 @@ public class AccountPlanner {
 	public static void clickEventsCreteButton(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_events_create'))
 	}
+
+	@Keyword
+	public static void clickCreateAndViewEventBtn(String str){
+		TestObject to=General.createObject("//kendo-button-list[@class='ng-star-inserted']/ul/li["+str+"]")
+		CompassUIElements.clickButton(to)
+		CompassUIElements.waitCompassLoad()
+	}
+
+
 	@Keyword
 	public static void eventsCreateAlert1(){
 		WebDriver driver = DriverFactory.getWebDriver()
