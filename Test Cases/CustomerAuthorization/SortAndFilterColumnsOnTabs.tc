@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to sort the results of the page (ascending or desc.), and filter on the results in either tab by the first 8 columns: Customer Segment, KHC PPG, KHC PPG Name, Case UPC, Each UPC, UPC Desc, Customer Item # and Customer Item Desc</description>
+   <name>SortAndFilterColumnsOnTabs</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>66f91289-a400-4dc2-9310-a2de6025a0bd</testCaseGuid>
+</TestCaseEntity>
