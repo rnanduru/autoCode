@@ -4,7 +4,7 @@
    <name>RegressionSuit</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2019-01-23T17:51:08</lastRun>
+   <lastRun>2019-01-28T16:16:42</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>100</pageLoadTimeout>

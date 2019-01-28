@@ -132,6 +132,18 @@ public class General {
 		}
 		return data
 	}
+	public static String evalInt(String data){
+		if(data.startsWith("{toInt(")){
+			data = data.replace("{toInt(","");
+			data = data.replace("(","");
+			data = data.replace(")","");
+			data = data.replace("}","");
+			data = data.replace("\$","");
+			data = data.replace(",","");
+			data = data.replace("%","");
+		}
+		return data
+	}
 	public static String DateFormater(String days,String format){
 		SimpleDateFormat sdf = new SimpleDateFormat(format)
 		Calendar c = Calendar.getInstance()
@@ -179,7 +191,7 @@ public class General {
 		out.write(value);
 		out.close();
 	}
-	
+
 	@Keyword
 	public static String getRandomnum(int min,int max){
 		Random rand = new Random();

@@ -72,8 +72,40 @@ def static "EventManagement.clickCreateEventButton"(
         	row)
 }
 
-def static "EventManagement.createEvent"() {
-    (new EventManagement()).createEvent()
+def static "EventManagement.editByEventID"(
+    	String event	
+     , 	String row	) {
+    (new EventManagement()).editByEventID(
+        	event
+         , 	row)
+}
+
+def static "EventManagement.verifyPPGsEventID"() {
+    (new EventManagement()).verifyPPGsEventID()
+}
+
+def static "EventManagement.clickEventNameBtn"(
+    	String str	) {
+    (new EventManagement()).clickEventNameBtn(
+        	str)
+}
+
+def static "EventManagement.clickSaveBtn"() {
+    (new EventManagement()).clickSaveBtn()
+}
+
+def static "EventManagement.verifyEditEvent"(
+    	String str	
+     , 	String eventName	) {
+    (new EventManagement()).verifyEditEvent(
+        	str
+         , 	eventName)
+}
+
+def static "EventManagement.selectPPG"(
+    	String ProductSelection	) {
+    (new EventManagement()).selectPPG(
+        	ProductSelection)
 }
 
 def static "AccountPlanner.selectPlanYear"(
@@ -122,6 +154,10 @@ def static "AccountPlanner.clickEvents"() {
     (new AccountPlanner()).clickEvents()
 }
 
+def static "AccountPlanner.verifyColorInColumn"() {
+    (new AccountPlanner()).verifyColorInColumn()
+}
+
 def static "AccountPlanner.clickSavebutton"() {
     (new AccountPlanner()).clickSavebutton()
 }
@@ -132,6 +168,12 @@ def static "AccountPlanner.btnclickEvents"() {
 
 def static "AccountPlanner.clickEventsCreteButton"() {
     (new AccountPlanner()).clickEventsCreteButton()
+}
+
+def static "AccountPlanner.clickCreateAndViewEventBtn"(
+    	String str	) {
+    (new AccountPlanner()).clickCreateAndViewEventBtn(
+        	str)
 }
 
 def static "AccountPlanner.eventsCreateAlert1"() {
@@ -550,6 +592,10 @@ def static "CompassUIElements.WherehouseWithdrawlSetText"(
         	WWVolume)
 }
 
+def static "CompassUIElements.checkPPGsInCustomersettings"() {
+    (new CompassUIElements()).checkPPGsInCustomersettings()
+}
+
 def static "CompassUIElements.countAllDeleteButtons"(
     	String to	) {
     (new CompassUIElements()).countAllDeleteButtons(
@@ -738,6 +784,12 @@ def static "CompassUIElements.EnterDateInTableCell"(
          , 	rowNo
          , 	column
          , 	date)
+}
+
+def static "CompassUIElements.selectDatePicker"(
+    	String date	) {
+    (new CompassUIElements()).selectDatePicker(
+        	date)
 }
 
 def static "CompassUIElements.kendoGridEnterTextInCell"(
@@ -1300,4 +1352,10 @@ def static "CustomerAuthorization.clickHILOTab"() {
 
 def static "CustomerAuthorization.clickExportToExcel"() {
     (new CustomerAuthorization()).clickExportToExcel()
+}
+
+def static "CustomerAuthorization.verifyKendoGridFilter"(
+    	String item	) {
+    (new CustomerAuthorization()).verifyKendoGridFilter(
+        	item)
 }

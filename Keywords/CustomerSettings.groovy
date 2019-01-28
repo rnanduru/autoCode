@@ -92,7 +92,6 @@ public class CustomerSettings {
 	public static void clickPPGActivationCheckboxes(){
 		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),"all",1)
 	}
-
 	@Keyword
 	public static void selectItemsfromExcel(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)

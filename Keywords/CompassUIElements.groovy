@@ -13,6 +13,9 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import common.*
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+import java.awt.List
+
 import internal.GlobalVariable
 public class CompassUIElements {
 
@@ -80,6 +83,18 @@ public class CompassUIElements {
 		for(int i=1;i<=rowcount1;i++){
 			driver.findElement(By.xpath("//div["+i+"]/div[@class='grid-cell']/kendo-numerictextbox//input[@role='spinbutton']")).sendKeys(WWVolume)
 			WebUI.delay(2)
+		}
+	}
+	@Keyword
+	public static void checkPPGsInCustomersettings(){
+		WebDriver driver=DriverFactory.getWebDriver();
+		List<WebElement>ele=driver.findElements(By.xpath("//div/div/dropdown-filterable/div/div[2][@class='product-items']//label[@class='k-form-field']/label[@class='k-checkbox-label']"));
+		int ppgcount=ele.size();
+		for( WebElement el : ele ) {
+			if ( !el.isSelected() ) {
+				el.click();
+			}
+			else(el.isSelected()){ println "ppg group is selecte============" }
 		}
 	}
 	@Keyword
