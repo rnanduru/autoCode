@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to edit any event via the Event ID column; all events linked to by their Event ID (both tabs)</description>
+   <name>EditAnyEventByEventIDColumn</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b23aba8d-bae3-4ec5-9238-877c8bb0a11e</testCaseGuid>
+</TestCaseEntity>

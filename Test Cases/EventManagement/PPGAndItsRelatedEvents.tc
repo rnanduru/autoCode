@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to view all events for the selected Customer Plan in the global navigation, or select a single PPG in the drop down (upper left, above Events tab) and see those related events for that PPG; the page defaults to loading ‘All’ for the PPG drop down, and thus all events created for all PPGs</description>
+   <name>PPGAndItsRelatedEvents</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5da1556a-c748-4130-950f-7e71349ad497</testCaseGuid>
+</TestCaseEntity>

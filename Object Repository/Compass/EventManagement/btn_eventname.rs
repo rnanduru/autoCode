@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description>eventname</description>
+   <name>btn_eventname</name>
+   <tag></tag>
+   <elementGuidId>51b599c2-5fa9-4cad-bd44-4189ddbf4889</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//event-management-component/event-screen-quick//div[2]/div[3]/button</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//event-management-component/event-screen-quick//div[2]/div[3]/button</value>
+   </webElementProperties>
+</WebElementEntity>
