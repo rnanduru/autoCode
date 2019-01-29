@@ -15,6 +15,7 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain
@@ -78,6 +79,52 @@ public class AccountPlanner {
 			CompassUIElements.clickButton(to)
 		}
 	}
+	@Keyword
+	public static void enterStartAndEndDate(TestObject tb,String str,String date){
+
+		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"//kendo-datepicker[@placeholder='"+str+"']//span[@role='button']/span")
+		WebUI.click(tbd)
+		WebUI.delay(2)
+		CompassUIElements.selectDatePicker(date)
+	}
+	public static void checkCheckBoxes(String str){
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[6]/div["+str+"]/div/label[@class='k-checkbox-label']")
+		WebUI.click(to)
+		WebUI.delay(2)
+	}
+	@Keyword
+	public static void enterCaseUnitText(String str,String text){
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[6]/div["+str+"]//kendo-numerictextbox//input[@role='spinbutton']")
+		CompassUIElements.setText(to, text)
+		WebUI.delay(2)
+	}
+	/*
+		 * Clicks the Start and end date calendar icon
+		 */
+		@Keyword
+		public static void clickOIBBCaseStartAndEndDateBtn(String str,String row){
+			TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='padding-section']/div[6]/div["+str+"]/span/kendo-datepicker["+row+"]//span[@role='button']/span")
+			WebUI.click(to)
+			WebUI.delay(2)
+	
+		}
+		
+	@Keyword
+		public static void clickCreationEventSaveBtn(){
+			CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventcreation_save'))
+		}
+	@Keyword
+		public static void verifyEventPPGCreationInfo(TestObject to,String str){
+			String txt=WebUI.getText(to)
+			if(txt.contains(str)){
+				println "text is equal"
+			}else{
+				KeywordUtil.markFailed("Text do not match; expected is "+txt);
+			}
+	
+		}
+	 
+	
 	@Keyword
 	public static void verifyColorInColumn(){
 		//String Expected="";

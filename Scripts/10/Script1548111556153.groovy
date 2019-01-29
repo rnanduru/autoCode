@@ -13,9 +13,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'CustomerSettings.clickBtnOfselectPPG'()
+CustomKeywords.'CustomerSettings.clickUPCBtn'()
 
-CustomKeywords.'CompassUIElements.checkPPGsInCustomersettings'()
+CustomKeywords.'CustomerSettings.clickBtnOfUPCSelectPPg'()
 
-CustomKeywords.'CustomerSettings.clickPPGActivationCheckboxes'()
+CustomKeywords.'CustomerSettings.selectUPCs'(findTestData('CustomerSettings'), '1')
+
+CustomKeywords.'CustomerSettings.clickAddUPCBtn'()
 

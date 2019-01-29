@@ -31,7 +31,7 @@ String date=General.evalString("{date.0.MMM/dd/yyyy}")
 
 CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution Start Date", date)
 
-WebUI.delay(2)
+WebUI.delay(2)secregst37
 
 CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution End Date", date) 
 

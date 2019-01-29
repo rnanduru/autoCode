@@ -154,6 +154,44 @@ def static "AccountPlanner.clickEvents"() {
     (new AccountPlanner()).clickEvents()
 }
 
+def static "AccountPlanner.enterStartAndEndDate"(
+    	TestObject tb	
+     , 	String str	
+     , 	String date	) {
+    (new AccountPlanner()).enterStartAndEndDate(
+        	tb
+         , 	str
+         , 	date)
+}
+
+def static "AccountPlanner.enterCaseUnitText"(
+    	String str	
+     , 	String text	) {
+    (new AccountPlanner()).enterCaseUnitText(
+        	str
+         , 	text)
+}
+
+def static "AccountPlanner.clickOIBBCaseStartAndEndDateBtn"(
+    	String str	
+     , 	String row	) {
+    (new AccountPlanner()).clickOIBBCaseStartAndEndDateBtn(
+        	str
+         , 	row)
+}
+
+def static "AccountPlanner.clickCreationEventSaveBtn"() {
+    (new AccountPlanner()).clickCreationEventSaveBtn()
+}
+
+def static "AccountPlanner.verifyEventPPGCreationInfo"(
+    	TestObject to	
+     , 	String str	) {
+    (new AccountPlanner()).verifyEventPPGCreationInfo(
+        	to
+         , 	str)
+}
+
 def static "AccountPlanner.verifyColorInColumn"() {
     (new AccountPlanner()).verifyColorInColumn()
 }
@@ -898,6 +936,140 @@ def static "HamburgMenu.clickHamburgMenu"(
         	menuItem)
 }
 
+def static "Financials.clickTabsInFinancials"(
+    	String data	) {
+    (new Financials()).clickTabsInFinancials(
+        	data)
+}
+
+def static "Financials.verifyFinancialQuarterAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialQuarterAmt(
+        	to)
+}
+
+def static "Financials.verifyFinancialMonthAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialMonthAmt(
+        	to)
+}
+
+def static "Financials.verifyFinancialWeekAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialWeekAmt(
+        	to)
+}
+
+def static "Financials.verifyEditColumnsDataInWeekTab"(
+    	TestObject to	
+     , 	int col1	
+     , 	int col2	) {
+    (new Financials()).verifyEditColumnsDataInWeekTab(
+        	to
+         , 	col1
+         , 	col2)
+}
+
+def static "Financials.selectDateRange"(
+    	int row	) {
+    (new Financials()).selectDateRange(
+        	row)
+}
+
+def static "Financials.modifyFianacialsWriteOffAmount"(
+    	int row	) {
+    (new Financials()).modifyFianacialsWriteOffAmount(
+        	row)
+}
+
+def static "Financials.scrollToElement"(
+    	TestObject to	) {
+    (new Financials()).scrollToElement(
+        	to)
+}
+
+def static "Financials.clickEditWriteBtn"(
+    	TestObject to	) {
+    (new Financials()).clickEditWriteBtn(
+        	to)
+}
+
+def static "Financials.clickSaveBtn"(
+    	TestObject to	) {
+    (new Financials()).clickSaveBtn(
+        	to)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.getCurrentweekNum"() {
+    (new General()).getCurrentweekNum()
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "General.getRandomnum"(
+    	int min	
+     , 	int max	) {
+    (new General()).getRandomnum(
+        	min
+         , 	max)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
 def static "Dashboard.verifyDashboardElements"(
     	TestObject to	) {
     (new Dashboard()).verifyDashboardElements(
@@ -1036,76 +1208,6 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.getCurrentweekNum"() {
-    (new General()).getCurrentweekNum()
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "General.getRandomnum"(
-    	int min	
-     , 	int max	) {
-    (new General()).getRandomnum(
-        	min
-         , 	max)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -1172,6 +1274,10 @@ def static "CustomerSettings.createNewGroupname"() {
 
 def static "CustomerSettings.clickBtnOfselectPPG"() {
     (new CustomerSettings()).clickBtnOfselectPPG()
+}
+
+def static "CustomerSettings.clickBtnOfUPCSelectPPg"() {
+    (new CustomerSettings()).clickBtnOfUPCSelectPPg()
 }
 
 def static "CustomerSettings.clickGroupWindow"() {
@@ -1248,6 +1354,10 @@ def static "CustomerSettings.setValuesInUPCActivationTable"(
 
 def static "CustomerSettings.clickUPCBtn"() {
     (new CustomerSettings()).clickUPCBtn()
+}
+
+def static "CustomerSettings.clickAddUPCBtn"() {
+    (new CustomerSettings()).clickAddUPCBtn()
 }
 
 def static "CustomerSettings.getAllTableValuesInPPGActivationTable"(
