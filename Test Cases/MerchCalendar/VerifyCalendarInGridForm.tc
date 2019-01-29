@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to see the event info in a grid calendar form, with months and weeks going across the page from left to right, and all the PPGs and PPG groups listed to the left (two rows: for current and prior year plans); with the ability to select / view a single or multiple PPGs in the grid via the ‘Product’ drop down check box</description>
+   <name>VerifyCalendarInGridForm</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>4163308a-894a-44e2-b6a8-2998f0e9f648</testCaseGuid>
+</TestCaseEntity>

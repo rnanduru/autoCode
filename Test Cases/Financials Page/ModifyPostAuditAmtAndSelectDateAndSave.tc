@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to enter post audit amounts and select a date range it applies to via the Post Audit column popup window, and apply those changes to the grid and save them</description>
+   <name>ModifyPostAuditAmtAndSelectDateAndSave</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d7cb7ff5-09ce-4349-8a3d-5feecf754afc</testCaseGuid>
+</TestCaseEntity>
