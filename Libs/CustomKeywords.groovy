@@ -3,78 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
-import com.kms.katalon.core.testobject.TestObject
-
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
+import com.kms.katalon.core.testobject.TestObject
 
-def static "EventManagement.clickExportToExcel"() {
-    (new EventManagement()).clickExportToExcel()
-}
-
-def static "EventManagement.clickEventsTab"() {
-    (new EventManagement()).clickEventsTab()
-}
-
-def static "EventManagement.clickProductsTab"() {
-    (new EventManagement()).clickProductsTab()
-}
-
-def static "EventManagement.kendoGridFilterCell"(
-    	TestObject tb	
-     , 	String column	
-     , 	String filterBy	
-     , 	String apply	) {
-    (new EventManagement()).kendoGridFilterCell(
-        	tb
-         , 	column
-         , 	filterBy
-         , 	apply)
-}
-
-def static "EventManagement.deleteAnyEvent"(
-    	int rowNumber	) {
-    (new EventManagement()).deleteAnyEvent(
-        	rowNumber)
-}
-
-def static "EventManagement.hideAndShowColumns"() {
-    (new EventManagement()).hideAndShowColumns()
-}
-
-def static "EventManagement.verifyTotalNumOfHeaders"(
-    	int row	
-     , 	int col	) {
-    (new EventManagement()).verifyTotalNumOfHeaders(
-        	row
-         , 	col)
-}
-
-def static "EventManagement.clickColumnsButton"() {
-    (new EventManagement()).clickColumnsButton()
-}
-
-def static "EventManagement.sortAndFilterColumns"() {
-    (new EventManagement()).sortAndFilterColumns()
-}
-
-def static "EventManagement.filterColumns"(
-    	TestObject to	) {
-    (new EventManagement()).filterColumns(
-        	to)
-}
-
-def static "EventManagement.clickCreateEventButton"(
-    	int row	) {
-    (new EventManagement()).clickCreateEventButton(
-        	row)
-}
-
-def static "EventManagement.createEvent"() {
-    (new EventManagement()).createEvent()
-}
 
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
@@ -132,6 +66,12 @@ def static "AccountPlanner.btnclickEvents"() {
 
 def static "AccountPlanner.clickEventsCreteButton"() {
     (new AccountPlanner()).clickEventsCreteButton()
+}
+
+def static "AccountPlanner.clickCreateAndViewEventBtn"(
+    	String str	) {
+    (new AccountPlanner()).clickCreateAndViewEventBtn(
+        	str)
 }
 
 def static "AccountPlanner.eventsCreateAlert1"() {
@@ -740,6 +680,12 @@ def static "CompassUIElements.EnterDateInTableCell"(
          , 	date)
 }
 
+def static "CompassUIElements.selectDatePicker"(
+    	String date	) {
+    (new CompassUIElements()).selectDatePicker(
+        	date)
+}
+
 def static "CompassUIElements.kendoGridEnterTextInCell"(
     	String rowNo	
      , 	int column	
@@ -838,12 +784,6 @@ def static "CompassUIElements.kendoEnterText"(
     (new CompassUIElements()).kendoEnterText(
         	to
          , 	value)
-}
-
-def static "HamburgMenu.clickHamburgMenu"(
-    	String menuItem	) {
-    (new HamburgMenu()).clickHamburgMenu(
-        	menuItem)
 }
 
 def static "Dashboard.verifyDashboardElements"(
@@ -984,76 +924,6 @@ def static "Dashboard.closeSelectionChart"(
         	chartName)
 }
 
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
-}
-
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
-}
-
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
-}
-
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
-}
-
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
-}
-
-def static "General.getCurrentweekNum"() {
-    (new General()).getCurrentweekNum()
-}
-
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
-}
-
-def static "General.SetValue"(
-    	String variable	
-     , 	String value	) {
-    (new General()).SetValue(
-        	variable
-         , 	value)
-}
-
-def static "General.getRandomnum"(
-    	int min	
-     , 	int max	) {
-    (new General()).getRandomnum(
-        	min
-         , 	max)
-}
-
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
 def static "Login.loginCompass"(
     	String username	
      , 	String password	) {
@@ -1064,12 +934,6 @@ def static "Login.loginCompass"(
 
 def static "Login.verifyLoginCompassObjects"() {
     (new Login()).verifyLoginCompassObjects()
-}
-
-def static "Wait.waitCompassLoad"(
-    	String data	) {
-    (new Wait()).waitCompassLoad(
-        	data)
 }
 
 def static "CustomerSettings.clickDeleteBtn"() {
@@ -1280,6 +1144,320 @@ def static "CustomerSettings.clickAddUPCButton"() {
     (new CustomerSettings()).clickAddUPCButton()
 }
 
+def static "EventManagement.clickExportToExcel"() {
+    (new EventManagement()).clickExportToExcel()
+}
+
+def static "EventManagement.clickEventsTab"() {
+    (new EventManagement()).clickEventsTab()
+}
+
+def static "EventManagement.clickProductsTab"() {
+    (new EventManagement()).clickProductsTab()
+}
+
+def static "EventManagement.kendoGridFilterCell"(
+    	TestObject tb	
+     , 	String column	
+     , 	String filterBy	
+     , 	String apply	) {
+    (new EventManagement()).kendoGridFilterCell(
+        	tb
+         , 	column
+         , 	filterBy
+         , 	apply)
+}
+
+def static "EventManagement.deleteAnyEvent"(
+    	int rowNumber	) {
+    (new EventManagement()).deleteAnyEvent(
+        	rowNumber)
+}
+
+def static "EventManagement.hideAndShowColumns"() {
+    (new EventManagement()).hideAndShowColumns()
+}
+
+def static "EventManagement.verifyTotalNumOfHeaders"(
+    	int row	
+     , 	int col	) {
+    (new EventManagement()).verifyTotalNumOfHeaders(
+        	row
+         , 	col)
+}
+
+def static "EventManagement.clickColumnsButton"() {
+    (new EventManagement()).clickColumnsButton()
+}
+
+def static "EventManagement.sortAndFilterColumns"() {
+    (new EventManagement()).sortAndFilterColumns()
+}
+
+def static "EventManagement.filterColumns"(
+    	TestObject to	) {
+    (new EventManagement()).filterColumns(
+        	to)
+}
+
+def static "EventManagement.clickCreateEventButton"(
+    	int row	) {
+    (new EventManagement()).clickCreateEventButton(
+        	row)
+}
+
+def static "EventManagement.editByEventID"(
+    	String event	
+     , 	String row	) {
+    (new EventManagement()).editByEventID(
+        	event
+         , 	row)
+}
+
+def static "EventManagement.verifyPPGsEventID"() {
+    (new EventManagement()).verifyPPGsEventID()
+}
+
+def static "EventManagement.clickEventNameBtn"(
+    	String str	) {
+    (new EventManagement()).clickEventNameBtn(
+        	str)
+}
+
+def static "EventManagement.clickSaveBtn"() {
+    (new EventManagement()).clickSaveBtn()
+}
+
+def static "EventManagement.verifyEditEvent"(
+    	String str	
+     , 	String eventName	) {
+    (new EventManagement()).verifyEditEvent(
+        	str
+         , 	eventName)
+}
+
+def static "EventManagement.selectPPG"(
+    	String ProductSelection	) {
+    (new EventManagement()).selectPPG(
+        	ProductSelection)
+}
+
+def static "EventManagement.createEvent"() {
+    (new EventManagement()).createEvent()
+}
+
+def static "HamburgMenu.clickHamburgMenu"(
+    	String menuItem	) {
+    (new HamburgMenu()).clickHamburgMenu(
+        	menuItem)
+}
+
+def static "Financials.clickTabsInFinancials"(
+    	String data	) {
+    (new Financials()).clickTabsInFinancials(
+        	data)
+}
+
+def static "Financials.verifyFinancialQuarterAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialQuarterAmt(
+        	to)
+}
+
+def static "Financials.verifyFinancialMonthAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialMonthAmt(
+        	to)
+}
+
+def static "Financials.verifyFinancialWeekAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyFinancialWeekAmt(
+        	to)
+}
+
+def static "Financials.verifyEditColumnsDataInWeekTab"(
+    	TestObject to	
+     , 	int col1	
+     , 	int col2	) {
+    (new Financials()).verifyEditColumnsDataInWeekTab(
+        	to
+         , 	col1
+         , 	col2)
+}
+
+def static "Financials.selectDateRange"(
+    	int row	) {
+    (new Financials()).selectDateRange(
+        	row)
+}
+
+def static "Financials.modifyFianacialsWriteOffAmount"(
+    	int row	) {
+    (new Financials()).modifyFianacialsWriteOffAmount(
+        	row)
+}
+
+def static "Financials.modifyFinancialsPostAuditAmt"(
+    	int row	) {
+    (new Financials()).modifyFinancialsPostAuditAmt(
+        	row)
+}
+
+def static "Financials.scrollToElement"(
+    	TestObject to	) {
+    (new Financials()).scrollToElement(
+        	to)
+}
+
+def static "Financials.clickEditWriteBtn"(
+    	TestObject to	) {
+    (new Financials()).clickEditWriteBtn(
+        	to)
+}
+
+def static "Financials.clickSaveBtn"(
+    	TestObject to	) {
+    (new Financials()).clickSaveBtn(
+        	to)
+}
+
+def static "Financials.verifyEditPostAduitAmt"(
+    	TestObject to	) {
+    (new Financials()).verifyEditPostAduitAmt(
+        	to)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.getCurrentweekNum"() {
+    (new General()).getCurrentweekNum()
+}
+
+def static "General.getCurrentMonth"() {
+    (new General()).getCurrentMonth()
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "General.getRandomnum"(
+    	int min	
+     , 	int max	) {
+    (new General()).getRandomnum(
+        	min
+         , 	max)
+}
+
+def static "MerchCalendar.verifyMonthOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyMonthOrder(
+        	mon)
+}
+
+def static "MerchCalendar.verifyWeekOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyWeekOrder(
+        	mon)
+}
+
+def static "MerchCalendar.getMonthNumber"(
+    	String month	) {
+    (new MerchCalendar()).getMonthNumber(
+        	month)
+}
+
+def static "MerchCalendar.clickProductBtn"(
+    	TestObject to	) {
+    (new MerchCalendar()).clickProductBtn(
+        	to)
+}
+
+def static "MerchCalendar.searchAndSelectPPGs"(
+    	TestObject to	
+     , 	String ppg	) {
+    (new MerchCalendar()).searchAndSelectPPGs(
+        	to
+         , 	ppg)
+}
+
+def static "MerchCalendar.verifyPPGsAndYears"(
+    	TestObject eoc	
+     , 	String year	
+     , 	String ppg	) {
+    (new MerchCalendar()).verifyPPGsAndYears(
+        	eoc
+         , 	year
+         , 	ppg)
+}
+
+def static "MerchCalendar.clickCurrentWeekTab"(
+    	int month	
+     , 	int week	) {
+    (new MerchCalendar()).clickCurrentWeekTab(
+        	month
+         , 	week)
+}
+
+def static "Wait.waitCompassLoad"(
+    	String data	) {
+    (new Wait()).waitCompassLoad(
+        	data)
+}
+
 def static "CustomerAuthorization.clickKHCWeeksDropDown"() {
     (new CustomerAuthorization()).clickKHCWeeksDropDown()
 }
@@ -1300,4 +1478,10 @@ def static "CustomerAuthorization.clickHILOTab"() {
 
 def static "CustomerAuthorization.clickExportToExcel"() {
     (new CustomerAuthorization()).clickExportToExcel()
+}
+
+def static "CustomerAuthorization.verifyKendoGridFilter"(
+    	String item	) {
+    (new CustomerAuthorization()).verifyKendoGridFilter(
+        	item)
 }

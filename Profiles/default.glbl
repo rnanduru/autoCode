@@ -69,4 +69,14 @@
       <initValue>'Customer Authorization'</initValue>
       <name>Customer_Authorization</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Financials'</initValue>
+      <name>Financials</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Merch Calendar'</initValue>
+      <name>Merch_Calendar</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

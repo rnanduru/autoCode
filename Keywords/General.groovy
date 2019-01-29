@@ -154,6 +154,14 @@ public class General {
 		Calendar now=Calendar.getInstance();
 		return now.get(Calendar.WEEK_OF_YEAR);
 	}
+	
+	@Keyword
+	public static int getCurrentMonth(){
+		
+		Calendar now=Calendar.getInstance();
+		 int m=now.get(Calendar.MONTH);
+		 return m+1
+	}
 	@Keyword
 	public static String GetValue(String data1){
 		//check for the text file with data
@@ -179,10 +187,12 @@ public class General {
 		out.write(value);
 		out.close();
 	}
-	
+
 	@Keyword
 	public static String getRandomnum(int min,int max){
 		Random rand = new Random();
 		return rand.nextInt((max - min) + 1) + min;
 	}
+	
+	
 }

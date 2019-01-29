@@ -78,10 +78,20 @@ public class GlobalVariable {
      */
     public static Object Customer_Authorization
      
+    /**
+     * <p></p>
+     */
+    public static Object Financials
+     
+    /**
+     * <p></p>
+     */
+    public static Object Merch_Calendar
+     
 
     static {
         def allVariables = [:]        
-        allVariables.put('default', ['url' : 'https://compassreg.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy', 'menu_customer_settings' : 'Customer Settings', 'GroupName' : 'KIWI', 'Event_Management' : 'Event Management', 'Customer_Authorization' : 'Customer Authorization'])
+        allVariables.put('default', ['url' : 'https://compassreg.myit.kraftheinz.com', 'username' : 'secregst376', 'password' : 'Kraft@2016', 'pageloadwait' : 100, 'waitforelement' : 100, 'menu_accounts_planner' : 'Accounts Planner', 'menu_dashboard' : 'Dashboard', 'multivalueseperator' : ';', 'defaultdateformat' : 'MM/dd/yyyy', 'menu_customer_settings' : 'Customer Settings', 'GroupName' : 'KIWI', 'Event_Management' : 'Event Management', 'Customer_Authorization' : 'Customer Authorization', 'Financials' : 'Financials', 'Merch_Calendar' : 'Merch Calendar'])
         
         String profileName = RunConfiguration.getExecutionProfile()
         
@@ -99,6 +109,8 @@ public class GlobalVariable {
         GroupName = selectedVariables['GroupName']
         Event_Management = selectedVariables['Event_Management']
         Customer_Authorization = selectedVariables['Customer_Authorization']
+        Financials = selectedVariables['Financials']
+        Merch_Calendar = selectedVariables['Merch_Calendar']
         
     }
 }

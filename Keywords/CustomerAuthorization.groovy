@@ -58,6 +58,5 @@ public class CustomerAuthorization {
 				WebUI.click(General.createObject("//kendo-tabstrip/div[1]//kendo-grid/div[@role='grid']//table[@role='presentation']/thead[@role='presentation']/tr[2]/td["+i+"]/kendo-grid-string-filter-cell[@class='k-filtercell ng-star-inserted']/kendo-grid-filter-wrapper-cell[@class='k-filtercell-wrapper']/kendo-grid-filter-cell-operators[@class='k-filtercell-operator']/button/span"))
 			}
 		}
-
 	}
 }
