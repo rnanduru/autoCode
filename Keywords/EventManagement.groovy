@@ -137,7 +137,7 @@ public class EventManagement {
 		if(element.size>0){
 			println "PPGs corresponding Event ID Exists"
 		}else{
-		    KeywordUtil.markFailed("PPGs corresponding Event ID Exists");
+			KeywordUtil.markFailed("PPGs corresponding Event ID Exists");
 		}
 	}
 
@@ -167,5 +167,37 @@ public class EventManagement {
 	@Keyword
 	public static void selectPPG(String ProductSelection){
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/EventManagement/ddb_product_selection'),ProductSelection)
+	}
+
+	@Keyword
+	public static void createEvent(){
+		String date=General.evalString("{date.0.MMM/dd/yyyy}")
+		AccountPlanner.enterStartAndEndDate(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution Start Date", date)
+
+		WebUI.delay(2)
+
+		CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution End Date", date)
+
+		WebUI.delay(2)
+
+		WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'))
+
+		WebUI.delay(2)
+
+		CustomKeywords.'CompassUIElements.setText'(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'), "10")
+
+		CustomKeywords.'AccountPlanner.checkCheckBoxes'("7")
+
+		CustomKeywords.'AccountPlanner.enterCaseUnitText'("7", "10")
+
+		CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'("7", "1")
+
+		CustomKeywords.'CompassUIElements.selectDatePicker'(date)
+
+		WebUI.delay(2)
+
+		CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'("7", "2")
+
+		WebUI.delay(2)
 	}
 }

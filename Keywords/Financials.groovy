@@ -214,10 +214,6 @@ public class Financials {
 	}
 	@Keyword
 	public static void verifyEditColumnsDataInWeekTab(TestObject to,int col1,int col2){
-
-		/*def headers = to.findPropertyValue("xpath")+"/div[2]"
-		 TestObject tblHeaders=to.addProperty("xpath", ConditionType.EQUALS, headers)
-		 List<WebElement> tableHeaders=WebUiCommonHelper.findWebElements(tblHeaders, 10)*/
 		for(int i=col1;i<col2;i++){
 			def header = to.findPropertyValue("xpath")+"["+i+"]/div[2]"
 			TestObject colTotal=to.addProperty("xpath", ConditionType.EQUALS, header)
@@ -302,6 +298,15 @@ public class Financials {
 	}
 
 	@Keyword
+	public static modifyFinancialsPostAuditAmt(int row){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/Financials/ddb_post_audit_select_date_range'))
+		selectDateRange(row)
+		CompassUIElements.setText(findTestObject('Object Repository/Compass/Financials/input_post_audit_amt'),"1")
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/Financials/btn_apply'))
+		CompassUIElements.waitCompassLoad()
+	}
+
+	@Keyword
 	public static void scrollToElement(TestObject to){
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement element= WebUiCommonHelper.findWebElement(to,0)
@@ -325,5 +330,51 @@ public class Financials {
 		CompassUIElements.waitCompassLoad()
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/Financials/btn_save_ok'))
 		WebUI.delay(4)
+	}
+
+	@Keyword
+	public static void verifyEditPostAduitAmt(TestObject to){
+
+		for(int i=14;i<15;i++){
+			def header = to.findPropertyValue("xpath")+"["+i+"]/div[2]"
+			TestObject colTotal=to.addProperty("xpath", ConditionType.EQUALS, header)
+
+			WebDriver driver2 =  DriverFactory.getWebDriver()
+			WebElement colValue=WebUiCommonHelper.findWebElement(colTotal, 0)
+			JavascriptExecutor executor2 = (JavascriptExecutor) driver2
+			String total = executor2.executeScript("return arguments[0].innerHTML;",colValue)
+			total=total.replace("\$","")
+			total=total.replace(",","")
+			total=total.replace("(","")
+			total=total.replace(")","")
+			total=total.trim()
+
+			int columnTotal=0;
+			TestObject columndata;
+			for(int j=1;j<=52;j++){
+				executor2 = (JavascriptExecutor) driver2
+				String amt = "";
+				columndata = General.createObject("//div[@id='vBasePlnDataGrid']/div/div["+i+"]/div["+j+"]/div/kendo-numerictextbox//input[@role='spinbutton']")
+				WebElement colValue2=WebUiCommonHelper.findWebElement(columndata, 0)
+				amt = executor2.executeScript("return arguments[0].getAttribute('aria-valuenow');",colValue2)
+
+				if (amt.startsWith("\$(")) {
+					amt=amt.replaceAll("\$", "").replace(")", "").replace("(", "").replace(',', '').substring(1).trim()
+					columnTotal=columnTotal-Integer.parseInt(amt)
+				}else if(amt.startsWith("\$")){
+					amt=amt.replaceAll("\$", "").replace(',', '').substring(1).trim()
+					columnTotal=columnTotal+Integer.parseInt(amt)
+				}else{
+					amt=amt.replace(',', '').trim()
+					columnTotal=columnTotal+Integer.parseInt(amt)
+				}
+			}
+			if (columnTotal==Integer.parseInt(total)) {
+				println "Total is equal    "+i+"     "+total+"    "+columnTotal
+			}else{
+				//KeywordUtil.markFailed("Total Mismatched  "+i     +total+"  Column total is "+columnTotal)
+				KeywordUtil.markError("Total Mismatched  "+i+"   "+total+"  Column total is "+columnTotal)
+			}
+		}
 	}
 }

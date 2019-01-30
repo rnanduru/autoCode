@@ -94,6 +94,7 @@ public class AccountPlanner {
 	}
 	@Keyword
 	public static void enterCaseUnitText(String str,String text){
+		WebUI.delay(2)
 		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[6]/div["+str+"]//kendo-numerictextbox//input[@role='spinbutton']")
 		CompassUIElements.setText(to, text)
 		WebUI.delay(2)
@@ -112,6 +113,7 @@ public class AccountPlanner {
 	@Keyword
 		public static void clickCreationEventSaveBtn(){
 			CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventcreation_save'))
+			CompassUIElements.waitCompassLoad()
 		}
 	@Keyword
 		public static void verifyEventPPGCreationInfo(TestObject to,String str){

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to click on the number row (0 by default) for a given week and create a new event</description>
+   <name>CreateEventOnWeekNumber</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>766ea6b2-8e8e-4205-bdcc-85eee19e9ab4</testCaseGuid>
+</TestCaseEntity>
