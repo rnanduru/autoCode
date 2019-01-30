@@ -23,7 +23,7 @@ CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.pass
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'AccountPlanner.clickEventsCreteButton'()
+CustomKeywords.'AccountPlanner.btnclickEvents'()
 
 CustomKeywords.'AccountPlanner.clickCreateAndViewEventBtn'("1")
 
@@ -31,9 +31,9 @@ String date=General.evalString("{date.0.MMM/dd/yyyy}")
 
 CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution Start Date", date)
 
-WebUI.delay(2)secregst37
+WebUI.delay(2)
 
-CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution End Date", date) 
+CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), "Execution End Date", General.getCurrentWeekEndDate()) 
 
 WebUI.delay(2)
 
@@ -43,11 +43,13 @@ WebUI.delay(2)
 
 CustomKeywords.'CompassUIElements.setText'(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'), "10")
 
+
 CustomKeywords.'AccountPlanner.checkCheckBoxes'("7")
 
 CustomKeywords.'AccountPlanner.enterCaseUnitText'("7", "10")
 
 CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'("7", "1")
+
 
 CustomKeywords.'CompassUIElements.selectDatePicker'(date)
 
@@ -57,10 +59,10 @@ CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'("7", "2")
 
 WebUI.delay(2)
 
-CustomKeywords.'CompassUIElements.selectDatePicker'(date)
+CustomKeywords.'CompassUIElements.selectDatePicker'(General.getCurrentWeekEndDate())
 
 
-CustomKeywords.'AccountPlanner.clickSavebuton'()
+CustomKeywords.'AccountPlanner.clickCreationEventSaveBtn'()
 
 WebUI.delay(5)
 

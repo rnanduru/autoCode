@@ -1,25 +1,17 @@
 
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek as DayOfWeek
+import java.time.LocalDate as LocalDate
+import java.time.format.DateTimeFormatter as DateTimeFormatter
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-import java.util.Random;
 
 import com.kms.katalon.core.annotation.Keyword
-import com.kms.katalon.core.checkpoint.Checkpoint
-import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.model.FailureHandling
-import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 import internal.GlobalVariable
@@ -166,13 +158,13 @@ public class General {
 		Calendar now=Calendar.getInstance();
 		return now.get(Calendar.WEEK_OF_YEAR);
 	}
-	
+
 	@Keyword
 	public static int getCurrentMonth(){
-		
+
 		Calendar now=Calendar.getInstance();
-		 int m=now.get(Calendar.MONTH);
-		 return m+1
+		int m=now.get(Calendar.MONTH);
+		return m+1
 	}
 	@Keyword
 	public static String GetValue(String data1){
@@ -205,6 +197,19 @@ public class General {
 		Random rand = new Random();
 		return rand.nextInt((max - min) + 1) + min;
 	}
-	
-	
+
+	@Keyword
+	public static String getCurrentWeekEndDate(){
+		DateTimeFormatter df = DateTimeFormatter.ofPattern('MMM/dd/yyyy')
+		LocalDate today = LocalDate.now()
+		// Go forward to get saturday
+		LocalDate saturday = today
+		while (saturday.getDayOfWeek() != DayOfWeek.SATURDAY) {
+			saturday = saturday.plusDays(1)
+		}
+		def date=df.format(saturday)
+		 return date
+	}
+
+
 }
