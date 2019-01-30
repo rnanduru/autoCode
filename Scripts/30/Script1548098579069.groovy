@@ -13,34 +13,33 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-not_run: CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-not_run: CustomKeywords.'AccountPlanner.btnclickEvents'()
+CustomKeywords.'AccountPlanner.btnclickEvents'()
 
-not_run: CustomKeywords.'AccountPlanner.clickEventsCreteButton'()
+CustomKeywords.'AccountPlanner.clickEventsCreteButton'()
 
-not_run: String date = General.evalString('{date.0.MMM/dd/yyyy}')
+String date = General.evalString('{date.0.MMM/dd/yyyy}')
 
-not_run: CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), 
+CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), 
     'Execution Start Date', date)
 
-not_run: WebUI.delay(2)
+WebUI.delay(2)
 
-not_run: CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), 
+CustomKeywords.'AccountPlanner.enterStartAndEndDate'(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventdatepicker'), 
     'Execution End Date', date)
 
-not_run: WebUI.delay(2)
+WebUI.delay(2)
 
-not_run: WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'))
+WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'))
 
-not_run: WebUI.delay(2)
+WebUI.delay(2)
 
-not_run: CustomKeywords.'CompassUIElements.setText'(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'), 
-    '10')
+CustomKeywords.'CompassUIElements.setText'(findTestObject('Object Repository/Compass/AccountPlaner/txt_promosrp'), '10')
 
 CustomKeywords.'AccountPlanner.checkCheckBoxes'('7')
 
-not_run: CustomKeywords.'AccountPlanner.enterCaseUnitText'('7', '10')
+CustomKeywords.'AccountPlanner.enterCaseUnitText'('7', '10')
 
 CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'('7', '1')
 
@@ -48,18 +47,18 @@ CustomKeywords.'CompassUIElements.selectDatePicker'(date)
 
 WebUI.delay(2)
 
-not_run: CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'('7', '2')
+CustomKeywords.'AccountPlanner.clickOIBBCaseStartAndEndDateBtn'('7', '2')
 
 WebUI.delay(2)
 
-not_run: CustomKeywords.'CompassUIElements.selectDatePicker'(date)
+CustomKeywords.'CompassUIElements.selectDatePicker'(date)
 
-not_run: CustomKeywords.'AccountPlanner.clickCreationEventSaveBtn'()
+CustomKeywords.'AccountPlanner.clickCreationEventSaveBtn'()
 
-not_run: WebUI.delay(5)
+WebUI.delay(5)
 
-not_run: CustomKeywords.'AccountPlanner.verifyEventPPGCreationInfo'(findTestObject('Object Repository/Compass/AccountPlaner/txt_infomsg'), 
+CustomKeywords.'AccountPlanner.verifyEventPPGCreationInfo'(findTestObject('Object Repository/Compass/AccountPlaner/txt_infomsg'), 
     'event is saved')
 
-not_run: CustomKeywords.'CompassUIElements.clickButton'(findTestObject('Object Repository/Compass/AccountPlaner/btn_ok'))
+CustomKeywords.'CompassUIElements.clickButton'(findTestObject('Object Repository/Compass/AccountPlaner/btn_ok'))
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestSuiteEntity>
    <description>view,version,save,export</description>
-   <name>RegressionSuit</name>
+   <name>RegressionSuit1</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2019-01-29T14:55:45</lastRun>
+   <lastRun>2019-01-30T15:05:21</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>100</pageLoadTimeout>
@@ -98,7 +98,7 @@
    <testCaseLink>
       <guid>96f90f89-8daa-4d19-ad6d-036c0285c0b9</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/10</testCaseId>
    </testCaseLink>
    <testCaseLink>
