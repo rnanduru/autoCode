@@ -15,20 +15,23 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testcase.TestCase
 import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain
 import internal.GlobalVariable
-
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.By
+import java.util.List;
 import org.openqa.selenium.JavascriptExecutor
-
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
-import org.openqa.selenium.interactions.Action
 
+import org.testng.Assert
+import org.testng.annotations.*;
 public class AccountPlanner {
 	public static HashMap consumptionAllCols,distriAllCols,velAllCols;
+	public static HashMap consumptionDataCols,distriDataCols,velDataCols;
 	public static String baseDiv;
 	public static String baseDataDiv;
 	public static String baseTotalsDiv;
@@ -75,6 +78,80 @@ public class AccountPlanner {
 			//call CustomUIElements button click
 			CompassUIElements.clickButton(to)
 		}
+	}
+	@Keyword
+	public static void enterStartAndEndDate(TestObject tb,String str,String date){
+
+		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"//kendo-datepicker[@placeholder='"+str+"']//span[@role='button']/span")
+		WebUI.click(tbd)
+		WebUI.delay(2)
+		CompassUIElements.selectDatePicker(date)
+	}
+	public static void checkCheckBoxes(String str){
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[6]/div["+str+"]/div/label[@class='k-checkbox-label']")
+		WebUI.click(to)
+		WebUI.delay(2)
+	}
+	@Keyword
+	public static void enterCaseUnitText(String str,String text){
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[6]/div["+str+"]//kendo-numerictextbox//input[@role='spinbutton']")
+		CompassUIElements.setText(to, text)
+		WebUI.delay(2)
+	}
+	/*
+		 * Clicks the Start and end date calendar icon
+		 */
+		@Keyword
+		public static void clickOIBBCaseStartAndEndDateBtn(String str,String row){
+			TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='padding-section']/div[6]/div["+str+"]/span/kendo-datepicker["+row+"]//span[@role='button']/span")
+			WebUI.click(to)
+			WebUI.delay(2)
+	
+		}
+		
+	@Keyword
+		public static void clickCreationEventSaveBtn(){
+			CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventcreation_save'))
+		}
+	@Keyword
+		public static void verifyEventPPGCreationInfo(TestObject to,String str){
+			String txt=WebUI.getText(to)
+			if(txt.contains(str)){
+				println "text is equal"
+			}else{
+				KeywordUtil.markFailed("Text do not match; expected is "+txt);
+			}
+	
+		}
+	 
+	
+	@Keyword
+	public static void verifyColorInColumn(){
+		//String Expected="";
+		WebDriver driver = DriverFactory.getWebDriver()
+		String Value = driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[1]/div[2]/div/div[1]/div[1]")).getCssValue("background").toString();
+
+		println "consumption field is clickble======="+Value
+
+		String[] Value1=Value.replace("rgba(" ,"").replace(")","").split(",");
+
+		println"hex value is=========="+ Value1
+
+		Value[0]=Value1[0].trim();
+		int hex1=Integer.parseInt(Value1[0])
+		Value[0]=Value1[0].trim();
+		int hex2=Integer.parseInt(Value1[1])
+		Value[0]=Value1[0].trim();
+		int hex3=Integer.parseInt(Value1[2])
+
+
+		//Color.fromString("#%02x%02x%02x",Value).asHex()
+		println "color code is ===="+hex1+hex2+hex3;
+
+		String actual=String.format("#%02x%02x%02x",hex1,hex2,hex3);
+		println "actual color is====="+actual
+
+		Assert.assertEquals("#7030A0",actual);
 	}
 	@Keyword
 	public static void clickSavebutton(){
@@ -573,15 +650,15 @@ public class AccountPlanner {
 		}
 		String cellDiv;
 		if(tableName.toLowerCase().contains("consumption")){
-			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+consumptionAllCols.get(colName)+"]"
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+consumptionDataCols.get(colName)+"]"
 			baseTotalsDiv = baseDiv + "/div[3]/div["+consumptionAllCols.get(colName)+"]"
 		}
 		else if(tableName.toLowerCase().contains("distribution")){
-			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+distriAllCols.get(colName)+"]"
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+distriDataCols.get(colName)+"]"
 			baseTotalsDiv = baseDiv + "/div[3]/div["+distriAllCols.get(colName)+"]"
 		}
 		else if(tableName.toLowerCase().contains("velocity")){
-			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+velAllCols.get(colName)+"]"
+			cellDiv = baseDataDiv + "/div["+com+"]/div["+row1+"]/div["+cell+"]/div["+velDataCols.get(colName)+"]"
 			baseTotalsDiv = baseDiv + "/div[3]/div["+velAllCols.get(colName)+"]"
 		}
 		//String cellDiv = baseDataDiv + "/div["+com+"]/div["+row+"]/div["+cell+"]/div["+allCols.get(colName)+"]//input"
@@ -616,21 +693,23 @@ public class AccountPlanner {
 		String headDiv = baseDiv + "/div[1]";
 		String baseColDiv = baseDiv + "/div[2]";
 		if((consumptionAllCols == null) && (tableName.toLowerCase().contains("consumption")))
-			consumptionAllCols = getConsumptionTableHeads(baseColDiv);
+			getConsumptionTableHeads(baseColDiv,"consumption");
 		else if((distriAllCols == null) && (tableName.toLowerCase().contains("distribution")))
-			distriAllCols = getConsumptionTableHeads(baseColDiv);
+			getConsumptionTableHeads(baseColDiv,"distribution");
 		else if((velAllCols == null) && (tableName.toLowerCase().contains("velocity")))
-			velAllCols = getConsumptionTableHeads(baseColDiv);
+			getConsumptionTableHeads(baseColDiv,"velocity");
+		println("End");
 	}
-	public static HashMap getConsumptionTableHeads(String colDiv){
+	public static HashMap getConsumptionTableHeads(String colDiv,String strSection){
 		//get all child div objects of the colDiv
 		//get the span value and put in a hash map "col name","iterator"
 		//TestObject colDivObj = General.
 		HashMap colMap = new HashMap();
+		HashMap colDataMap = new HashMap();
 		TestObject colObj,colSpanObj;
 		String colString = "Test";
 		String colSpanObjString,textVal;
-		int i=1,k=1;
+		int i=1,k=1,m=1;
 
 		WebDriver driver = DriverFactory.getWebDriver()
 		WebElement element;
@@ -641,19 +720,36 @@ public class AccountPlanner {
 			colObj = General.createObject(colString);
 			println colString;
 			boolean isPresent = CompassUIElements.isElementPresent(colObj,5)
-
-			if(isPresent){
+			boolean isVisible = CompassUIElements.checkElementVisible(colObj,5)
+			if(!isPresent)
+				colString = "";
+			else{
 				colSpanObjString = colString + "/span";
 				colSpanObj = General.createObject(colSpanObjString);
 				textVal = executor.executeScript('return arguments[0].innerText;', WebUiCommonHelper.findWebElement(colSpanObj, 2)).toString()
 				colMap.put(textVal, k)
+
+				if(isVisible)
+				{
+					colDataMap.put(textVal,m);
+					m++;
+				}
 				k++;
 			}
-			else
-				colString = "";
 			i++;
 		}
-		return colMap;
+		if(strSection.toLowerCase().contains("consumption")){
+			consumptionAllCols = colMap;
+			consumptionDataCols = colDataMap
+		}
+		else if(strSection.toLowerCase().contains("distribution")){
+			distriAllCols = colMap;
+			distriDataCols = colDataMap;
+		}
+		else if(strSection.toLowerCase().contains("velocity")){
+			velAllCols = colMap;
+			velDataCols = colDataMap;
+		}
 	}
 }
 

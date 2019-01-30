@@ -4,7 +4,7 @@
    <name>RegressionSuit</name>
    <tag></tag>
    <isRerun>false</isRerun>
-   <lastRun>2019-01-23T17:51:08</lastRun>
+   <lastRun>2019-01-29T14:55:45</lastRun>
    <mailRecipient></mailRecipient>
    <numberOfRerun>0</numberOfRerun>
    <pageLoadTimeout>100</pageLoadTimeout>
@@ -94,6 +94,12 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
       <testCaseId>Test Cases/SortDataAscOrDescInUPCActivation</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>96f90f89-8daa-4d19-ad6d-036c0285c0b9</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/10</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>751dc209-e270-49df-a238-25d3bec0365c</guid>

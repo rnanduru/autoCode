@@ -13,11 +13,5 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-CustomKeywords.'CustomerSettings.clickUPCBtn'()
-
-CustomKeywords.'CustomerSettings.clickBtnOfUPCSelectPPg'()
-
-CustomKeywords.'CustomerSettings.selectUPCs'(findTestData('CustomerSettings'), '1')
-
-CustomKeywords.'CustomerSettings.clickAddUPCBtn'()
+CustomKeywords.'AccountPlanner.verifyColorInColumn'()
 

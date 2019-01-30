@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
-   <description>Add UPC</description>
-   <name>btn_add_upc</name>
+   <description></description>
+   <name>btn_upc_selectppgs</name>
    <tag></tag>
-   <elementGuidId>ed8ae9ec-a28c-4ee2-b8b9-a7886f5f6f7e</elementGuidId>
+   <elementGuidId>23dfa617-51b0-488e-8536-90dec7eb0020</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//authorization-list/div[@class='event-management__container']/div[@class='row']//div[@class='float-left tool-bar']/button[5]
-
-</value>
+         <value>//div[@class='float-left']/dropdown-filterable[2]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -19,8 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//authorization-list/div[@class='event-management__container']/div[@class='row']//div[@class='float-left tool-bar']/button[5]
-
-</value>
+      <value>//div[@class='float-left']/dropdown-filterable[2]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
    </webElementProperties>
 </WebElementEntity>

@@ -38,55 +38,55 @@
    <testCaseLink>
       <guid>224363b7-210d-4dcf-98fb-ad2eaa34aca1</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/CreateAllEventTypes</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>3f91a9a8-a3a2-445f-b8b9-589ad25b8eb9</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/CreateEventTypesViaCreateEventBtn</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>2f15f17d-7dc1-452b-b130-f35cd837d342</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/CreatePPGEventWithWithEventCreateButton</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>8bdedc23-205e-4cba-8e89-43e1009eae2a</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/DeleteAnyEventOnTabs</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>6eed1bb8-5418-4bfa-aa9f-7f8f76e71a36</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/EditAnyEventByEventIDColumn</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>d2459471-465d-4338-bed2-f3fa8e5ff3be</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/Export To Excel for Tabs-Events and Products</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>c2417478-c900-4b66-b823-10753f45b525</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/HideAndDisplayColumnsViaColumnsButton</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>afadad6d-9575-4db9-84f8-e4e8872702af</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/PPGAndItsRelatedEvents</testCaseId>
    </testCaseLink>
    <testCaseLink>
       <guid>cc216a38-0131-4efb-956a-3f89e31e85e6</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/EventManagement/SortAndFilterResultsFromEventsAndproductsTab</testCaseId>
    </testCaseLink>
    <testCaseLink>

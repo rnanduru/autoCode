@@ -78,6 +78,10 @@ public class CustomerSettings {
 		//CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn1selectppg'))
 	}
 	@Keyword
+	public static void clickBtnOfUPCSelectPPg(){
+		WebUI.click(findTestObject('Object Repository/Compass/CustomerSettings/btn_upc_selectppgs'))
+	}
+	@Keyword
 	public static void clickGroupWindow(){
 		CompassUIElements.clickButton(findTestObject('Compass/CustomerSettings/txt_add_to_group_existing_group_header'))
 		RobotX.RoboKeyPress('<tab>')
@@ -92,7 +96,6 @@ public class CustomerSettings {
 	public static void clickPPGActivationCheckboxes(){
 		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),"all",1)
 	}
-
 	@Keyword
 	public static void selectItemsfromExcel(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
@@ -171,6 +174,10 @@ public class CustomerSettings {
 	@Keyword
 	public static void clickUPCBtn(){
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_upc_activation"))
+	}
+	@Keyword
+	public static void clickAddUPCBtn(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/CustomerSettings/btn_add_upc'))
 	}
 	@Keyword
 	public static Map<String,String> getAllTableValuesInPPGActivationTable(TestObject to,String inColumn){
