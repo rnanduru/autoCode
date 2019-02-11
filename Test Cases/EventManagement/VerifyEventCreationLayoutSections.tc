@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>For all customer plans, able to see the page load with the new layout with 3 sections; Parameters, Lift/Pace and Financials; with the event start/ed dates pre-populating to today’s date; able to enter values for all editable fields in the Parameters and Lift/Pace sections; able to search and add a PPG to the event and see it included in the ‘Active PPG(s)’ drop down at the top center of the page; if the event spans multiple weeks, able to see a totals row in the Lift/Pace section where the user can enter values in the editable fields and see those amounts be distributed evenly across all weeks (for Load/Deload) or based on the Base Volume numbers (for the Total and Inc. Volume columns)</description>
+   <name>VerifyEventCreationLayoutSections</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>251c9c7b-7226-4295-ad04-74c9c7448978</testCaseGuid>
+</TestCaseEntity>
