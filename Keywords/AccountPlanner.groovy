@@ -26,7 +26,7 @@ import java.util.List;
 import org.openqa.selenium.JavascriptExecutor
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
-
+import org.openqa.selenium.support.Color;
 import org.testng.Assert
 import org.testng.annotations.*;
 public class AccountPlanner {
@@ -129,31 +129,32 @@ public class AccountPlanner {
 	
 	@Keyword
 	public static void verifyColorInColumn(){
-		//String Expected="";
+		String Expected="#7030A0";
 		WebDriver driver = DriverFactory.getWebDriver()
-		String Value = driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[1]/div[2]/div/div[1]/div[1]")).getCssValue("background").toString();
+		String Value = driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[1]/div[2]/div/div[1]/div[1]")).getCssValue("background");
 
 		println "consumption field is clickble======="+Value
 
-		String[] Value1=Value.replace("rgba(" ,"").replace(")","").split(",");
+		String[] Value1 = Value.replace("rgba(", "").replace(")", "").split(",");
 
 		println"hex value is=========="+ Value1
-
-		Value[0]=Value1[0].trim();
+		
+		String hexValue1,hexValue2,hexValue3;
+		hexValue1[0]=Value1[0].trim();
 		int hex1=Integer.parseInt(Value1[0])
-		Value[0]=Value1[0].trim();
-		int hex2=Integer.parseInt(Value1[1])
-		Value[0]=Value1[0].trim();
-		int hex3=Integer.parseInt(Value1[2])
+		hexValue2[0]=Value1[1].trim();
+		int hex2=Integer.parseInt(Value1[0])
+		hexValue3[0]=Value1[2].trim();
+		int hex3=Integer.parseInt(Value1[0])
 
 
-		//Color.fromString("#%02x%02x%02x",Value).asHex()
+		Color.fromString("#%02x%02x%02x",Value).asHex()
 		println "color code is ===="+hex1+hex2+hex3;
 
 		String actual=String.format("#%02x%02x%02x",hex1,hex2,hex3);
 		println "actual color is====="+actual
 
-		Assert.assertEquals("#7030A0",actual);
+		Assert.assertEquals(Expected,actual);
 	}
 	@Keyword
 	public static void clickSavebutton(){
