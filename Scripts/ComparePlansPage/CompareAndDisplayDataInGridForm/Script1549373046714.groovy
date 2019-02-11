@@ -13,23 +13,32 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
-/*
- * From Events Mgmt: able to create any of the four event types via the Create Event button and 
- * sub nav; PPG, SKU MOD and Product Family
- * 
+/*Able to select up to 4 plans to compare, based on the global nav / customer plan selected, 
+ * and set / change the PPG, plans, fields to display (10 total) and time range for comparison analysis, 
+ * and have the data points appear on the page in grid form (after clicking ‘Compare Plans’)
  */
 
-/*CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
+CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
 
-CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)*/
+CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)
 
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Event_Management)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Compare_Plans)
 
-/*CustomKeywords.'EventManagement.clickEventsTab'()
+CustomKeywords.'AccountPlanner.selectHeaderItem'(findTestData('AccountPlanner'), '2')
 
-CustomKeywords.'EventManagement.clickCreateEventButton'(1)*/
+CustomKeywords.'ShipperMod.selectPPG'("0LL 10z Boca Burger 9ct \$22.68")
 
-String ppgs="YP0 7.25z M&C Blue Box 5+1 Prem 6;1.9LB SWEDISH FISH ASSORTED BAG 4;70CS MOD MAC & CHSE 5PK;Blue Box Mac & Cheese"
+CustomKeywords.'ShipperMod.selectPlan'()
 
-CustomKeywords.'EventManagement.createEventsWithDifferentTypes'(ppgs, "10")
+CustomKeywords.'ShipperMod.selectFields'()
+
+CustomKeywords.'ShipperMod.selectRange'("Year")
+
+CustomKeywords.'ShipperMod.clickComparePlan'()
+
+CustomKeywords.'ShipperMod.verifyDataInGridLayout'()
+
+
+
+
+

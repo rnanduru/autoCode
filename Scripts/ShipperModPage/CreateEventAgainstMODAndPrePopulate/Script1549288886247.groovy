@@ -2,10 +2,6 @@ import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
-import java.time.LocalDate
-import java.time.temporal.WeekFields
-
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
@@ -17,17 +13,39 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
 /*
- * Able to click on the number row (0 by default) for a given week and create a new event
- *
- */
+Ability to create a new event against the selected Mod (via the ‘Create Event’ button) and 
+have the Mod pre-populate on the event creation page, 
+with ability to save those changes and later view that and 
+other events created against this Mod via the ‘View Events’ button 
+1) Navigate to Shipper MOD
+2) Click Create Event btn and create event and verify MOD- pre-populate on the event creation page and save changes.
+3) View the event against MOD via "View Events button"
+*
+*/
+//Navigate to Shipper MOD
 CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
 
 CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)
 
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Merch_Calendar)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Shipper_Mod)
 
-CustomKeywords.'MerchCalendar.clickCurrentWeekTab'(General.getCurrentMonth(), General.getCurrentweekNum())
+CustomKeywords.'ShipperMod.selectShippeMod'("BRK 4.7Z DBL CC FRT PINE 12")
 
-CustomKeywords.'MerchCalendar.createEvent'("10","0IX 5.5-6z Mac&Cheese MWO 12")
+CustomKeywords.'ShipperMod.clickCreateEvent'()
+
+CustomKeywords.'EventManagement.verifyPPGOnEventCreationPage'("BRK 4.7Z DBL CC FRT PINE 12")
+
+String eventName=CustomKeywords.'ShipperMod.createEvent'("12")
+
+CustomKeywords.'ShipperMod.clickViewEventsBtn'(eventName)
+
+
+
+
+
+
+
+
+
+

@@ -24,8 +24,6 @@ CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
 
 CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)
 
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Event_Management)
-
-CustomKeywords.'EventManagement.clickEventsTab'()
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
 CustomKeywords.'EventManagement.clickCreateEventButton'(1)

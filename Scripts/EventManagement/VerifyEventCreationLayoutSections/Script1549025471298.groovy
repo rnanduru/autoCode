@@ -13,23 +13,18 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
 /*
- * From Events Mgmt: able to create any of the four event types via the Create Event button and 
- * sub nav; PPG, SKU MOD and Product Family
- * 
- */
+For all customer plans, able to see the page load with the new layout with 3 sections; 
+Parameters, Lift/Pace and Financials; with the event start/ed dates pre-populating to today’s date; 
+able to enter values for all editable fields in the Parameters and Lift/Pace sections; 
+able to search and add a PPG to the event and see it included in the ‘Active PPG(s)’ drop down at the top center of the page; 
+if the event spans multiple weeks, able to see a totals row in the Lift/Pace section where the user can enter values in the editable fields 
+and see those amounts be distributed evenly across all weeks (for Load/Deload) or 
+based on the Base Volume numbers (for the Total and Inc. Volume columns)
 
-/*CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
+1) Verify 3 sections Parameters, Lift/Pace and Financials;
+2)
+*/
 
-CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)*/
 
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Event_Management)
-
-/*CustomKeywords.'EventManagement.clickEventsTab'()
-
-CustomKeywords.'EventManagement.clickCreateEventButton'(1)*/
-
-String ppgs="YP0 7.25z M&C Blue Box 5+1 Prem 6;1.9LB SWEDISH FISH ASSORTED BAG 4;70CS MOD MAC & CHSE 5PK;Blue Box Mac & Cheese"
-
-CustomKeywords.'EventManagement.createEventsWithDifferentTypes'(ppgs, "10")
+//AccountPlanner.selectHeaderItem'(findTestData('AccountPlanner'), '1')

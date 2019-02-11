@@ -13,23 +13,16 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
-/*
- * From Events Mgmt: able to create any of the four event types via the Create Event button and 
- * sub nav; PPG, SKU MOD and Product Family
- * 
+/*Able to export to excel all data saved on the page, 
+ * showing Mod Forecast and Product Costing EDLP tabs appear as two separate tabs in the Excel file
+ * 1) Navigate to Shipper MOD
+ * 2) Click export to excel and verify MOD Forecast and Product Costing EDLP as two seperate tabs in excel file
  */
 
-/*CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
+CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
 
-CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)*/
+CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)
 
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Event_Management)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Shipper_Mod)
 
-/*CustomKeywords.'EventManagement.clickEventsTab'()
-
-CustomKeywords.'EventManagement.clickCreateEventButton'(1)*/
-
-String ppgs="YP0 7.25z M&C Blue Box 5+1 Prem 6;1.9LB SWEDISH FISH ASSORTED BAG 4;70CS MOD MAC & CHSE 5PK;Blue Box Mac & Cheese"
-
-CustomKeywords.'EventManagement.createEventsWithDifferentTypes'(ppgs, "10")
+CustomKeywords.'ShipperMod.clickExportToExcel'()

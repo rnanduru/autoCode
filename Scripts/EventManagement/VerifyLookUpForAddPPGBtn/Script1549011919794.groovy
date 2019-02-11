@@ -13,23 +13,22 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-
 /*
- * From Events Mgmt: able to create any of the four event types via the Create Event button and 
- * sub nav; PPG, SKU MOD and Product Family
- * 
- */
+ * Able to perform lookups via the ‘Add PPG/SKU/MOD/Product Family’ button on the bottom of the page, 
+ * and see all related items added to the ‘Active [ ]’ drop down at the top of the page
+*/
 
-/*CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
 
-CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)*/
+CustomKeywords.'General.openAppURLRobo'(GlobalVariable.url)
+
+CustomKeywords.'Login.loginCompass'(GlobalVariable.username, GlobalVariable.password)
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.Event_Management)
 
-/*CustomKeywords.'EventManagement.clickEventsTab'()
+CustomKeywords.'EventManagement.clickCreateEventButton'(1)
 
-CustomKeywords.'EventManagement.clickCreateEventButton'(1)*/
+String ppg="YP0 7.25z M&C Blue Box 5+1 Prem 6;BEL ORT X/HVY TOM PUREE 10TIN6 6LB1;70CS MOD MAC & CHSE 5PK;Blue Box Mac & Cheese"
 
-String ppgs="YP0 7.25z M&C Blue Box 5+1 Prem 6;1.9LB SWEDISH FISH ASSORTED BAG 4;70CS MOD MAC & CHSE 5PK;Blue Box Mac & Cheese"
+CustomKeywords.'EventManagement.verifyLookUpAddPPGBtn'(ppg)
 
-CustomKeywords.'EventManagement.createEventsWithDifferentTypes'(ppgs, "10")
+

@@ -1,15 +1,8 @@
-import java.text.DateFormat as DateFormat
-import java.text.SimpleDateFormat as SimpleDateFormat
-import java.time.DayOfWeek as DayOfWeek
-import java.time.LocalDate as LocalDate
-import java.time.format.DateTimeFormatter as DateTimeFormatter
-import javax.swing.text.DateFormatter as DateFormatter
 
-DateTimeFormatter df = DateTimeFormatter.ofPattern('EEE MMM/dd/yyyy')
-LocalDate today = LocalDate.now()
-// Go forward to get saturday
-LocalDate saturday = today
-while (saturday.getDayOfWeek() != DayOfWeek.SATURDAY) {
-    saturday = saturday.plusDays(1)
-}
-System.out.println('Sunday of the Week: ' + df.format(saturday))
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+String ppg="YP0 7.25z M&C Blue Box 5+1 Prem 6"
+
+//CustomKeywords.'AccountPlanner.searchAndSelectClickAddPPGBtn'(findTestObject('Object Repository/Compass/AccountPlaner/txt_searchppg'), ppg)
+
+CustomKeywords.'MerchCalendar.deletePPGs'()
