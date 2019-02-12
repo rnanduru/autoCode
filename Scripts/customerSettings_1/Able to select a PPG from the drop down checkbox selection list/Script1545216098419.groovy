@@ -13,19 +13,17 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-/*35.Able to choose an appropriate spend method, and (for WW / Case) have the WW Data button + popup page appear for WW Volume input
-*/
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
 
-CustomKeywords.'AccountPlanner.clickProductCost'()
+CustomKeywords.'CustomerSettings.selectPPgs'(findTestData('CustomerSettings'), '1')
 
-CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
+CustomKeywords.'CustomerSettings.clickAddPPGButton'()
 
-not_run: CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'ok')
 
-CustomKeywords.'AccountPlanner.clickWWDataButton'()
+CustomKeywords.'CustomerSettings.clearTextPPg'()
 
-CustomKeywords.'CompassUIElements.WherehouseWithdrawlSetText'(General.getRandomnum(5, 99))
+CustomKeywords.'CustomerSettings.clickAddPPGButton'()
 
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'ok')
 

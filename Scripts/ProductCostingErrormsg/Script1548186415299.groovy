@@ -23,12 +23,20 @@ CustomKeywords.'AccountPlanner.clickAddNewBtn'()
 
 CustomKeywords.'AccountPlanner.clickSavebutton'()
 
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'OK')
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'oK')
 
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
 
 CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'Do you want to save your Account Planner changes for 003 32z Velveeta Loaf 12 $96.12 ?', 
-    'No')
+    'Yes')
+
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'ok')
+
+CustomKeywords.'AccountPlanner.clickApplyEDLPBtn'()
+
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'ok')
+
+CustomKeywords.'AccountPlanner.clickSavebutton'()
 
 CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'One of the following conditions are not met', 'ok')
 

@@ -19,17 +19,19 @@ CustomKeywords.'AccountPlanner.clickVersion'()
 
 CustomKeywords.'AccountPlanner.selectButtonList'('Save As')
 
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true','', 'Save')
-String s="TestLoger_"+General.getRandomnum(11, 99)
+CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'Save')
+
+String s = 'TestLoger_' + General.getRandomnum(11, 99)
+
 CustomKeywords.'AccountPlanner.setVersionName'(s)
 
 CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', 'Enter Account Planner Name', 'Save')
 
 WebUI.delay(3)
 
-CustomKeywords.'AccountPlanner.selectVersion'('VER_TESTLOGER_39')
+CustomKeywords.'AccountPlanner.selectVersion'('VER_TESTLOGER_40')
 
-CustomKeywords.'AccountPlanner.verifySelectedVersion'('VER_TESTLOGER_39')
+CustomKeywords.'AccountPlanner.verifySelectedVersion'('VER_TESTLOGER_40')
 
 CustomKeywords.'AccountPlanner.clickVersion'()
 

@@ -142,13 +142,13 @@ public class CustomerSettings {
 
 	@Keyword
 	public static void removeAllPPGAndGroups(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all",'');
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all",1);
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
 		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","","","OK");
 	}
 	@Keyword
 	public static void removeOnePPGAndGroup(){
-		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'), "all", 1)
+		CompassUIElements.kendoGridSelectCheckBox(findTestObject('Object Repository/Compass/CustomerSettings/tbl_ppg_activation'),"all",1)
 		CompassUIElements.clickButton(findTestObject("Object Repository/Compass/CustomerSettings/btn_delete"));
 		CompassUIElements.kendoDialogBoxHandler("true","Are you Sure","OK");
 	}

@@ -9,23 +9,13 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testcase.TestCase as TestCase
 import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.common.WebUiCommonHelper as WebUiCommonHelper
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-/*35.Able to choose an appropriate spend method, and (for WW / Case) have the WW Data button + popup page appear for WW Volume input
+/*6.Able to enter data for all editable fields for a given row(s) and save the changes
 */
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'AccountPlanner.clickProductCost'()
-
-CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
-
-not_run: CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
-
-CustomKeywords.'AccountPlanner.clickWWDataButton'()
-
-CustomKeywords.'CompassUIElements.WherehouseWithdrawlSetText'(General.getRandomnum(5, 99))
-
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
-
+CustomKeywords.'CustomerSettings.setValuesInPPGActivationTable'(findTestData('CustomerSettings'), '1')

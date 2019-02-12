@@ -77,7 +77,7 @@ public class CompassUIElements {
 	@Keyword
 	public static void WherehouseWithdrawlSetText(String WWVolume){
 		WebDriver driver = DriverFactory.getWebDriver()
-		List<WebElement> ele=driver.findElements(By.xpath("//div/div[@class='grid-cell']/kendo-numerictextbox//input[@role='spinbutton']"))
+		List<WebElement> ele=driver.findElements(By.xpath("//div/div[@class='grid-cell']/kendo-numerictextbox//input"))
 		int rowcount1=ele.size()
 		println "size of wwvolume rows"+rowcount1
 		for(int i=1;i<=rowcount1;i++){
@@ -251,10 +251,10 @@ public class CompassUIElements {
 		println "xpath isssssss"+ tblXPath
 		if(rowNo.equalsIgnoreCase("all")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
-			println "row size is "+rows.size()
+			println "row size is " + rows.size()
 			boolean isChecked ;
 			for(int i=1;i<=rows.size();i++){
-				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]";
+				String tblXPath1 = tblXPath+"//tr["+i+"]//td["+column+"]";
 
 				//table//tr[25]/td[1]
 				kendoGridCellOperation(tblXPath1,operation,data)
@@ -265,10 +265,10 @@ public class CompassUIElements {
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
 
 			String[] rowFrom = rowNo.split(":")
-			for(int i=Integer.valueOf(rowFrom[0]);i<=Integer.valueOf(rowFrom[(rowFrom.length)-1]);i++){
+			for(int i=Integer.valueOf(rowFrom[0]);i<=Integer.valueOf(rowFrom[(rowFrom.length)]);i++){
 				//WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
-				tblXPath = tblXPath+"//tr["+i+"]/td["+column+"]"
-				kendoGridCellOperation(tblXPath,operation,data)
+				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]"
+				kendoGridCellOperation(tblXPath1,operation,data)
 			}
 		}
 		else if(rowNo.contains(GlobalVariable.multivalueseperator)){
@@ -282,7 +282,7 @@ public class CompassUIElements {
 			}
 		}
 		else{
-			tblXPath = tblXPath+"//tr["+rowNo+"]/td["+column+"]";
+			tblXPath = tblXPath+"//tr["+rowNo+"]//td["+column+"]";
 			kendoGridCellOperation(tblXPath,operation,data)
 		}
 		//WebUI.click(General.createObject(tblXPath+"//tr["+Integer.valueOf(rowNo)+"]/td["+column+"]"))
@@ -298,10 +298,10 @@ public class CompassUIElements {
 		executor = ((driver) as JavascriptExecutor);
 		if(operation.equalsIgnoreCase("check"))
 		{
-			tblObj1 = tblXPath;
+			tblObj1 = tblXPath+"//table//tr";
 			println "xpath tyy"+tblObj1;
-			//element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
-			element=driver.findElement(By.xpath(tblObj1))
+			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			//element=driver.findElement(By.xpath(tblObj1))
 			println "is displayed"+	element.isDisplayed()
 			println "is Enabled"+	element.isEnabled()
 
@@ -310,13 +310,13 @@ public class CompassUIElements {
 				println "ischecked  " + isChecked
 				println "is selectedd"+element.isSelected()
 				if(!isChecked)
-					//executor.executeScript("arguments[0].click();",element);
-					element.click()
+					executor.executeScript("arguments[0].click();",element);
+					//element.click()
 			}
 		}
 		else if(operation.equalsIgnoreCase("set"))
 		{
-			tblObj1 = tblXPath+"//input";
+			tblObj1 = tblXPath;
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
 				executor.executeScript("arguments[0].value='"+data+"';",element)
@@ -335,11 +335,11 @@ public class CompassUIElements {
 			if(data.contains("\$")){
 				data = data.replace("\$","\$");
 			}
-			tblObj1 = tblXPath + "//Select" // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
+			tblObj1 = tblXPath  // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
 			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
 			//element.click();
 			if(checkElementVisible(General.createObject(tblObj1), 2)){
-				executor.executeScript("var select = arguments[0]; for(var i = 0; i < select.options.length; i++){ if(select.options[i].text == arguments[1]){ select.options[i].selected = true; } };",element,data)
+				executor.executeScript("var select = arguments[0];for(var i = 0; i < select.options.length; i++){if(select.options[i].text == arguments[1]){select.options[i].selected = true; } };",element,data)
 			}
 		}
 	}
@@ -351,7 +351,7 @@ public class CompassUIElements {
 	@Keyword
 	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
 		//TestObject tblObj,String rowNo,int column,String operation,String data
-		kendoGridOperation(tblObj,rowNo,column.toString(),"check","")
+		kendoGridOperation(tblObj,rowNo,column.toString(),"check",1)
 	}
 	@Keyword
 	public static void kendoGridEnterTextBox(TestObject tblObj,String rowNo,String column,String data){

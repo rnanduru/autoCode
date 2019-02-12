@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>accountPlanner_PBISF_tabs</name>
+   <tag></tag>
+   <elementGuidId>054fae9c-306f-40a7-b9c8-855eea8a84b5</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//kendo-tabstrip/ul[@role='tablist']/li[&quot;+Row+&quot;]/span[@class='k-link']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//kendo-tabstrip/ul[@role='tablist']/li[&quot;+Row+&quot;]/span[@class='k-link']</value>
+   </webElementProperties>
+</WebElementEntity>

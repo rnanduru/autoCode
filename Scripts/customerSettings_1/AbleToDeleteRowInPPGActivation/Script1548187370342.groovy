@@ -13,19 +13,8 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-/*35.Able to choose an appropriate spend method, and (for WW / Case) have the WW Data button + popup page appear for WW Volume input
+/*7.Able to delete a PPG row; after confirmation informing the user that all related planning info will be deleted in the application (and it will be removed from any PPG group it’s been added to)
 */
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
-CustomKeywords.'AccountPlanner.clickProductCost'()
-
-CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
-
-not_run: CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
-
-CustomKeywords.'AccountPlanner.clickWWDataButton'()
-
-CustomKeywords.'CompassUIElements.WherehouseWithdrawlSetText'(General.getRandomnum(5, 99))
-
-CustomKeywords.'CompassUIElements.kendoDialogBoxHandler'('true', '', 'OK')
+CustomKeywords.'CustomerSettings.removeOnePPGAndGroup'()
 

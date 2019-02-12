@@ -440,8 +440,42 @@ def static "AccountPlanner.verifyEventPPGCreationInfo"(
          , 	str)
 }
 
-def static "AccountPlanner.verifyColorInColumn"() {
-    (new AccountPlanner()).verifyColorInColumn()
+def static "AccountPlanner.verifyColorInColumn"(
+    	String Expected	
+     , 	String row	
+     , 	String row1	) {
+    (new AccountPlanner()).verifyColorInColumn(
+        	Expected
+         , 	row
+         , 	row1)
+}
+
+def static "AccountPlanner.verifyWeeksColorInColumn"(
+    	String quarter	
+     , 	String month	
+     , 	String row	
+     , 	String column	) {
+    (new AccountPlanner()).verifyWeeksColorInColumn(
+        	quarter
+         , 	month
+         , 	row
+         , 	column)
+}
+
+def static "AccountPlanner.verifyTabBackgroundColorOfBasePlanning"() {
+    (new AccountPlanner()).verifyTabBackgroundColorOfBasePlanning()
+}
+
+def static "AccountPlanner.verifyTabBackgroundColorOfIncPlanning"() {
+    (new AccountPlanner()).verifyTabBackgroundColorOfIncPlanning()
+}
+
+def static "AccountPlanner.verifyTabBackgroundColorOfShipment"() {
+    (new AccountPlanner()).verifyTabBackgroundColorOfShipment()
+}
+
+def static "AccountPlanner.verifyTabBackgroundColorOfFinancials"() {
+    (new AccountPlanner()).verifyTabBackgroundColorOfFinancials()
 }
 
 def static "AccountPlanner.clickSavebutton"() {
@@ -800,6 +834,14 @@ def static "AccountPlanner.toggleQMW"(
     	String toggleBy	) {
     (new AccountPlanner()).toggleQMW(
         	toggleBy)
+}
+
+def static "AccountPlanner.accountPlannerPBISFTabs"(
+    	String Tabs	
+     , 	String Row	) {
+    (new AccountPlanner()).accountPlannerPBISFTabs(
+        	Tabs
+         , 	Row)
 }
 
 def static "AccountPlanner.verifyConsumptionCellValue"(
@@ -1300,6 +1342,68 @@ def static "EventManagement.createEvent"() {
     (new EventManagement()).createEvent()
 }
 
+def static "ShipperMod.selectShippeMod"(
+    	String str	) {
+    (new ShipperMod()).selectShippeMod(
+        	str)
+}
+
+def static "ShipperMod.clickCreateEvent"() {
+    (new ShipperMod()).clickCreateEvent()
+}
+
+def static "ShipperMod.createEvent"(
+    	String promo	) {
+    (new ShipperMod()).createEvent(
+        	promo)
+}
+
+def static "ShipperMod.clickViewEventsBtn"() {
+    (new ShipperMod()).clickViewEventsBtn()
+}
+
+def static "ShipperMod.verifyEventCreation"(
+    	String event	) {
+    (new ShipperMod()).verifyEventCreation(
+        	event)
+}
+
+def static "ShipperMod.clickExportToExcel"() {
+    (new ShipperMod()).clickExportToExcel()
+}
+
+def static "ShipperMod.verifyExport"() {
+    (new ShipperMod()).verifyExport()
+}
+
+def static "ShipperMod.selectPPG"(
+    	String data	) {
+    (new ShipperMod()).selectPPG(
+        	data)
+}
+
+def static "ShipperMod.selectPlan"() {
+    (new ShipperMod()).selectPlan()
+}
+
+def static "ShipperMod.selectFields"() {
+    (new ShipperMod()).selectFields()
+}
+
+def static "ShipperMod.selectRange"(
+    	String str	) {
+    (new ShipperMod()).selectRange(
+        	str)
+}
+
+def static "ShipperMod.clickComparePlan"() {
+    (new ShipperMod()).clickComparePlan()
+}
+
+def static "ShipperMod.verifyDataInGridLayout"() {
+    (new ShipperMod()).verifyDataInGridLayout()
+}
+
 def static "HamburgMenu.clickHamburgMenu"(
     	String menuItem	) {
     (new HamburgMenu()).clickHamburgMenu(
@@ -1382,68 +1486,6 @@ def static "Financials.verifyEditPostAduitAmt"(
         	to)
 }
 
-def static "RobotX.RoboKeyPress"(
-    	String data	) {
-    (new RobotX()).RoboKeyPress(
-        	data)
-}
-
-def static "RobotX.RoboKeyPressSpecial"(
-    	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
-        	data)
-}
-
-def static "MerchCalendar.verifyMonthOrder"(
-    	String mon	) {
-    (new MerchCalendar()).verifyMonthOrder(
-        	mon)
-}
-
-def static "MerchCalendar.verifyWeekOrder"(
-    	String mon	) {
-    (new MerchCalendar()).verifyWeekOrder(
-        	mon)
-}
-
-def static "MerchCalendar.getMonthNumber"(
-    	String month	) {
-    (new MerchCalendar()).getMonthNumber(
-        	month)
-}
-
-def static "MerchCalendar.clickProductBtn"(
-    	TestObject to	) {
-    (new MerchCalendar()).clickProductBtn(
-        	to)
-}
-
-def static "MerchCalendar.searchAndSelectPPGs"(
-    	TestObject to	
-     , 	String ppg	) {
-    (new MerchCalendar()).searchAndSelectPPGs(
-        	to
-         , 	ppg)
-}
-
-def static "MerchCalendar.verifyPPGsAndYears"(
-    	TestObject eoc	
-     , 	String year	
-     , 	String ppg	) {
-    (new MerchCalendar()).verifyPPGsAndYears(
-        	eoc
-         , 	year
-         , 	ppg)
-}
-
-def static "MerchCalendar.clickCurrentWeekTab"(
-    	int month	
-     , 	int week	) {
-    (new MerchCalendar()).clickCurrentWeekTab(
-        	month
-         , 	week)
-}
-
 def static "General.openAppURLRobo"(
     	String url	) {
     (new General()).openAppURLRobo(
@@ -1508,6 +1550,68 @@ def static "General.getRandomnum"(
 
 def static "General.getCurrentWeekEndDate"() {
     (new General()).getCurrentWeekEndDate()
+}
+
+def static "MerchCalendar.verifyMonthOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyMonthOrder(
+        	mon)
+}
+
+def static "MerchCalendar.verifyWeekOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyWeekOrder(
+        	mon)
+}
+
+def static "MerchCalendar.getMonthNumber"(
+    	String month	) {
+    (new MerchCalendar()).getMonthNumber(
+        	month)
+}
+
+def static "MerchCalendar.clickProductBtn"(
+    	TestObject to	) {
+    (new MerchCalendar()).clickProductBtn(
+        	to)
+}
+
+def static "MerchCalendar.searchAndSelectPPGs"(
+    	TestObject to	
+     , 	String ppg	) {
+    (new MerchCalendar()).searchAndSelectPPGs(
+        	to
+         , 	ppg)
+}
+
+def static "MerchCalendar.verifyPPGsAndYears"(
+    	TestObject eoc	
+     , 	String year	
+     , 	String ppg	) {
+    (new MerchCalendar()).verifyPPGsAndYears(
+        	eoc
+         , 	year
+         , 	ppg)
+}
+
+def static "MerchCalendar.clickCurrentWeekTab"(
+    	int month	
+     , 	int week	) {
+    (new MerchCalendar()).clickCurrentWeekTab(
+        	month
+         , 	week)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
 }
 
 def static "Wait.waitCompassLoad"(

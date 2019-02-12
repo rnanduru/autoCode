@@ -16,24 +16,24 @@ import internal.GlobalVariable as GlobalVariable
 
 /*Create View button: above to create a new view, set it as the default view, and - after saving - see the view in the View drop down
 */
-
 CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_accounts_planner)
 
 CustomKeywords.'AccountPlanner.clickCreateViewbtn'()
 
 //WebUI.delay(5)
-String s="TestLog_"+General.getRandomnum(11, 99)
+String s = 'TestLog_' + General.getRandomnum(11, 99)
+
 CustomKeywords.'AccountPlanner.setViewName'(s)
+
 //WebUI.delay(5)
 CustomKeywords.'AccountPlanner.clickSavebtn'()
 
 //CustomKeywords.'AccountPlanner.messagePopupHandle'('Info Account Planner has been Saved')
-
 CustomKeywords.'AccountPlanner.closeView'()
 
 WebUI.delay(3)
 
-CustomKeywords.'AccountPlanner.selectView'(s)
+CustomKeywords.'AccountPlanner.selectView'('Navneet')
 
 CustomKeywords.'AccountPlanner.closeView'()
 

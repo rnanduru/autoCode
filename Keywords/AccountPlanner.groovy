@@ -5,6 +5,7 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import org.stringtemplate.v4.compiler.STParser.compoundElement_return
 import java.lang.String.CaseInsensitiveComparator
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.WebElement
 import com.gargoylesoftware.htmlunit.javascript.host.media.webkitMediaStream
 import com.kms.katalon.core.annotation.Keyword
@@ -20,13 +21,11 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain
 import internal.GlobalVariable
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.By
 import java.util.List;
 import org.openqa.selenium.JavascriptExecutor
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
-import org.openqa.selenium.support.Color;
 import org.testng.Assert
 import org.testng.annotations.*;
 public class AccountPlanner {
@@ -100,61 +99,112 @@ public class AccountPlanner {
 		WebUI.delay(2)
 	}
 	/*
-		 * Clicks the Start and end date calendar icon
-		 */
-		@Keyword
-		public static void clickOIBBCaseStartAndEndDateBtn(String str,String row){
-			TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='padding-section']/div[6]/div["+str+"]/span/kendo-datepicker["+row+"]//span[@role='button']/span")
-			WebUI.click(to)
-			WebUI.delay(2)
-	
-		}
-		
+	 * Clicks the Start and end date calendar icon
+	 */
 	@Keyword
-		public static void clickCreationEventSaveBtn(){
-			CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventcreation_save'))
-			CompassUIElements.waitCompassLoad()
-		}
+	public static void clickOIBBCaseStartAndEndDateBtn(String str,String row){
+		TestObject to=General.createObject("//accounts-planner[@class='accounts-planner ng-star-inserted']//div[@class='padding-section']/div[6]/div["+str+"]/span/kendo-datepicker["+row+"]//span[@role='button']/span")
+		WebUI.click(to)
+		WebUI.delay(2)
+
+	}
+
 	@Keyword
-		public static void verifyEventPPGCreationInfo(TestObject to,String str){
-			String txt=WebUI.getText(to)
-			if(txt.contains(str)){
-				println "text is equal"
-			}else{
-				KeywordUtil.markFailed("Text do not match; expected is "+txt);
-			}
-	
-		}
-	 
-	
+	public static void clickCreationEventSaveBtn(){
+		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_eventcreation_save'))
+		CompassUIElements.waitCompassLoad()
+	}
 	@Keyword
-	public static void verifyColorInColumn(){
-		String Expected="#7030A0";
+	public static void verifyEventPPGCreationInfo(TestObject to,String str){
+		String txt=WebUI.getText(to)
+		if(txt.contains(str)){
+			println "text is equal"
+		}else{
+			KeywordUtil.markFailed("Text do not match; expected is "+txt);
+		}
+
+	}
+	/*@login into Account planner
+	 * Click BasePlanning 
+	 * verify All tab colors
+	 * get the CSS value
+	 * convert RGB value to Hex value
+	 * Verify the Actual value and expected value
+	 */
+	@Keyword
+	public static void verifyColorInColumn(String Expected,String row,String row1){
 		WebDriver driver = DriverFactory.getWebDriver()
-		String Value = driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[1]/div[2]/div/div[1]/div[1]")).getCssValue("background");
-
-		println "consumption field is clickble======="+Value
-
-		String[] Value1 = Value.replace("rgba(", "").replace(")", "").split(",");
-
-		println"hex value is=========="+ Value1
-		
-		String hexValue1,hexValue2,hexValue3;
-		hexValue1[0]=Value1[0].trim();
-		int hex1=Integer.parseInt(Value1[0])
-		hexValue2[0]=Value1[1].trim();
-		int hex2=Integer.parseInt(Value1[0])
-		hexValue3[0]=Value1[2].trim();
-		int hex3=Integer.parseInt(Value1[0])
-
-
-		Color.fromString("#%02x%02x%02x",Value).asHex()
-		println "color code is ===="+hex1+hex2+hex3;
-
-		String actual=String.format("#%02x%02x%02x",hex1,hex2,hex3);
-		println "actual color is====="+actual
-
+		String value = driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-"+row1+"']/div/div[1]/div[2]/div/div["+row+"]/div[1]")).getCssValue("background-color");
+		println "button color of RGB " + value;
+		String hex = Color.fromString(value).asHex().toUpperCase();
+		println "Converted color is "+ hex ;
+		String actual=hex;
+		println "Expected color is equal to actual colors "+Expected + "=" + actual
 		Assert.assertEquals(Expected,actual);
+
+	}
+	@Keyword
+	public static void verifyWeeksColorInColumn(String quarter,String month,String row,String column){
+		WebDriver driver=DriverFactory.getWebDriver()
+	String to=driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[2]/div[1]"))
+		//WebElement tbl=driver.findElement(By.xpath(to +"//div["+quarter+"]/div["+month+"]/div["+row+"]"));
+		//List<WebElement> rows=tbl.findElements(By.xpath(tbl));
+		List<WebElement> rows=driver.findElements(By.xpath(to+"//div["+quarter+"]/div["+month+"]//div["+row+"]"))
+		String Count=rows.size();
+		println"count is +++++++"+Count
+		for(int i=1;i<=rows.size();i++) {
+			List<WebElement> columns=driver.findElements(By.xpath(rows+"//div["+column+"]"));
+			System.out.println("Number of columns:"+columns.size());
+			for(int j=1;j<=columns.size();j++){
+				System.out.println(columns.get(j).getText());
+			}
+		}
+	}
+	/*@verify the 4 color columns at a time by using the GlobalVariable
+	 *
+	 */
+	@Keyword
+	public static void verifyTabBackgroundColorOfBasePlanning(){
+		accountPlannerPBISFTabs(GlobalVariable.accountPlanner_BasePlanning,"2")
+		verifyColorInColumn(GlobalVariable.baseplanning_consumption_purple,"1","1")
+		println "*****consumption Purple color is Verified sucessfully*****"
+		verifyColorInColumn(GlobalVariable.baseplanning_pricing_blue,"3","1")
+		println "*****Pricing Blue color is Verified sucessfully*****"
+		verifyColorInColumn(GlobalVariable.baseplanning_distribution_green,"2","1")
+		println "****Distribution Green color is Verified sucessfully****"
+		verifyColorInColumn(GlobalVariable.baseplanning_velocity_red,"4","1")
+		println "*****Velocity Red color is Verified sucessfully******"
+	}
+	@Keyword
+	public static void verifyTabBackgroundColorOfIncPlanning(){
+		accountPlannerPBISFTabs(GlobalVariable.accountPlanner_IncPlanning,"3")
+		println "IncPlanning Tab is Clicked sucessfully " ;
+		verifyColorInColumn(GlobalVariable.incplanning_consumption_purple,"1","2")
+		println "consumption Purple color is Verified sucessfully" ;
+		verifyColorInColumn(GlobalVariable.incplanning_merch_orange,"2","2")
+		println "Merch orange  color is Verified sucessfully" ;
+		verifyColorInColumn(GlobalVariable.incplanning_hilo_green,"3","2")
+		println "Hilo green color is Verified sucessfully";
+		verifyColorInColumn(GlobalVariable.incplanning_pricing_blue,"4","2")
+		println " Pricing blue color is Verified sucessfully ";
+	}
+	@Keyword
+	public static void verifyTabBackgroundColorOfShipment(){
+		accountPlannerPBISFTabs(GlobalVariable.accountPlanner_Shipment,"4")
+		println" Shipment Tab is clicked sucessfully " ;
+		verifyColorInColumn(GlobalVariable.shipment_consumption_purple,"1","3")
+		println "consumption Purple color is Verified sucessfully" ;
+		verifyColorInColumn(GlobalVariable.shipment_shipment_brown,"2","3")
+		println " Shipment Brown color is Verified sucessfully " ;
+	}
+	@Keyword
+	public static void verifyTabBackgroundColorOfFinancials(){
+		accountPlannerPBISFTabs(GlobalVariable.accountPlanner_Financials,"5")
+		println "Financials Tab is Clicked Sucessfully " ;
+		verifyColorInColumn(GlobalVariable.financials_khcfinancials_ink,"1","4")
+		println "KHc Financials ink color is verified successfully " ;
+		verifyColorInColumn(GlobalVariable.financials_customerfinancials_red,"2","4")
+		println "Customer Financials Red color is verified sucessfully" ;
 	}
 	@Keyword
 	public static void clickSavebutton(){
@@ -168,7 +218,6 @@ public class AccountPlanner {
 	public static void clickEventsCreteButton(){
 		CompassUIElements.clickButton(findTestObject('Object Repository/Compass/AccountPlaner/btn_events_create'))
 	}
-
 	@Keyword
 	public static void clickCreateAndViewEventBtn(String str){
 		TestObject to=General.createObject("//kendo-button-list[@class='ng-star-inserted']/ul/li["+str+"]")
@@ -614,6 +663,32 @@ public class AccountPlanner {
 			if(CompassUIElements.isElementPresent(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_week'), 2))
 				WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/btn_baseplanning_week'))
 		}
+	}
+	@Keyword
+	public static void accountPlannerPBISFTabs(String Tabs,String Row){
+		if(Tabs.equalsIgnoreCase("Product Costing")){
+			TestObject itemObj = General.createObject("//kendo-tabstrip/ul[@role='tablist']/li["+Row+"]/span[@class='k-link']")
+			CompassUIElements.clickButton(itemObj)
+			/*if(CompassUIElements.isElementPresent(findTestObject('Object Repository/Compass/AccountPlaner/accountPlanner_PBISF_tabs'), 2))
+			 WebUI.click(findTestObject('Object Repository/Compass/AccountPlaner/accountPlanner_PBISF_tabs'))*/
+		}
+		else if(Tabs.equalsIgnoreCase("Base Planning")){
+			TestObject itemObj = General.createObject("//kendo-tabstrip/ul[@role='tablist']/li["+Row+"]/span[@class='k-link']")
+			CompassUIElements.clickButton(itemObj)
+		}
+		else if(Tabs.equalsIgnoreCase("Inc Planning")){
+			TestObject itemObj = General.createObject("//kendo-tabstrip/ul[@role='tablist']/li["+Row+"]/span[@class='k-link']")
+			CompassUIElements.clickButton(itemObj)
+		}
+		else if(Tabs.equalsIgnoreCase("Shipment")){
+			TestObject itemObj = General.createObject("//kendo-tabstrip/ul[@role='tablist']/li["+Row+"]/span[@class='k-link']")
+			CompassUIElements.clickButton(itemObj)
+		}
+		else if(Tabs.equalsIgnoreCase("Financials")){
+			TestObject itemObj = General.createObject("//kendo-tabstrip/ul[@role='tablist']/li["+Row+"]/span[@class='k-link']")
+			CompassUIElements.clickButton(itemObj)
+		}
+
 	}
 	@Keyword
 	public static void verifyConsumptionCellValue(String colName,int row,String expValue){

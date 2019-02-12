@@ -15,17 +15,20 @@ import internal.GlobalVariable as GlobalVariable
 
 /*8.Able to sort content for all columns in ascending or descending order, and filter the content in the grid for the first 3 columns (KHC PPG, KHC PPG Desc, PPG Group)
 */
-
 //CustomKeywords.'CustomerSettings.sortValuesInPPGActivationTable'(findTestObject('Compass/CustomerSettings/tbl_PPGActivation_table_headers'))
 // Click CustomerSetting
 // Click Column1  
 //Verify Column 1 Data in asc order
-CustomKeywords.'CustomerSettings.clickOnPPGActivationTableColumn'('KHC PPG')
-
-Map mp = CustomKeywords.'CustomerSettings.getAllTableValuesInPPGActivationTable'(findTestObject('Object Repository/Compass/CustomerSettings/tbl_PPGActivation_table_headers'),'KHC PPG')
-
-CustomKeywords.'CustomerSettings.verifyValuesOrder'('KHC PPG', mp.get("KHC PPG"),GlobalVariable.multivalueseperator,'desc')
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_customer_settings)
 
 CustomKeywords.'CustomerSettings.clickOnPPGActivationTableColumn'('KHC PPG')
 
-CustomKeywords.'CustomerSettings.verifyValuesOrder'('KHC PPG', mp.get("KHC PPG"),GlobalVariable.multivalueseperator,'asc')
+Map mp = CustomKeywords.'CustomerSettings.getAllTableValuesInPPGActivationTable'(findTestObject('Object Repository/Compass/CustomerSettings/tbl_PPGActivation_table_headers'), 
+    'KHC PPG')
+
+CustomKeywords.'CustomerSettings.verifyValuesOrder'('KHC PPG', mp.get('KHC PPG'), GlobalVariable.multivalueseperator, 'desc')
+
+CustomKeywords.'CustomerSettings.clickOnPPGActivationTableColumn'('KHC PPG')
+
+CustomKeywords.'CustomerSettings.verifyValuesOrder'('KHC PPG', mp.get('KHC PPG'), GlobalVariable.multivalueseperator, 'asc')
+
