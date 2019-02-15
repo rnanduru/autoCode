@@ -3,226 +3,12 @@
  * This class is generated automatically by Katalon Studio and should not be modified or deleted.
  */
 
-import com.kms.katalon.core.testobject.TestObject
-
 import java.lang.String
 
 import com.kms.katalon.core.testdata.TestData
 
+import com.kms.katalon.core.testobject.TestObject
 
-def static "CompassUIElements.selectListBox"(
-    	TestObject to	
-     , 	String data	) {
-    (new CompassUIElements()).selectListBox(
-        	to
-         , 	data)
-}
-
-def static "CompassUIElements.waitCompassLoad"() {
-    (new CompassUIElements()).waitCompassLoad()
-}
-
-def static "CompassUIElements.clickButton"(
-    	TestObject to	) {
-    (new CompassUIElements()).clickButton(
-        	to)
-}
-
-def static "CompassUIElements.selectMultiList"() {
-    (new CompassUIElements()).selectMultiList()
-}
-
-def static "CompassUIElements.checkButtonEnable"(
-    	TestObject to	) {
-    (new CompassUIElements()).checkButtonEnable(
-        	to)
-}
-
-def static "CompassUIElements.productCostTableItemsDelete"() {
-    (new CompassUIElements()).productCostTableItemsDelete()
-}
-
-def static "CompassUIElements.countAllDeleteButtons"(
-    	String to	) {
-    (new CompassUIElements()).countAllDeleteButtons(
-        	to)
-}
-
-def static "CompassUIElements.kendoMultiSelectList"(
-    	TestObject to	
-     , 	String item	) {
-    (new CompassUIElements()).kendoMultiSelectList(
-        	to
-         , 	item)
-}
-
-def static "CompassUIElements.kendoDeleteMultiSelectItem"(
-    	String item	) {
-    (new CompassUIElements()).kendoDeleteMultiSelectItem(
-        	item)
-}
-
-def static "CompassUIElements.kendoChartWidgetClose"(
-    	String chartDisplayName	) {
-    (new CompassUIElements()).kendoChartWidgetClose(
-        	chartDisplayName)
-}
-
-def static "CompassUIElements.kendoVerifyChartVisible"(
-    	String chartName	) {
-    (new CompassUIElements()).kendoVerifyChartVisible(
-        	chartName)
-}
-
-def static "CompassUIElements.verifyElementData"(
-    	TestObject to	
-     , 	String value	) {
-    (new CompassUIElements()).verifyElementData(
-        	to
-         , 	value)
-}
-
-def static "CompassUIElements.checkElementVisible"(
-    	TestObject to	
-     , 	int timeOut	) {
-    (new CompassUIElements()).checkElementVisible(
-        	to
-         , 	timeOut)
-}
-
-def static "CompassUIElements.countAllCheckboxes"(
-    	String to	) {
-    (new CompassUIElements()).countAllCheckboxes(
-        	to)
-}
-
-def static "CompassUIElements.checkAllCheckboxes"(
-    	int size	) {
-    (new CompassUIElements()).checkAllCheckboxes(
-        	size)
-}
-
-def static "CompassUIElements.clickCreateViewbtn"(
-    	String data	) {
-    (new CompassUIElements()).clickCreateViewbtn(
-        	data)
-}
-
-def static "CompassUIElements.setText"(
-    	TestObject to	
-     , 	String text	) {
-    (new CompassUIElements()).setText(
-        	to
-         , 	text)
-}
-
-def static "CompassUIElements.kendoGridSelectCheckBox"(
-    	TestObject tblObj	
-     , 	String rowNo	
-     , 	int column	) {
-    (new CompassUIElements()).kendoGridSelectCheckBox(
-        	tblObj
-         , 	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.BuildTableColumns"(
-    	TestObject tb	) {
-    (new CompassUIElements()).BuildTableColumns(
-        	tb)
-}
-
-def static "CompassUIElements.EnterValueInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String data	) {
-    (new CompassUIElements()).EnterValueInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.EnterDateInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String date	) {
-    (new CompassUIElements()).EnterDateInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	date)
-}
-
-def static "CompassUIElements.kendoGridEnterTextInCell"(
-    	String rowNo	
-     , 	int column	
-     , 	String data	) {
-    (new CompassUIElements()).kendoGridEnterTextInCell(
-        	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.kendoGridGetTextInCell"(
-    	String rowNo	
-     , 	int column	) {
-    (new CompassUIElements()).kendoGridGetTextInCell(
-        	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.kendoDialogBoxHandler"(
-    	String isDisplayed	
-     , 	String verifyText	
-     , 	String ppgname	
-     , 	String ppgtype	
-     , 	String buttonToClick	) {
-    (new CompassUIElements()).kendoDialogBoxHandler(
-        	isDisplayed
-         , 	verifyText
-         , 	ppgname
-         , 	ppgtype
-         , 	buttonToClick)
-}
-
-def static "CompassUIElements.SelectValueInTableCell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	
-     , 	String data	) {
-    (new CompassUIElements()).SelectValueInTableCell(
-        	tb
-         , 	rowNo
-         , 	column
-         , 	data)
-}
-
-def static "CompassUIElements.GetValueInTablecell"(
-    	TestObject tb	
-     , 	String rowNo	
-     , 	String column	) {
-    (new CompassUIElements()).GetValueInTablecell(
-        	tb
-         , 	rowNo
-         , 	column)
-}
-
-def static "CompassUIElements.selectKendoButtonList"(
-    	String data	) {
-    (new CompassUIElements()).selectKendoButtonList(
-        	data)
-}
-
-def static "CompassUIElements.kendoGetText"(
-    	TestObject to	
-     , 	String value	) {
-    (new CompassUIElements()).kendoGetText(
-        	to
-         , 	value)
-}
 
 def static "AccountPlanner.selectPlanYear"(
     	String plan_year	) {
@@ -458,68 +244,218 @@ def static "AccountPlanner.verifySelectedVersion"(
         	version)
 }
 
-def static "HamburgMenu.clickHamburgMenu"(
-    	String menuItem	) {
-    (new HamburgMenu()).clickHamburgMenu(
-        	menuItem)
+def static "CompassUIElements.selectListBox"(
+    	TestObject to	
+     , 	String data	) {
+    (new CompassUIElements()).selectListBox(
+        	to
+         , 	data)
 }
 
-def static "General.openAppURLRobo"(
-    	String url	) {
-    (new General()).openAppURLRobo(
-        	url)
+def static "CompassUIElements.waitCompassLoad"() {
+    (new CompassUIElements()).waitCompassLoad()
 }
 
-def static "General.openAppURL"(
-    	String url	) {
-    (new General()).openAppURL(
-        	url)
+def static "CompassUIElements.clickButton"(
+    	TestObject to	) {
+    (new CompassUIElements()).clickButton(
+        	to)
 }
 
-def static "General.robotEnterString"(
-    	String data	) {
-    (new General()).robotEnterString(
-        	data)
+def static "CompassUIElements.selectMultiList"() {
+    (new CompassUIElements()).selectMultiList()
 }
 
-def static "General.createObject"(
-    	Object xPath	) {
-    (new General()).createObject(
-        	xPath)
+def static "CompassUIElements.checkButtonEnable"(
+    	TestObject to	) {
+    (new CompassUIElements()).checkButtonEnable(
+        	to)
 }
 
-def static "General.loadData"(
-    	TestData td	
-     , 	String dataId	) {
-    (new General()).loadData(
-        	td
-         , 	dataId)
+def static "CompassUIElements.productCostTableItemsDelete"() {
+    (new CompassUIElements()).productCostTableItemsDelete()
 }
 
-def static "General.GetValue"(
-    	String data1	) {
-    (new General()).GetValue(
-        	data1)
+def static "CompassUIElements.countAllDeleteButtons"(
+    	String to	) {
+    (new CompassUIElements()).countAllDeleteButtons(
+        	to)
 }
 
-def static "General.SetValue"(
-    	String variable	
+def static "CompassUIElements.kendoMultiSelectList"(
+    	TestObject to	
+     , 	String item	) {
+    (new CompassUIElements()).kendoMultiSelectList(
+        	to
+         , 	item)
+}
+
+def static "CompassUIElements.kendoDeleteMultiSelectItem"(
+    	String item	) {
+    (new CompassUIElements()).kendoDeleteMultiSelectItem(
+        	item)
+}
+
+def static "CompassUIElements.kendoChartWidgetClose"(
+    	String chartDisplayName	) {
+    (new CompassUIElements()).kendoChartWidgetClose(
+        	chartDisplayName)
+}
+
+def static "CompassUIElements.kendoVerifyChartVisible"(
+    	String chartName	) {
+    (new CompassUIElements()).kendoVerifyChartVisible(
+        	chartName)
+}
+
+def static "CompassUIElements.verifyElementData"(
+    	TestObject to	
      , 	String value	) {
-    (new General()).SetValue(
-        	variable
+    (new CompassUIElements()).verifyElementData(
+        	to
          , 	value)
 }
 
-def static "RobotX.RoboKeyPress"(
+def static "CompassUIElements.checkElementVisible"(
+    	TestObject to	
+     , 	int timeOut	) {
+    (new CompassUIElements()).checkElementVisible(
+        	to
+         , 	timeOut)
+}
+
+def static "CompassUIElements.countAllCheckboxes"(
+    	String to	) {
+    (new CompassUIElements()).countAllCheckboxes(
+        	to)
+}
+
+def static "CompassUIElements.checkAllCheckboxes"(
+    	int size	) {
+    (new CompassUIElements()).checkAllCheckboxes(
+        	size)
+}
+
+def static "CompassUIElements.clickCreateViewbtn"(
     	String data	) {
-    (new RobotX()).RoboKeyPress(
+    (new CompassUIElements()).clickCreateViewbtn(
         	data)
 }
 
-def static "RobotX.RoboKeyPressSpecial"(
+def static "CompassUIElements.setText"(
+    	TestObject to	
+     , 	String text	) {
+    (new CompassUIElements()).setText(
+        	to
+         , 	text)
+}
+
+def static "CompassUIElements.kendoGridSelectCheckBox"(
+    	TestObject tblObj	
+     , 	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridSelectCheckBox(
+        	tblObj
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.BuildTableColumns"(
+    	TestObject tb	) {
+    (new CompassUIElements()).BuildTableColumns(
+        	tb)
+}
+
+def static "CompassUIElements.EnterValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).EnterValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.EnterDateInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String date	) {
+    (new CompassUIElements()).EnterDateInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	date)
+}
+
+def static "CompassUIElements.kendoGridEnterTextInCell"(
+    	String rowNo	
+     , 	int column	
+     , 	String data	) {
+    (new CompassUIElements()).kendoGridEnterTextInCell(
+        	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.kendoGridGetTextInCell"(
+    	String rowNo	
+     , 	int column	) {
+    (new CompassUIElements()).kendoGridGetTextInCell(
+        	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.kendoDialogBoxHandler"(
+    	String isDisplayed	
+     , 	String verifyText	
+     , 	String ppgname	
+     , 	String ppgtype	
+     , 	String buttonToClick	) {
+    (new CompassUIElements()).kendoDialogBoxHandler(
+        	isDisplayed
+         , 	verifyText
+         , 	ppgname
+         , 	ppgtype
+         , 	buttonToClick)
+}
+
+def static "CompassUIElements.SelectValueInTableCell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	
+     , 	String data	) {
+    (new CompassUIElements()).SelectValueInTableCell(
+        	tb
+         , 	rowNo
+         , 	column
+         , 	data)
+}
+
+def static "CompassUIElements.GetValueInTablecell"(
+    	TestObject tb	
+     , 	String rowNo	
+     , 	String column	) {
+    (new CompassUIElements()).GetValueInTablecell(
+        	tb
+         , 	rowNo
+         , 	column)
+}
+
+def static "CompassUIElements.selectKendoButtonList"(
     	String data	) {
-    (new RobotX()).RoboKeyPressSpecial(
+    (new CompassUIElements()).selectKendoButtonList(
         	data)
+}
+
+def static "CompassUIElements.kendoGetText"(
+    	TestObject to	
+     , 	String value	) {
+    (new CompassUIElements()).kendoGetText(
+        	to
+         , 	value)
 }
 
 def static "Dashboard.verifyDashboardElements"(
@@ -666,12 +602,6 @@ def static "Login.verifyLoginCompassObjects"() {
     (new Login()).verifyLoginCompassObjects()
 }
 
-def static "Wait.waitCompassLoad"(
-    	String data	) {
-    (new Wait()).waitCompassLoad(
-        	data)
-}
-
 def static "CustomerSettings.clickDeleteBtn"() {
     (new CustomerSettings()).clickDeleteBtn()
 }
@@ -756,4 +686,74 @@ def static "CustomerSettings.clickAddPPGButton"(
     	String item	) {
     (new CustomerSettings()).clickAddPPGButton(
         	item)
+}
+
+def static "HamburgMenu.clickHamburgMenu"(
+    	String menuItem	) {
+    (new HamburgMenu()).clickHamburgMenu(
+        	menuItem)
+}
+
+def static "General.openAppURLRobo"(
+    	String url	) {
+    (new General()).openAppURLRobo(
+        	url)
+}
+
+def static "General.openAppURL"(
+    	String url	) {
+    (new General()).openAppURL(
+        	url)
+}
+
+def static "General.robotEnterString"(
+    	String data	) {
+    (new General()).robotEnterString(
+        	data)
+}
+
+def static "General.createObject"(
+    	Object xPath	) {
+    (new General()).createObject(
+        	xPath)
+}
+
+def static "General.loadData"(
+    	TestData td	
+     , 	String dataId	) {
+    (new General()).loadData(
+        	td
+         , 	dataId)
+}
+
+def static "General.GetValue"(
+    	String data1	) {
+    (new General()).GetValue(
+        	data1)
+}
+
+def static "General.SetValue"(
+    	String variable	
+     , 	String value	) {
+    (new General()).SetValue(
+        	variable
+         , 	value)
+}
+
+def static "RobotX.RoboKeyPress"(
+    	String data	) {
+    (new RobotX()).RoboKeyPress(
+        	data)
+}
+
+def static "RobotX.RoboKeyPressSpecial"(
+    	String data	) {
+    (new RobotX()).RoboKeyPressSpecial(
+        	data)
+}
+
+def static "Wait.waitCompassLoad"(
+    	String data	) {
+    (new Wait()).waitCompassLoad(
+        	data)
 }
