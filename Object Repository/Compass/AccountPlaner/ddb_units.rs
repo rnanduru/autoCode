@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//app-root/div/div[@class='row']/div/accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+         <value>//div[@class='col-md-12 form-group']/kendo-combobox/following-sibling::kendo-dropdownlist/span/span//span[@class='k-i-arrow-s k-icon']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,6 +20,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//app-root/div/div[@class='row']/div/accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/kendo-dropdownlist/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
+      <value>//div[@class='col-md-12 form-group']/kendo-combobox/following-sibling::kendo-dropdownlist/span/span//span[@class='k-i-arrow-s k-icon']</value>
    </webElementProperties>
 </WebElementEntity>

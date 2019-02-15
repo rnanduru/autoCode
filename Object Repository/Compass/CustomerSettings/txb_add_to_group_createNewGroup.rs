@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>txb_add_to_group_createNewGroup</name>
+   <tag></tag>
+   <elementGuidId>b91ba65d-b222-4797-aaa6-b9dfc1f734c0</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+      </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//kendo-textbox-container/input</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//app-root/div[@class='container-fluid']/div[@class='row']//authorization-list/kendo-dialog//kendo-textbox-container/input</value>
+   </webElementProperties>
+</WebElementEntity>

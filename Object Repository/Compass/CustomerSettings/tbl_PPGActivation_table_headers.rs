@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>tbl_PPGActivation_table_headers</name>
+   <tag></tag>
+   <elementGuidId>19550547-b97c-44a6-b53b-48ba397eeb96</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//kendo-tabstrip/div[1]//kendo-grid//div[@role='presentation']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//kendo-tabstrip/div[1]//kendo-grid//div[@role='presentation']</value>
+   </webElementProperties>
+</WebElementEntity>

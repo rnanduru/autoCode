@@ -23,3 +23,5 @@ CustomKeywords.'AccountPlanner.clickProductCost'()
 
 CustomKeywords.'AccountPlanner.clickAddNewBtn'()
 
+CustomKeywords.'AccountPlanner.accountPlannerHeaderListData'(null, '')
+

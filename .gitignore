@@ -2,3 +2,6 @@
 .project
 Reports/*
 Drivers/*
+bin/*
+DataFiles/*
+

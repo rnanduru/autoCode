@@ -19,5 +19,5 @@ CustomKeywords.'AccountPlanner.whiteSpaceClick'()
 
 CustomKeywords.'AccountPlanner.clickProductCost'()
 
-not_run: CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
+CustomKeywords.'AccountPlanner.productCostingTable'(findTestData('AccountPlanner1'), '1')
 

@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//span[text()='Standard']</value>
+         <value>//div[@class='col-md-12 form-group']/div/kendo-dropdownlist[1]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,6 +17,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//span[text()='Standard']</value>
+      <value>//div[@class='col-md-12 form-group']/div/kendo-dropdownlist[1]/span[@role='listbox']//span[@class='k-i-arrow-s k-icon']</value>
    </webElementProperties>
 </WebElementEntity>

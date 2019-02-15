@@ -1,5 +1,4 @@
 .classpath
 .project
+bin/*
 Reports/*
-/keyword/
-/lib/

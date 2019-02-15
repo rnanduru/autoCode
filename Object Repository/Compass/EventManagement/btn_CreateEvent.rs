@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description>CreateEventButton</description>
+   <name>btn_CreateEvent</name>
+   <tag></tag>
+   <elementGuidId>129b2354-7eb4-4219-a6ca-136487af457c</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//event-management-component[@class='ng-star-inserted']/div[@class='event-management__container']/div[@class='row']//kendo-dropdownbutton/button[@role='menu']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//event-management-component[@class='ng-star-inserted']/div[@class='event-management__container']/div[@class='row']//kendo-dropdownbutton/button[@role='menu']</value>
+   </webElementProperties>
+</WebElementEntity>

@@ -1,11 +1,8 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.*
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-
 import org.openqa.selenium.By
+import org.openqa.selenium.Keys
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
-
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType
@@ -14,12 +11,18 @@ import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.common.WebUiCommonHelper
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-
 import common.*
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+
+import java.awt.List
+
 import internal.GlobalVariable
 public class CompassUIElements {
+
 	@Keyword
 	public static void selectListBox(TestObject to,String data){
+
 		if(data.equalsIgnoreCase(""))
 			return
 		waitCompassLoad()
@@ -42,6 +45,18 @@ public class CompassUIElements {
 	public static void clickButton(TestObject to){
 		waitCompassLoad()
 		WebUI.click(to)
+		waitCompassLoad()
+	}
+	@Keyword
+	public static String executeJavaScript(TestObject to,String javascript) {
+		waitCompassLoad()
+		WebDriver driver = DriverFactory.getWebDriver()
+		WebElement element;
+		JavascriptExecutor executor;
+		executor = ((driver) as JavascriptExecutor);
+		element = WebUiCommonHelper.findWebElement(to, 2);
+		String text = executor.executeScript('return arguments[0].innerText;', element);
+		return text.toString()
 	}
 	@Keyword
 	public static void selectMultiList(){
@@ -50,6 +65,7 @@ public class CompassUIElements {
 	public static boolean checkButtonEnable(TestObject to){
 		WebUI.verifyElementClickable(to)
 	}
+
 	@Keyword
 	public static void productCostTableItemsDelete(){
 		int count=countAllDeleteButtons("//product-costing/div/div[3]/div//div[@class='scrollable ng-star-inserted']//div[@class='delete-cell pointer'][1]")
@@ -60,8 +76,30 @@ public class CompassUIElements {
 		}
 	}
 	@Keyword
+	public static void WherehouseWithdrawlSetText(String WWVolume){
+		WebDriver driver = DriverFactory.getWebDriver()
+		List<WebElement> ele=driver.findElements(By.xpath("//div/div[@class='grid-cell']/kendo-numerictextbox//input"))
+		int rowcount1=ele.size()
+		println "size of wwvolume rows"+rowcount1
+		for(int i=1;i<=rowcount1;i++){
+			driver.findElement(By.xpath("//div["+i+"]/div[@class='grid-cell']/kendo-numerictextbox//input[@role='spinbutton']")).sendKeys(WWVolume)
+			WebUI.delay(2)
+		}
+	}
+	@Keyword
+	public static void checkPPGsInCustomersettings(){
+		WebDriver driver=DriverFactory.getWebDriver();
+		List<WebElement>ele=driver.findElements(By.xpath("//div/div/dropdown-filterable/div/div[2][@class='product-items']//label[@class='k-form-field']/label[@class='k-checkbox-label']"));
+		int ppgcount=ele.size();
+		for( WebElement el : ele ) {
+			if ( !el.isSelected() ) {
+				el.click();
+			}
+			else(el.isSelected()){ println "ppg group is selecte============" }
+		}
+	}
+	@Keyword
 	public static int countAllDeleteButtons(String to) {
-
 		WebDriver driver = DriverFactory.getWebDriver()
 		List<WebElement> ele=driver.findElements(By.xpath(to))
 		int rowcount=ele.size()
@@ -116,11 +154,11 @@ public class CompassUIElements {
 				obj= General.createObject("//*[contains(.,'"+data+"') and ancestor::*[name()='kendo-chart']]//ancestor::*[name()='kendo-chart']/preceding-sibling::span")
 			else if(data.equalsIgnoreCase("events"))
 				obj = General.createObject("//th[contains(.,'Event ID')]//ancestor::*[name()='kendo-grid']/preceding-sibling::span")
-			if(checkElementVisible(obj, 1)){
+			if(checkElementVisible(obj, 5)){
 				WebUI.click(obj)
 				waitCompassLoad()
 				itemObj = General.createObject("//div[@class='k-multiselect-wrap k-floatwrap']//li/span[contains(.,'"+data+"')]")
-				if(checkElementVisible(itemObj, 1)){
+				if(checkElementVisible(itemObj, 5)){
 					KeywordUtil.markFailed("Though the widget "+data+" is remove, it is still showing up in the add sections list")
 				}
 			}
@@ -136,7 +174,7 @@ public class CompassUIElements {
 			boolean isVisible = true
 			try{
 
-				isVisible = WebUI.waitForElementVisible(itemObj,1)
+				isVisible = WebUI.waitForElementVisible(itemObj,5)
 
 			}
 			catch(Exception e){
@@ -144,7 +182,7 @@ public class CompassUIElements {
 			}
 			if(!isVisible)
 			{
-				KeywordUtil.markFailed("The chart with name "+data+" is not visible")
+				KeywordUtil.markPassed("The chart with name "+data+" is not visible")
 			}
 		}
 	}
@@ -172,7 +210,6 @@ public class CompassUIElements {
 	@Keyword
 	public static int countAllCheckboxes(String to)
 	{
-
 		WebDriver driver = DriverFactory.getWebDriver()
 		List<WebElement> ele=driver.findElements(By.xpath(to))
 		int rowcount=ele.size()
@@ -188,6 +225,13 @@ public class CompassUIElements {
 			WebUI.click(to)
 		}
 	}
+	@Keyword
+	public static void clickBasePlanningQMW(String data){
+		waitCompassLoad()
+		TestObject t=General.createObject(findTestObject("//div[@id='k-tabstrip-tabpanel-1']/div/div/div/div/span[contains(text(),'"+data+"')]"),data)
+		WebUI.click(t)
+		println 'month button is'+t
+	}
 	//click on create view button in account planner page
 	@Keyword
 	public static void clickCreateViewbtn(String data)
@@ -195,26 +239,26 @@ public class CompassUIElements {
 		if(data.equalsIgnoreCase('create_view'))
 			WebUI.verifyElementText(findTestObject("//button[contains(text(),'"+data+"')]"), data)
 	}
-
 	//set text in input field box
 	@Keyword
 	public static void setText(TestObject to,String text){
 		WebUI.setText(to, text)
 	}
 	@Keyword
-	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
-		String tblXPath = tblObj.findPropertyValue("xpath")+"//table"
+	public static String kendoGridOperation(TestObject tblObj,String rowNo,String column,String operation,String data){
+		String tblXPath = (tblObj.findPropertyValue("xpath")+"//table").toString()
 		WebDriver driver = DriverFactory.getWebDriver()
 		waitCompassLoad()
+		println "xpath isssssss"+ tblXPath
 		if(rowNo.equalsIgnoreCase("all")){
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
-			boolean isChecked;
-			for(int i=1;i<rows.size();i++){
-				if(checkElementVisible(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"), 2)){
-					isChecked = WebUI.getAttribute(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"), "checked");// WebUI.verifyElementAttributeValue(, "value", "on", 5)
-					if(!isChecked)
-						WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]/input"))
-				}
+			println "row size is " + rows.size()
+			boolean isChecked ;
+			for(int i=1;i<=rows.size();i++){
+				String tblXPath1 = tblXPath+"//tr["+i+"]//td["+column+"]";
+
+				//table//tr[25]/td[1]
+				kendoGridCellOperation(tblXPath1,operation,data)
 			}
 			println "test"
 		}
@@ -222,8 +266,10 @@ public class CompassUIElements {
 			List<WebElement> rows = driver.findElements(By.xpath(tblXPath+"//tr"))
 
 			String[] rowFrom = rowNo.split(":")
-			for(int i=Integer.valueOf(rowFrom[0]);i<=Integer.valueOf(rowFrom[(rowFrom.length)-1]);i++){
-				WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
+			for(int i=Integer.valueOf(rowFrom[0]);i<=Integer.valueOf(rowFrom[(rowFrom.length)]);i++){
+				//WebUI.click(General.createObject(tblXPath+"//tr["+i+"]/td["+column+"]"))
+				String tblXPath1 = tblXPath+"//tr["+i+"]/td["+column+"]"
+				kendoGridCellOperation(tblXPath1,operation,data)
 			}
 		}
 		else if(rowNo.contains(GlobalVariable.multivalueseperator)){
@@ -231,11 +277,95 @@ public class CompassUIElements {
 
 			String[] rowFrom = rowNo.split(GlobalVariable.multivalueseperator)
 			for(int i=0;i<rowFrom.length;i++){
-				WebUI.click(General.createObject(tblXPath+"//tr["+rowFrom[i]+"]/td["+column+"]"))
+				//WebUI.click(General.createObject(tblXPath+"//tr["+rowFrom[i]+"]/td["+column+"]"))
+				tblXPath =tblXPath+"//tr["+i+"]/td["+column+"]"
+				kendoGridCellOperation(tblXPath,operation,data)
 			}
 		}
-		else
-			WebUI.click(General.createObject(tblXPath+"//tr["+Integer.valueOf(rowNo)+"]/td["+column+"]"))
+		else{
+			tblXPath = tblXPath+"//tr["+rowNo+"]//td["+column+"]";
+			kendoGridCellOperation(tblXPath,operation,data)
+		}
+		//WebUI.click(General.createObject(tblXPath+"//tr["+Integer.valueOf(rowNo)+"]/td["+column+"]"))
+	}
+
+	@Keyword
+	public static String kendoGridCellOperation(String tblXPath,String operation,String data){
+		boolean isChecked = false;
+		String tblObj1;
+		WebDriver driver = DriverFactory.getWebDriver()
+		JavascriptExecutor executor;
+		WebElement element;
+		executor = ((driver) as JavascriptExecutor);
+		if(operation.equalsIgnoreCase("check"))
+		{
+			tblObj1 = tblXPath+"//table//tr";
+			println "xpath tyy"+tblObj1;
+			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			//element=driver.findElement(By.xpath(tblObj1))
+			println "is displayed"+	element.isDisplayed()
+			println "is Enabled"+	element.isEnabled()
+
+			if(checkElementVisible(General.createObject(tblObj1), 2)){
+				isChecked = WebUI.getAttribute(General.createObject(tblObj1),"checked");
+				println "ischecked  " + isChecked
+				println "is selectedd"+element.isSelected()
+				if(!isChecked)
+					executor.executeScript("arguments[0].click();",element);
+				//element.click()
+			}
+		}
+		else if(operation.equalsIgnoreCase("set"))
+		{
+			tblObj1 = tblXPath;
+			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			if(checkElementVisible(General.createObject(tblObj1), 2)){
+				executor.executeScript("arguments[0].value='"+data+"';",element)
+			}
+		}
+		else if(operation.equalsIgnoreCase("get"))
+		{
+			tblObj1 = tblXPath+"//input";
+			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			String stext=executor.executeScript("return arguments[0].innerText;",element).toString()
+			print 'stext'
+
+		}
+		else if(operation.equalsIgnoreCase("list"))
+		{
+			if(data.contains("\$")){
+				data = data.replace("\$","\$");
+			}
+			tblObj1 = tblXPath  // "//table/tbody/tr[1]/td//Select/option[contains(text(),'"+data+"')]"
+			element = WebUiCommonHelper.findWebElement(General.createObject(tblObj1), 10)
+			//element.click();
+			if(checkElementVisible(General.createObject(tblObj1), 2)){
+				executor.executeScript("var select = arguments[0];for(var i = 0; i < select.options.length; i++){if(select.options[i].text == arguments[1]){select.options[i].selected = true; } };",element,data)
+			}
+		}
+	}
+	@Keyword
+	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,String column){
+		//TestObject tblObj,String rowNo,int column,String operation,String data
+		kendoGridOperation(tblObj,rowNo,column,"check","")
+	}
+	@Keyword
+	public static void kendoGridSelectCheckBox(TestObject tblObj,String rowNo,int column){
+		//TestObject tblObj,String rowNo,int column,String operation,String data
+		kendoGridOperation(tblObj,rowNo,column.toString(),"check",1)
+	}
+	@Keyword
+	public static void kendoGridEnterTextBox(TestObject tblObj,String rowNo,String column,String data){
+		//TestObject tblObj,String rowNo,int column,String operation,String data
+		kendoGridOperation(tblObj,rowNo,column,"set",data)
+	}
+	@Keyword
+	public static void KendoGridSortTableData(TestObject tblObj,String column,String rowNo,String data){
+		kendoGridOperation(tblObj,rowNo,column,"","get","")
+	}
+	@Keyword
+	public static void kendoGridSelectListBox(TestObject tblObj,String rowNo,String column,String data){
+		kendoGridOperation(tblObj,rowNo,column,"list",data)
 	}
 	@Keyword
 	public static BuildTableColumns(TestObject tb){
@@ -253,8 +383,8 @@ public class CompassUIElements {
 
 		WebElement element;
 		JavascriptExecutor executor;
-
 		for(WebElement we:wes){
+
 			twe = tb.addProperty("xpath",ConditionType.EQUALS,baseXPath+"["+String.valueOf((Integer.valueOf(index)+1))+"]")
 			element = WebUiCommonHelper.findWebElement(twe, 10)
 			executor = ((driver) as JavascriptExecutor)
@@ -281,6 +411,9 @@ public class CompassUIElements {
 
 		def colNo = Integer.valueOf(columns.get(column.toString()))+1
 
+		if(column.toString().contains("Ret Margin"))
+			println("pleae pause");
+
 		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
 			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
 			tb.addProperty("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
@@ -289,10 +422,20 @@ public class CompassUIElements {
 		}
 
 		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//input")
-
+		
 		WebUI.click(tbd)
+		WebUI.sendKeys(tbd, Keys.chord(data,Keys.TAB))
+		//WebUI.sendKeys(tbd, Keys.TAB)
+		
+		/*WebDriver driver = DriverFactory.getWebDriver()
 
-		WebUI.setText(tbd, data)
+		WebElement element;
+		JavascriptExecutor executor;
+		element = WebUiCommonHelper.findWebElement(tbd, 10)
+		executor = ((driver) as JavascriptExecutor)
+		executor.executeScript("arguments[0].setAttribute('ng-reflect-model',arguments[1]);",element,data)
+		//executor.executeScript("arguments[0].value=arguments[1];",element,data)*/
+		//executor.executeScript("arguments[0].value= \t;", element)
 	}
 	@Keyword
 	public static void EnterDateInTableCell(TestObject tb,String rowNo,String column,String date){
@@ -318,16 +461,27 @@ public class CompassUIElements {
 		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//span[@class='k-icon k-i-calendar']")
 
 		WebUI.click(tbd)
+		selectDatePicker(date)
 
+	}
+	@Keyword
+	public static void selectDatePicker(String date)
+	{
 		String[] dates = date.split("/")
 
 		def monthEx = dates[0]
 
-		String monthString = """//kendo-calendar//span[(text() = '
-                    ${monthEx}
-                ' or . = '
-                    ${monthEx}
-                ')]"""
+		/*String monthString = """//kendo-calendar//span[(text() = '
+		 ${monthEx}
+		 ' or . = '
+		 ${monthEx}
+		 ')]"""*/
+
+		if(monthEx.equalsIgnoreCase('Jan')){
+			monthEx='2019'
+		}
+
+		String monthString = """(//kendo-calendar//li//span[contains(.,'${monthEx}')])[1]"""
 
 		WebUI.delay(1)
 
@@ -339,13 +493,17 @@ public class CompassUIElements {
 
 		println "Clicked Month"
 
-		def monthName = new General().FormatDate(date, "MMM/dd/yyyy", "EEEE, MMMM dd, yyyy")
+		def monthName = new General().FormatDate(date, "MMM/dd/yyyy", "EEEE, MMMM d, yyyy")
 
-		TestObject da = new General().createObject("//kendo-calendar//table/tbody/tr/td[contains(@title, '${monthName}')]/span")
+		TestObject da = new General().createObject("(//kendo-calendar//table/tbody/tr/td[contains(@title, '${monthName}')]/span)[1]")
 
 		WebUI.click(da)
-
 	}
+
+
+
+
+
 	@Keyword
 	public static void kendoGridEnterTextInCell(String rowNo,int column,String data){
 
@@ -355,7 +513,7 @@ public class CompassUIElements {
 
 	}
 	@Keyword
-	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String ppgname,String ppgtype,String buttonToClick) {
+	public static kendoDialogBoxHandler(String isDisplayed,String verifyText,String buttonToClick) {
 		waitCompassLoad()
 		TestObject tb = General.createObject("//kendo-dialog")
 
@@ -393,22 +551,6 @@ public class CompassUIElements {
 		if(!verifyText.equalsIgnoreCase("")){
 			if(!WebUI.getText(messObj).toLowerCase().contains(verifyText.toLowerCase()))
 				KeywordUtil.markFailed("Dialog box text is not matched")
-			else if(verifyText.equalsIgnoreCase("Version Name:"))
-			{
-				WebUI.delay(8)
-				println "delay"
-				TestObject to=General.createObject("/html/body/app-root/div/div[1]/div/accounts-planner/kendo-dialog[5]/div[2]/div/div[1]/b")
-				WebUI.click(to)
-				TestObject to1=General.createObject("//div/input[@name='version' and @id='ppg']/following-sibling::label[contains(.,'"+ppgtype+"')]")
-				WebUI.delay(5)
-				RobotX.RoboKeyPressSpecial("<tab>")
-				RobotX.RoboKeyPressSpecial("<tab>")
-				General.robotEnterString(ppgname)
-				/*//WebUI.click(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"))
-				 WebUI.setText(findTestObject("Object Repository/Compass/AccountPlaner/txt_version_save"),ppgname)
-				 */
-				WebUI.click(to1)
-			}
 		}
 		String buttonPath = tb1+"//kendo-dialog-titlebar/following-sibling::kendo-dialog-actions//button[contains(.,"+buttonToClick+")]"
 
@@ -456,18 +598,22 @@ public class CompassUIElements {
 	}
 	public static void checkItemInMultiSelectBox(TestObject to,String item)
 	{
+		waitCompassLoad()
 		String toObject = to.findPropertyValue("xpath");
 		String[] items = item.split(GlobalVariable.multivalueseperator);
 		TestObject itemInList;
 
 		for(String data:items){
 			WebUI.setText(to, data)
-			itemInList = General.createObject(toObject+"/ancestor::dropdown-filterable//label[text()='"+data+"']");
-			//if(checkElementVisible(itemInList, 5)){
-			WebUI.click(itemInList);
-			//}
-			//else
-			//	KeywordUtil.markFailed("Item "+data+" does not exists in the list of values to check");
+
+
+
+			itemInList = General.createObject(toObject+"//ancestor::dropdown-filterable//label[text()='"+data+"']");
+			if(checkElementVisible(itemInList, 5)){
+				WebUI.click(itemInList);
+			}
+			else
+				KeywordUtil.markFailed("Items "+data+" does not exists in the list of values to check");
 		}
 	}
 	//Kendo button list
@@ -480,14 +626,66 @@ public class CompassUIElements {
 	}
 	@Keyword
 	public static void kendoGetText(TestObject to, String value){
+		kendoVerifyText(to,value,"true")
+		/*		waitCompassLoad()
+		 String actual=WebUI.getText(to)
+		 if(actual.equalsIgnoreCase(value)){
+		 println 'text value is equal'+actual
+		 }else{
+		 println 'text is not equal'
+		 }*/
+
+	}
+	@Keyword
+	public static void kendoVerifyText(TestObject to, String value,String doMatch){
 		waitCompassLoad()
 		String actual=WebUI.getText(to)
-		if(actual.equalsIgnoreCase(value)){
-			println 'text value is equal'+actual
+		println "actaul value"+  actual
+		println "actaul value"+  value
+		if((!actual.replace(" ","").equalsIgnoreCase(value.replace(" ",""))) && (doMatch.equalsIgnoreCase("true"))){
+			KeywordUtil.markFailed("Values do not match expected is sot"+value.replace(" ","")+"eot actual is sot"+actual.replace(" ","")+"eot");
 		}else{
-			println 'text is not equal'
+			println 'text is equal'
 		}
 
 	}
+	@Keyword
+	public static boolean isElementPresent(TestObject to,int timeOut){
+		boolean status;
 
+		status = true;
+		println("In finding element =======================");
+		//com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI.verify
+		//return WebUI.verifyElementPresent(to, timeOut);
+
+		status = WebUI.verifyElementPresent(to, timeOut,FailureHandling.OPTIONAL)
+		return status;
+		println("After finding element =======================");
+
+		/*catch(Exception e){
+		 println("In catch finding element =======================");
+		 status = false;
+		 }
+		 catch(com.kms.katalon.core.webui.exception.WebElementNotFoundException e){
+		 println("In atch finding element =======================");
+		 status = false;
+		 }*/
+		//return status;
+	}
+	@Keyword
+	public static boolean isElementAttributeExists(TestObject to,String attribute,int timeOut){
+		try{
+			boolean isExists = WebUI.verifyElementHasAttribute(to, attribute, timeOut);
+			return true;
+		}
+		catch(Exception e){
+			return false
+		}
+	}
+	@Keyword
+	public static void kendoEnterText(TestObject to,String value){
+		value = General.evalString(value);
+		if(checkElementVisible(to))
+			WebUI.setText(to,value);
+	}
 }

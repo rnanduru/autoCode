@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to export to excel all data saved on the page, showing Mod Forecast and Product Costing EDLP tabs appear as two separate tabs in the Excel file</description>
+   <name>VerifyModProductAsTwoTabs</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>495baf40-77e1-457b-afb7-3c0453b07ced</testCaseGuid>
+</TestCaseEntity>

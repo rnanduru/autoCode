@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>On Product Costing tab, Error message should be promted when user navigates away from the Prodcut Costing tab without Apply EDLP or entering one of the mandatory fields</name>
-   <tag>Accountplanner</tag>
-   <comment></comment>
-   <testCaseGuid>7b33777d-b2ff-470a-8dba-9cfe70f7fa6c</testCaseGuid>
-</TestCaseEntity>

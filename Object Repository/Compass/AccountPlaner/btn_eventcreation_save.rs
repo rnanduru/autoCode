@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>btn_eventcreation_save</name>
+   <tag></tag>
+   <elementGuidId>e5d5755b-f63f-4dde-ad92-ec4b2cd7aad5</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//event-screen-quick[@class='ng-star-inserted']/div[@class='even-screen__container']/div[3]/div[2]/div[2]/button[1]</value>
+   </webElementProperties>
+</WebElementEntity>

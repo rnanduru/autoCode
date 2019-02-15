@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to perform lookups via the ‘Add PPG/SKU/MOD/Product Family’ button on the bottom of the page, and see all related items added to the ‘Active [ ]’ drop down at the top of the page</description>
+   <name>VerifyLookUpForAddPPGBtn</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b3358f29-fa6e-4504-8516-82fb806264ea</testCaseGuid>
+</TestCaseEntity>

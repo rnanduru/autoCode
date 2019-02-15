@@ -13,19 +13,24 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 import java.lang.String as String
-CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_dashboard)
 
-CustomKeywords.'Dashboard.verifyDashboardHeaderElement'()
+CustomKeywords.'HamburgMenu.clickHamburgMenu'(GlobalVariable.menu_dashboard)
 
 CustomKeywords.'Dashboard.selectHeaderItem'(findTestData('Dashboard'), '1')
 
 CustomKeywords.'Dashboard.btnClickDashboardHeader'()
 
-CustomKeywords.'Dashboard.toggleAddSelections'(true)
+CustomKeywords.'Dashboard.btnClickAddSections'()
 
 CustomKeywords.'Dashboard.selectAddSectionsItem'(findTestData('Dashboard'), '1')
 
+CustomKeywords.'Dashboard.btnClickAddSections'()
+
+CustomKeywords.'Dashboard.btnClickAddSections'()
+
 CustomKeywords.'Dashboard.deleteAddSectionsItem'(findTestData('Dashboard'), '1')
+
+CustomKeywords.'Dashboard.btnClickAddSections'()
 
 CustomKeywords.'Dashboard.closeSelectionChart'('Trade Rate by Month;GSV LE vs')
 

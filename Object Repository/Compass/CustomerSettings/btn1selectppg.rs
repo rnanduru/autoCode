@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>btn1selectppg</name>
+   <tag></tag>
+   <elementGuidId>00be7e3e-4804-45ec-b4a0-fe6c3e730872</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//div[@class='float-left']/dropdown-filterable[1]/div[@class='filter-container']//span[@class='k-select']//following-sibling::span</value>
+   </webElementProperties>
+</WebElementEntity>

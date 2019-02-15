@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>From Accounts Planner: able to create a PPG-based event with the PPG pre-populating on the creation page, when launching the event from the ‘Events - Create’ button</description>
+   <name>CreatePPGEventWithWithEventCreateButton</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>dec4c73c-070d-4f09-af89-8a369cdbd982</testCaseGuid>
+</TestCaseEntity>

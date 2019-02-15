@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to enter write-off amounts and select a date range it applies to via the Write-Off column popup window, and apply those changes to the grid and save them</description>
+   <name>AbleToWriteOffsAmountsAndSelectDateRange</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bb769fb7-eec8-42fe-bd2b-77ca70335c2e</testCaseGuid>
+</TestCaseEntity>

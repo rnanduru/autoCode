@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>tbl_upc_Activation</name>
+   <tag></tag>
+   <elementGuidId>06214fc3-02c2-4bf6-a2e7-2a4235fc94df</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//app-root//authorization-list//kendo-tabstrip/div[2]//kendo-grid//kendo-grid-list[@role='presentation']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//app-root//authorization-list//kendo-tabstrip/div[2]//kendo-grid//kendo-grid-list[@role='presentation']</value>
+   </webElementProperties>
+</WebElementEntity>

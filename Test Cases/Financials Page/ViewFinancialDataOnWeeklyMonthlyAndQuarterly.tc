@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Able to view the financials data on the page in weekly, monthly or quarterly form (via the left nav links); with amounts summed up to each relevant level</description>
+   <name>ViewFinancialDataOnWeeklyMonthlyAndQuarterly</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>2d5e4c5e-1dfb-4e1b-a5cd-cb5f6a1bcea9</testCaseGuid>
+</TestCaseEntity>

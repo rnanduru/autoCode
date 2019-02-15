@@ -6,12 +6,11 @@
    <elementGuidId>6d5d98a0-cb2e-4590-902b-5863d5478a39</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value>//accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/div/button[text()='Save']</value>
+         <key>XPATH</key>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value></value>
+         <key>BASIC</key>
+         <value>//div[@class='col-md-12']//following-sibling::button[text()='Save'][1]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,6 +20,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//accounts-planner[@class='ng-star-inserted']/div[2]/div[1]/div/button[text()='Save']</value>
+      <value>//div[@class='col-md-12']//following-sibling::button[text()='Save'][1]</value>
    </webElementProperties>
 </WebElementEntity>

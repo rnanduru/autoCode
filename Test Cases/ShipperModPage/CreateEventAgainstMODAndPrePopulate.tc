@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Ability to create a new event against the selected Mod (via the ‘Create Event’ button) and have the Mod pre-populate on the event creation page, with ability to save those changes and later view that and other events created against this Mod via the ‘View Events’ button</description>
+   <name>CreateEventAgainstMODAndPrePopulate</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>234fe0e0-64ed-407d-8b3f-60e482cca891</testCaseGuid>
+</TestCaseEntity>

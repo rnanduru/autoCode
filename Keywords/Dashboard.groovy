@@ -17,6 +17,7 @@ import com.kms.katalon.core.testdata.TestData
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.thoughtworks.selenium.webdriven.commands.WaitForPageToLoad
 
 import internal.GlobalVariable
 import common.*
@@ -26,7 +27,7 @@ public class Dashboard {
 	}
 	@Keyword
 	public static void selectPlanYear(String plan_year){
-		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/Dashboard/ddb_plan_year'), plan_year)
+		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/Dashboard/ddb1_plan_year'), plan_year)
 	}
 	@Keyword
 	public static void selectCustomerPlan(String plan){
@@ -35,6 +36,10 @@ public class Dashboard {
 	@Keyword
 	public static void selectCategory(String category){
 		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/Dashboard/ddb_category'), category)
+	}
+	@Keyword
+	public static void selectCustomer(String customer){
+		CompassUIElements.selectListBox(findTestObject('Object Repository/Compass/Dashboard/ddb_customer_area_name'), customer)
 	}
 	@Keyword
 	public static void btnClickAddSections(){
@@ -58,16 +63,16 @@ public class Dashboard {
 	}
 	@Keyword
 	public static void verifyCategory(String Category){
-		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/Dashboard/ddb_verify_category'), Category)
+		CompassUIElements.kendoGetText(findTestObject('Object Repository/Compass/Dashboard/ddb_verify_category'),Category)
 	}
 	@Keyword
 	public static void toggleAddSelections(boolean display){
 		if(display) {
-			if(!CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/Dashboard/ddb_add_sections"), 2))
+			if(!CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/Dashboard/ddb_add_sections"),display))
 				btnClickAddSections()
 		}
 		else{
-			if(CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/Dashboard/ddb_add_sections"), 2))
+			if(CompassUIElements.checkElementVisible(findTestObject("Object Repository/Compass/Dashboard/ddb_add_sections"),display))
 				btnClickAddSections()
 		}
 	}
@@ -84,15 +89,16 @@ public class Dashboard {
 			selectPlanYear(dataObj.get('PLAN_YEAR'))
 			selectCustomerPlan(dataObj.get('CUSTOMER_PLAN'))
 			selectCategory(dataObj.get('CATEGORY'))
+			//selectCustomer(dataObj.get('CUSTOMER'))
 		}
 	}
-
 	@Keyword
 	public static void selectAddSectionsItem(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
-			//CompassUIElements.kendoMultiSelectList(findTestObject('Compass/Dashboard/ddb_add_sections'), dataObj.get('ADD_SECTIONS'))
-			selectAddSectionsItem(dataObj.get('ADD_SECTIONS'))
+			CompassUIElements.kendoMultiSelectList(findTestObject('Compass/Dashboard/ddb_add_sections'), dataObj.get('ADD_SECTIONS'))
+			//selectAddSectionsItem(dataObj.get('ADD_SECTIONS'))
+
 		}
 	}
 	@Keyword
@@ -130,9 +136,12 @@ public class Dashboard {
 	public static void verifyChartsEventExist(TestData td,String rowNo){
 		Map<Integer,Map<String,String>> dataMap = General.loadData(td, rowNo)
 		for(Map dataObj :dataMap.values()){
+
 			CompassUIElements.kendoVerifyChartVisible(dataObj.get('CHART_LIST'))
 		}
 	}
+
+
 	@Keyword
 	public static void verifyDashboardHeaderElement(){
 		WebUI.verifyElementVisible(findTestObject('Object Repository/Compass/Dashboard/ddb_plan_year'), FailureHandling.STOP_ON_FAILURE)
@@ -144,5 +153,6 @@ public class Dashboard {
 	@Keyword
 	public static void closeSelectionChart(String chartName){
 		CompassUIElements.kendoChartWidgetClose(chartName)
+		WebUI.refresh()
 	}
 }
