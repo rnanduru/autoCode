@@ -1,4 +1,4 @@
-import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpointfsdf
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -146,7 +146,7 @@ public class AccountPlanner {
 	@Keyword
 	public static void verifyWeeksColorInColumn(String quarter,String month,String row,String column){
 		WebDriver driver=DriverFactory.getWebDriver()
-	String to=driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[2]/div[1]"))
+		String to=driver.findElement(By.xpath("//div[@id='k-tabstrip-tabpanel-1']/div/div[2]/div[1]"))
 		//WebElement tbl=driver.findElement(By.xpath(to +"//div["+quarter+"]/div["+month+"]/div["+row+"]"));
 		//List<WebElement> rows=tbl.findElements(By.xpath(tbl));
 		List<WebElement> rows=driver.findElements(By.xpath(to+"//div["+quarter+"]/div["+month+"]//div["+row+"]"))
@@ -350,10 +350,12 @@ public class AccountPlanner {
 					dataObj.get('Row_No'), 'Unit Cost Net Allow',dataObj.get('Unit_Cost_Net_Allow'))
 
 			CompassUIElements.EnterValueInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/tbl_product_costing'),
-					dataObj.get('Row_No'), 'Non Promo SRP',dataObj.get('Non_Promo_SRP'))
+					dataObj.get('Row_No'), 'SRP',dataObj.get('Non_Promo_SRP'))
 
 			CompassUIElements.EnterValueInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/tbl_product_costing'),
-					dataObj.get('Row_No'), 'Ret Margin (Base %)',dataObj.get('Retailer_Margin_(Base %)'))
+					dataObj.get('Row_No'), 'Ret Margin',dataObj.get('Retailer_Margin_(Base %)'))
+			CompassUIElements.EnterValueInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/tbl_product_costing'),
+					dataObj.get('Row_No'), 'NUC',dataObj.get('NUC'))
 			WebUI.delay(2)
 			CompassUIElements.SelectValueInTableCell(findTestObject('Object Repository/Compass/AccountPlaner/tbl_product_costing'),
 					dataObj.get('Row_No'), 'Spend Method',dataObj.get('Spend_Method'))

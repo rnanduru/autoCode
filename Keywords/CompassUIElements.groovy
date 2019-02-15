@@ -1,4 +1,5 @@
 import org.openqa.selenium.By
+import org.openqa.selenium.Keys
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
@@ -311,7 +312,7 @@ public class CompassUIElements {
 				println "is selectedd"+element.isSelected()
 				if(!isChecked)
 					executor.executeScript("arguments[0].click();",element);
-					//element.click()
+				//element.click()
 			}
 		}
 		else if(operation.equalsIgnoreCase("set"))
@@ -410,6 +411,9 @@ public class CompassUIElements {
 
 		def colNo = Integer.valueOf(columns.get(column.toString()))+1
 
+		if(column.toString().contains("Ret Margin"))
+			println("pleae pause");
+
 		if((rowNo.equalsIgnoreCase(""))||(rowNo.equalsIgnoreCase("<null>"))){
 			def rowCount = tb.findPropertyValue("xpath")+"/following-sibling::div/div/div"
 			tb.addProperty("xpath", ConditionType.EQUALS, rowCount) //"//kendo-tabstrip/div[1]/product-costing[@class='ng-star-inserted']/div[1]/div[@class='no-right header-panel']/div/div")
@@ -418,10 +422,20 @@ public class CompassUIElements {
 		}
 
 		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//input")
-
+		
 		WebUI.click(tbd)
+		WebUI.sendKeys(tbd, Keys.chord(data,Keys.TAB))
+		//WebUI.sendKeys(tbd, Keys.TAB)
+		
+		/*WebDriver driver = DriverFactory.getWebDriver()
 
-		WebUI.setText(tbd, data)
+		WebElement element;
+		JavascriptExecutor executor;
+		element = WebUiCommonHelper.findWebElement(tbd, 10)
+		executor = ((driver) as JavascriptExecutor)
+		executor.executeScript("arguments[0].setAttribute('ng-reflect-model',arguments[1]);",element,data)
+		//executor.executeScript("arguments[0].value=arguments[1];",element,data)*/
+		//executor.executeScript("arguments[0].value= \t;", element)
 	}
 	@Keyword
 	public static void EnterDateInTableCell(TestObject tb,String rowNo,String column,String date){
