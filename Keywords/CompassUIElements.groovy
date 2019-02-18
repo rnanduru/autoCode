@@ -422,19 +422,18 @@ public class CompassUIElements {
 		}
 
 		TestObject tbd = new General().createObject(tb.findPropertyValue('xpath')+"/following-sibling::div/div/div["+rowNo+"]/div/div["+String.valueOf(colNo)+"]//input")
-		
+
 		WebUI.click(tbd)
 		WebUI.sendKeys(tbd, Keys.chord(data,Keys.TAB))
 		//WebUI.sendKeys(tbd, Keys.TAB)
-		
-		/*WebDriver driver = DriverFactory.getWebDriver()
 
-		WebElement element;
-		JavascriptExecutor executor;
-		element = WebUiCommonHelper.findWebElement(tbd, 10)
-		executor = ((driver) as JavascriptExecutor)
-		executor.executeScript("arguments[0].setAttribute('ng-reflect-model',arguments[1]);",element,data)
-		//executor.executeScript("arguments[0].value=arguments[1];",element,data)*/
+		/*WebDriver driver = DriverFactory.getWebDriver()
+		 WebElement element;
+		 JavascriptExecutor executor;
+		 element = WebUiCommonHelper.findWebElement(tbd, 10)
+		 executor = ((driver) as JavascriptExecutor)
+		 executor.executeScript("arguments[0].setAttribute('ng-reflect-model',arguments[1]);",element,data)
+		 //executor.executeScript("arguments[0].value=arguments[1];",element,data)*/
 		//executor.executeScript("arguments[0].value= \t;", element)
 	}
 	@Keyword

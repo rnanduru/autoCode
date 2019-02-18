@@ -1486,6 +1486,56 @@ def static "Financials.verifyEditPostAduitAmt"(
         	to)
 }
 
+def static "MerchCalendar.verifyMonthOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyMonthOrder(
+        	mon)
+}
+
+def static "MerchCalendar.verifyWeekOrder"(
+    	String mon	) {
+    (new MerchCalendar()).verifyWeekOrder(
+        	mon)
+}
+
+def static "MerchCalendar.getMonthNumber"(
+    	String month	) {
+    (new MerchCalendar()).getMonthNumber(
+        	month)
+}
+
+def static "MerchCalendar.clickProductBtn"(
+    	TestObject to	) {
+    (new MerchCalendar()).clickProductBtn(
+        	to)
+}
+
+def static "MerchCalendar.searchAndSelectPPGs"(
+    	TestObject to	
+     , 	String ppg	) {
+    (new MerchCalendar()).searchAndSelectPPGs(
+        	to
+         , 	ppg)
+}
+
+def static "MerchCalendar.verifyPPGsAndYears"(
+    	TestObject eoc	
+     , 	String year	
+     , 	String ppg	) {
+    (new MerchCalendar()).verifyPPGsAndYears(
+        	eoc
+         , 	year
+         , 	ppg)
+}
+
+def static "MerchCalendar.clickCurrentWeekTab"(
+    	int month	
+     , 	int week	) {
+    (new MerchCalendar()).clickCurrentWeekTab(
+        	month
+         , 	week)
+}
+
 def static "RobotX.RoboKeyPress"(
     	String data	) {
     (new RobotX()).RoboKeyPress(
@@ -1562,56 +1612,6 @@ def static "General.getRandomnum"(
 
 def static "General.getCurrentWeekEndDate"() {
     (new General()).getCurrentWeekEndDate()
-}
-
-def static "MerchCalendar.verifyMonthOrder"(
-    	String mon	) {
-    (new MerchCalendar()).verifyMonthOrder(
-        	mon)
-}
-
-def static "MerchCalendar.verifyWeekOrder"(
-    	String mon	) {
-    (new MerchCalendar()).verifyWeekOrder(
-        	mon)
-}
-
-def static "MerchCalendar.getMonthNumber"(
-    	String month	) {
-    (new MerchCalendar()).getMonthNumber(
-        	month)
-}
-
-def static "MerchCalendar.clickProductBtn"(
-    	TestObject to	) {
-    (new MerchCalendar()).clickProductBtn(
-        	to)
-}
-
-def static "MerchCalendar.searchAndSelectPPGs"(
-    	TestObject to	
-     , 	String ppg	) {
-    (new MerchCalendar()).searchAndSelectPPGs(
-        	to
-         , 	ppg)
-}
-
-def static "MerchCalendar.verifyPPGsAndYears"(
-    	TestObject eoc	
-     , 	String year	
-     , 	String ppg	) {
-    (new MerchCalendar()).verifyPPGsAndYears(
-        	eoc
-         , 	year
-         , 	ppg)
-}
-
-def static "MerchCalendar.clickCurrentWeekTab"(
-    	int month	
-     , 	int week	) {
-    (new MerchCalendar()).clickCurrentWeekTab(
-        	month
-         , 	week)
 }
 
 def static "Wait.waitCompassLoad"(

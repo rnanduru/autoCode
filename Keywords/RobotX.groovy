@@ -37,6 +37,13 @@ public class RobotX {
 			robot.keyPress(KeyEvent.VK_TAB)
 		else if(data.equalsIgnoreCase("<clear>"))
 			robot.keyPress(KeyEvent.VK_CLEAR)
+		else if(data.equalsIgnoreCase("<cntrl+l>"))
+			{
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				robot.keyRelease(KeyEvent.VK_L);
+			}
 		else
 			type(data)
 	}

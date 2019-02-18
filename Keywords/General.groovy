@@ -22,6 +22,7 @@ public class General {
 		WebUI.openBrowser('')
 		WebUI.maximizeWindow()
 		robotEnterString("<f6>")
+		robotEnterString("<f6>")
 		robotEnterString(url)
 		robotEnterString("<enter>")
 		WebUI.delay(20)
@@ -29,7 +30,7 @@ public class General {
 	@Keyword
 	public static void openAppURL(String url){
 		WebUI.openBrowser('')
-		WebUI.openBrowser(url, FailureHandling.STOP_ON_FAILURE)
+		WebUI.openBrowser(url,FailureHandling.STOP_ON_FAILURE)
 	}
 	@Keyword
 	public static void robotEnterString(String data){
@@ -208,7 +209,7 @@ public class General {
 			saturday = saturday.plusDays(1)
 		}
 		def date=df.format(saturday)
-		 return date
+		return date
 	}
 
 
